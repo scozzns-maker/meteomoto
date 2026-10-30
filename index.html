@@ -297,8 +297,8 @@ h1 span{color:var(--accent)}
 /* Località fisse; le previsioni orarie arrivano da forecast.js (window.MM_FORECAST) */
 const PLACES=[{"k":"gabicce+mare","n":"Gabicce Mare","g":"Panoramica del San Bartolo","r":"M","alt":11,"la":43.9636,"lo":12.7601,"coast":true},{"k":"carpegna+park","n":"Monte Carpegna","g":"Carpegna e Cippo","r":"M","alt":1020,"la":43.7853,"lo":12.3007,"coast":false},{"k":"borgo+pace","n":"Borgo Pace","g":"Bocca Trabaria","r":"M","alt":469,"la":43.6581,"lo":12.2934,"coast":false},{"k":"genga","n":"Genga","g":"Gola della Rossa e Frasassi","r":"M","alt":322,"la":43.4291,"lo":12.9352,"coast":false},{"k":"ancona","n":"Ancona","g":"Riviera del Conero","r":"M","alt":16,"la":43.6158,"lo":13.5189,"coast":true},{"k":"sassotetto","n":"Sassotetto","g":"Strada di Sassotetto","r":"M","alt":1457,"la":43.0039,"lo":13.2451,"coast":false},{"k":"arquata+del+tronto","n":"Arquata del Tronto","g":"Sibillini e Forca di Presta","r":"M","alt":777,"la":42.7723,"lo":13.2949,"coast":false},{"k":"castelluccio","n":"Castelluccio","g":"Piana di Castelluccio","r":"U","alt":1452,"la":42.8286,"lo":13.209,"coast":false},{"k":"scheggino","n":"Scheggino","g":"Valnerina","r":"U","alt":281,"la":42.7121,"lo":12.8295,"coast":false},{"k":"spoleto","n":"Spoleto","g":"Monteluco e Forca di Cerro","r":"U","alt":396,"la":42.7405,"lo":12.7378,"coast":false},{"k":"marmore","n":"Marmore","g":"Cascata delle Marmore e Piediluco","r":"U","alt":377,"la":42.5486,"lo":12.7125,"coast":false},{"k":"gualdo+tadino","n":"Gualdo Tadino","g":"Valsorda e Scheggia","r":"U","alt":536,"la":43.2341,"lo":12.7822,"coast":false},{"k":"magione","n":"Magione","g":"Giro del Trasimeno","r":"U","alt":299,"la":43.1198,"lo":12.1861,"coast":false},{"k":"assergi","n":"Assergi","g":"Campo Imperatore","r":"A","alt":886,"la":42.4135,"lo":13.5054,"coast":false},{"k":"isola+del+gran+sasso+ditalia","n":"Isola del Gran Sasso","g":"Gran Sasso teramano","r":"A","alt":415,"la":42.5013,"lo":13.6612,"coast":false},{"k":"pretoro","n":"Pretoro","g":"Majella e Passo Lanciano","r":"A","alt":560,"la":42.2193,"lo":14.1401,"coast":false},{"k":"lama+dei+peligni","n":"Lama dei Peligni","g":"Majella orientale","r":"A","alt":669,"la":42.0435,"lo":14.1883,"coast":false},{"k":"palena","n":"Palena","g":"Valico della Forchetta","r":"A","alt":767,"la":41.98,"lo":14.13,"coast":false},{"k":"fossacesia","n":"Fossacesia","g":"Costa dei Trabocchi","r":"A","alt":140,"la":42.2441,"lo":14.4802,"coast":true},{"k":"passo+della+futa","n":"Passo della Futa","g":"Futa e Giogo","r":"T","alt":903,"la":44.0949,"lo":11.2754,"coast":false},{"k":"dicomano","n":"Dicomano","g":"Verso il Muraglione","r":"T","alt":162,"la":43.891,"lo":11.5233,"coast":false},{"k":"abetone","n":"Abetone","g":"Passo dell'Abetone","r":"T","alt":1388,"la":44.14,"lo":10.66,"coast":false},{"k":"castiglione+di+garfagnana","n":"Castiglione di Garfagnana","g":"Passo delle Radici","r":"T","alt":545,"la":44.1527,"lo":10.4113,"coast":false},{"k":"radda+in+chianti","n":"Radda in Chianti","g":"Chiantigiana","r":"T","alt":530,"la":43.5018,"lo":11.3545,"coast":false},{"k":"saline+di+volterra","n":"Saline di Volterra","g":"Colline di Volterra","r":"T","alt":75,"la":43.361,"lo":10.8134,"coast":false},{"k":"piancastagnaio","n":"Piancastagnaio","g":"Monte Amiata","r":"T","alt":772,"la":42.85,"lo":11.6867,"coast":false}];
 const F=window.MM_FORECAST&&typeof window.MM_FORECAST==='object'?window.MM_FORECAST:null;
-/* L'aggiornamento automatico parte ogni giorno alle 6:42 e pubblica verso le 7 */
-const RUN_H=6,RUN_M=42,READY_H=7;
+/* L'aggiornamento automatico parte ogni 6 ore (0:42, 6:42, 12:42, 18:42) e pubblica circa 20 minuti dopo */
+const RUN_HOURS=[0,6,12,18],RUN_M=42,READY_MIN=20;
 function parseH(x){
   if(Array.isArray(x))return x.length>=7?x:null;
   const f=String(x).split('|');if(f.length<7)return null;
@@ -647,15 +647,16 @@ function renderFresh(){
 /* Conto alla rovescia al prossimo aggiornamento automatico */
 function renderNext(){
   const now=Date.now(),last=Date.parse(META.readAt)||0;
-  const run=romeEpoch(romeYmd(now),RUN_H)+RUN_M*6e4;
+  const k=romeYmd(now),k2=romeYmd(now+864e5);
+  const runs=RUN_HOURS.map(h=>romeEpoch(k,h)+RUN_M*6e4).concat([romeEpoch(k2,RUN_HOURS[0])+RUN_M*6e4]);
+  const cur=runs.filter(t=>t<=now).pop();
   let top,big;
-  if(now>=run&&now<run+75*6e4&&last<run){top='Aggiornamento';big='in corso'}
+  if(cur&&now<cur+45*6e4&&last<cur){top='Aggiornamento';big='in corso'}
   else{
-    const start=run>now?run:romeEpoch(romeYmd(now+864e5),RUN_H)+RUN_M*6e4;
-    const ready=start+(READY_H*60-(RUN_H*60+RUN_M))*6e4;
+    const ready=runs.find(t=>t>now)+READY_MIN*6e4;
     const m=Math.max(1,Math.round((ready-now)/6e4)),h=Math.floor(m/60),mi=m%60;
     big=h?h+' h '+pad(mi)+' min':mi+' min';
-    top=now-last>30*36e5?'In ritardo · fra':'Aggiornamento fra';
+    top=now-last>13*36e5?'In ritardo · fra':'Aggiornamento fra';
   }
   $('next').innerHTML='<small>'+top+'</small><b>'+big+'</b>';
 }
@@ -671,10 +672,10 @@ function render(){
   if(S.view==='list')renderList();else renderMap();
   const st=$('stale');
   if(stale){st.hidden=false;st.textContent='Queste previsioni riguardano giorni ormai passati: l\'aggiornamento automatico dovrebbe arrivare a breve.'}
-  else if((Date.now()-Date.parse(META.readAt))/36e5>30){st.hidden=false;st.textContent='Previsioni lette più di un giorno fa: l\'aggiornamento automatico è in ritardo, ricontrolla prima di partire.'}
+  else if((Date.now()-Date.parse(META.readAt))/36e5>13){st.hidden=false;st.textContent='Previsioni lette più di 12 ore fa: l\'aggiornamento automatico è in ritardo, ricontrolla prima di partire.'}
   else st.hidden=true;
   const miss=DATA.filter(p=>!p.d[S.day]).map(p=>p.n);
-  $('foot').innerHTML='Previsioni orarie: 3B Meteo, rilette in automatico ogni mattina (parte alle 6:42, pronte verso le 7). Allerte: Servizio Meteorologico via Meteoalarm, riportate da AccuWeather e lette con l\'aggiornamento del mattino'+(MCP?' (in diretta se il connettore AccuWeather è attivo)':'')+'; non sostituiscono gli avvisi della Protezione Civile. '+
+  $('foot').innerHTML='Previsioni orarie: 3B Meteo, rilette in automatico ogni 6 ore (alle 0:42, 6:42, 12:42 e 18:42, pronte una ventina di minuti dopo). Allerte: Servizio Meteorologico via Meteoalarm, riportate da AccuWeather e lette a ogni aggiornamento automatico'+(MCP?' (in diretta se il connettore AccuWeather è attivo)':'')+'; non sostituiscono gli avvisi della Protezione Civile. '+
     (miss.length?'Senza dati per questo giorno (pagina 3B non aggiornata): '+esc(list(miss))+'. ':'')+'Mappa schematica, coste approssimate. Ricontrolla sempre il meteo prima di partire.';
 }
 
