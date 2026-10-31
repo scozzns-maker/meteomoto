@@ -1,9 +1,10 @@
 // MeteoMoto - previsioni orarie 3B Meteo (ore 9-18) e allerte AccuWeather.
 // Riscritto ogni mattina dall'aggiornamento automatico. Ogni ora: "tempo|temperatura|mm|probabilità%|direzione vento|vento km/h|raffica km/h".
 window.MM_FORECAST = {
- "readAt": "2026-10-30T16:10:00+01:00",
- "fcShort": "ven 30/10, 14:02",
- "alertsReadLabel": "30/10 alle 16:00",
+ "readAt": "2026-10-31T13:05:02+01:00",
+ "fcAt": "2026-10-31T12:54:00+01:00",
+ "fcShort": "sab 31/10, 12:54",
+ "alertsReadLabel": "31/10 alle 12:45",
  "days": [
   {
    "k": "2026-10-31",
@@ -31,16 +32,16 @@ window.MM_FORECAST = {
     "poco nuvoloso|15|0|0|NE|4|23"
    ],
    "2026-11-01": [
-    "nubi sparse|13|0|25|NNE|17|26",
-    "nuvoloso|14|0|25|NNE|21|33",
-    "nuvoloso|14|0|25|NNE|21|30",
-    "nuvoloso|14|0|25|NNE|21|31",
-    "nuvoloso|14|0|35|NNE|24|34",
-    "pioggia|13|0.9|50|NNE|23|30",
-    "pioggia|12|0.8|55|NE|21|31",
-    "nuvoloso|13|0|45|NE|16|31",
-    "nuvoloso|13|0|45|NE|13|29",
-    "nuvoloso|13|0|45|NE|10|20"
+    "nubi sparse|14|0|25|NNE|16|26",
+    "nubi sparse|14|0|25|NNE|19|27",
+    "nuvoloso|14|0|25|NNE|23|32",
+    "nuvoloso|14|0|25|NNE|22|30",
+    "nuvoloso|14|0|40|NNE|21|30",
+    "molto nuvoloso|14|0|45|NNE|20|30",
+    "pioggia|12|1.5|75|NE|15|29",
+    "temporale|12|1.8|75|NE|13|29",
+    "temporale|11|1.8|75|NE|9|20",
+    "nuvoloso|13|0|45|NE|7|27"
    ]
   },
   "carpegna+park": {
@@ -127,38 +128,38 @@ window.MM_FORECAST = {
     "pioggia|14|1|50|O|5|11",
     "pioggia|15|0.5|50|O|2|5",
     "nuvoloso|15|0|40|NO|3|7",
-    "nuvoloso|15|0|15|N|1|2",
-    "nuvoloso|14|0|20|-|0|0",
-    "nuvoloso|14|0|20|-|0|0",
-    "nuvoloso|14|0|25|NE|0|0",
-    "nuvoloso|14|0|40|N|3|4",
-    "nuvoloso|14|0|45|NNO|3|4"
+    "nuvoloso|16|0|5|-|0|0",
+    "nubi sparse|16|0|5|-|0|0",
+    "nubi sparse|16|0|5|NNE|1|1",
+    "nubi sparse|15|0|10|NNE|1|1",
+    "nubi sparse|15|0|15|N|1|1",
+    "nubi sparse|15|0|30|NNO|3|4"
    ],
    "2026-11-01": [
-    "temporale|11|0.9|75|NE|9|25",
-    "pioggia|11|1|85|ENE|8|24",
-    "pioggia|12|1|80|NE|8|21",
-    "pioggia|12|1.5|75|NNE|7|14",
-    "pioggia|11|1.5|75|NNE|9|21",
-    "pioggia|12|1.5|75|NNE|8|19",
-    "nuvoloso|13|0|45|NO|13|18",
-    "nuvoloso|13|0|45|NNE|14|21",
-    "nuvoloso|13|0|45|NE|12|20",
-    "pioggia|11|0.9|65|NE|11|20"
+    "pioggia|12|0.9|80|ENE|11|23",
+    "pioggia|11|2.1|95|ENE|12|23",
+    "rovesci|12|3|90|SE|8|20",
+    "rovesci|11|3|90|ENE|8|20",
+    "pioggia|11|1.5|95|NO|8|17",
+    "pioggia debole|12|0.7|90|NO|11|17",
+    "nuvoloso|12|0|45|NNO|7|15",
+    "pioggia debole|11|0.7|85|NNO|10|18",
+    "pioggia|11|1.4|75|NNE|5|16",
+    "rovesci|11|3|80|NE|12|18"
    ]
   },
   "sassotetto": {
    "2026-10-31": [
-    "nuvoloso|4|0|15|E|12|19",
-    "nuvoloso|4|0|5|ENE|12|18",
-    "pioviggine|5|0.3|50|ENE|13|16",
-    "nuvoloso|5|0|20|ENE|13|16",
-    "nuvoloso|5|0|50|ENE|12|14",
-    "pioggia|5|0.5|70|ENE|8|14",
-    "pioggia|4|0.7|70|ENE|6|10",
-    "nuvoloso|4|0|45|NE|6|10",
-    "pioggia debole|4|0.3|80|NE|6|11",
-    "nuvoloso|4|0|45|NE|4|9"
+    "nuvoloso|5|0|15|E|11|19",
+    "nuvoloso|5|0|5|ENE|12|18",
+    "pioviggine|5|0.3|60|ENE|13|15",
+    "nuvoloso|5|0|10|ENE|13|16",
+    "nuvoloso|5|0|45|ENE|13|14",
+    "pioggia|5|0.5|60|ENE|10|14",
+    "pioggia|4|0.7|60|ENE|6|12",
+    "nuvoloso|4|0|45|NE|5|9",
+    "pioggia debole|4|0.3|75|ENE|7|11",
+    "nuvoloso|4|0|45|NE|5|10"
    ],
    "2026-11-01": [
     "nuvoloso|1|0|45|NE|9|16",
@@ -187,16 +188,16 @@ window.MM_FORECAST = {
     "pioggia|8|0.6|60|NE|1|4"
    ],
    "2026-11-01": [
-    "nuvoloso|7|0|50|ENE|3|5",
-    "nuvoloso|7|0|45|NNE|3|8",
-    "nuvoloso|7|0|45|NE|4|11",
-    "nuvoloso|6|0|45|NE|4|13",
-    "nuvoloso|7|0|45|NE|4|10",
-    "pioggia|5|0.6|75|NNE|2|6",
-    "pioggia|4|0.5|85|NE|1|5",
-    "pioggia|4|0.7|75|NE|1|4",
-    "pioggia|4|0.6|80|N|2|5",
-    "pioggia|4|1|85|N|2|5"
+    "nuvoloso|7|0|45|NE|2|6",
+    "pioggia|6|0.7|65|ENE|2|8",
+    "pioggia|6|1.5|65|NE|5|12",
+    "nuvoloso|6|0|45|ENE|5|10",
+    "pioviggine|6|0.3|50|NE|5|9",
+    "nuvoloso|5|0|45|NE|4|9",
+    "nuvoloso|5|0|45|NE|3|8",
+    "nuvoloso|5|0|45|ENE|2|6",
+    "nuvoloso|4|0|45|N|1|5",
+    "pioggia|4|0.5|70|NNO|2|3"
    ]
   },
   "castelluccio": {
@@ -256,25 +257,25 @@ window.MM_FORECAST = {
     "poco nuvoloso|11|0|0|-|0|0",
     "poco nuvoloso|14|0|0|-|0|0",
     "nubi sparse|16|0|0|-|0|0",
-    "nubi sparse|17|0|0|NNE|3|4",
-    "nubi sparse|18|0|0|NE|7|10",
+    "nubi sparse|17|0|0|NE|7|13",
+    "nubi sparse|18|0|0|NE|8|8",
     "nubi sparse|18|0|0|NE|11|13",
-    "nubi sparse|17|0|0|NE|10|13",
-    "nubi sparse|15|0|0|ENE|8|17",
-    "nubi sparse|13|0|0|ENE|1|7",
-    "nubi sparse|11|0|0|ENE|3|3"
+    "nubi sparse|17|0|0|NE|10|20",
+    "nubi sparse|15|0|0|ENE|9|17",
+    "nubi sparse|13|0|0|ENE|2|13",
+    "nubi sparse|11|0|0|ENE|2|2"
    ],
    "2026-11-01": [
-    "poco nuvoloso|10|0|0|NE|3|9",
+    "poco nuvoloso|9|0|0|NE|2|7",
     "poco nuvoloso|11|0|0|NNE|9|15",
-    "nubi sparse|12|0|10|NNE|11|22",
-    "nubi sparse|12|0|15|NNE|12|23",
-    "nubi sparse|12|0|10|NNE|15|23",
-    "nubi sparse|12|0|10|NNE|13|23",
-    "nubi sparse|11|0|15|NNE|14|24",
-    "nubi sparse|10|0|15|NNE|14|26",
-    "nubi sparse|8|0|15|NE|7|23",
-    "nubi sparse|7|0|15|ENE|5|13"
+    "nubi sparse|12|0|0|NE|12|21",
+    "nubi sparse|12|0|0|NE|14|21",
+    "nubi sparse|13|0|0|NE|14|22",
+    "poco nuvoloso|13|0|0|NE|10|22",
+    "poco nuvoloso|12|0|0|NNE|12|23",
+    "velature|10|0|0|NE|7|23",
+    "velature|8|0|0|NE|4|15",
+    "velature|7|0|5|ENE|3|8"
    ]
   },
   "marmore": {
@@ -317,16 +318,16 @@ window.MM_FORECAST = {
     "nubi sparse|10|0|15|NE|9|29"
    ],
    "2026-11-01": [
-    "nuvoloso|8|0|45|NE|17|32",
-    "nuvoloso|9|0|45|NNE|21|30",
-    "nuvoloso|9|0|45|NNE|19|33",
-    "nuvoloso|10|0|45|NE|17|30",
-    "nuvoloso|9|0|45|NE|14|32",
-    "nuvoloso|10|0|45|NE|14|31",
-    "pioggia|6|0.7|75|NE|12|31",
-    "pioggia debole|6|0.3|80|NE|13|29",
-    "pioggia|5|0.6|80|NE|12|26",
-    "nuvoloso|5|0|45|NE|7|28"
+    "nubi sparse|8|0|40|NE|17|30",
+    "nuvoloso|9|0|45|NE|19|33",
+    "pioggia debole|10|0.7|60|NNE|18|31",
+    "pioggia|9|1.5|60|NNE|18|31",
+    "nuvoloso|10|0|45|NNE|17|30",
+    "pioggia|7|1|70|NE|14|31",
+    "pioggia|6|0.6|75|NE|13|30",
+    "nubi sparse|7|0|45|ENE|10|29",
+    "nuvoloso|6|0|45|NE|11|27",
+    "nuvoloso|6|0|45|NE|11|27"
    ]
   },
   "magione": {
@@ -499,16 +500,16 @@ window.MM_FORECAST = {
     "nubi sparse|13|0|15|ONO|10|18"
    ],
    "2026-11-01": [
-    "pioggia|10|1.3|80|ONO|5|11",
-    "pioviggine|11|0.3|85|NO|8|15",
-    "pioggia debole|11|0.4|75|NO|10|18",
-    "nuvoloso|12|0|45|NO|10|20",
-    "nuvoloso|12|0|45|NO|10|20",
-    "nubi sparse|12|0|30|NO|16|26",
-    "nuvoloso|12|0|40|ONO|13|23",
-    "nuvoloso|11|0|40|ONO|11|21",
-    "possibili piogge|10|0.5|50|ONO|11|16",
-    "pioggia|9|1.2|60|ONO|6|15"
+    "pioggia debole|11|0.4|75|ONO|7|16",
+    "nuvoloso|11|0|45|NNO|5|14",
+    "nuvoloso|12|0|45|NO|7|12",
+    "nuvoloso|12|0|45|NO|11|19",
+    "nuvoloso|13|0|50|NNO|10|17",
+    "nuvoloso|12|0|50|NNO|11|22",
+    "nuvoloso|12|0|45|NO|10|19",
+    "nubi sparse|11|0|45|NO|10|17",
+    "velature estese|10|0|50|ONO|8|15",
+    "nubi sparse|9|0|45|ONO|9|15"
    ]
   },
   "passo+della+futa": {
@@ -565,28 +566,28 @@ window.MM_FORECAST = {
   },
   "abetone": {
    "2026-10-31": [
-    "nuvoloso|5|0|0|NNO|11|23",
-    "nubi sparse|6|0|0|N|12|26",
-    "nubi sparse|6|0|0|N|13|28",
-    "nubi sparse|7|0|0|NNE|13|29",
-    "poco nuvoloso|7|0|0|NNE|13|29",
-    "poco nuvoloso|7|0|0|NNE|14|27",
-    "nubi sparse|6|0|0|N|12|27",
+    "nuvoloso|6|0|0|N|9|19",
+    "nubi sparse|6|0|0|N|11|24",
+    "nubi sparse|6|0|0|N|12|28",
+    "nubi sparse|7|0|0|N|12|30",
+    "poco nuvoloso|7|0|0|N|13|29",
+    "poco nuvoloso|7|0|0|N|12|27",
+    "nubi sparse|6|0|0|N|11|26",
     "nubi sparse|5|0|0|N|11|22",
-    "nubi sparse|4|0|0|NO|10|17",
-    "nubi sparse|4|0|0|NO|10|16"
+    "nubi sparse|4|0|0|NO|9|14",
+    "nubi sparse|4|0|0|NO|8|13"
    ],
    "2026-11-01": [
-    "neve debole|0|0.3|60|NE|9|21",
-    "neve debole|1|0.3|50|NE|16|26",
-    "neve debole|0|0.2|50|NE|18|33",
-    "neve|-1|0.5|50|NE|22|32",
-    "nuvoloso|2|0|50|NE|25|34",
-    "neve|-1|0.5|60|NE|26|37",
-    "neve debole|1|0.4|60|NE|24|37",
-    "neve|0|0.7|50|NE|23|38",
-    "nuvoloso|0|0|45|NE|24|40",
-    "nuvoloso|0|0|45|NE|27|39"
+    "nuvoloso|1|0|45|NE|9|26",
+    "nuvoloso|1|0|45|NE|6|26",
+    "nuvoloso|2|0|45|NE|20|37",
+    "nuvoloso|2|0|40|NE|22|36",
+    "nuvoloso|2|0|45|NE|24|39",
+    "neve|1|5|55|NNE|28|39",
+    "nuvoloso|1|0|45|NE|28|41",
+    "nuvoloso|-1|0|45|NNE|27|41",
+    "nuvoloso|-1|0|45|NE|27|39",
+    "nuvoloso|0|0|40|NNE|28|41"
    ]
   },
   "castiglione+di+garfagnana": {
@@ -629,16 +630,16 @@ window.MM_FORECAST = {
     "poco nuvoloso|10|0|0|NNE|5|15"
    ],
    "2026-11-01": [
-    "poco nuvoloso|9|0|25|NE|9|21",
-    "nubi sparse|10|0|25|NNE|11|24",
-    "nubi sparse|11|0|30|NNE|13|25",
-    "nubi sparse|11|0|20|NNE|15|25",
-    "nubi sparse|11|0|15|NNE|15|26",
-    "nubi sparse|11|0|30|NNE|15|26",
-    "nubi sparse|10|0|45|NNE|13|25",
-    "pioggia e schiarite|7|0.7|60|NNE|11|24",
-    "pioggia e schiarite|5|1.8|60|NNE|10|22",
-    "nubi sparse|6|0|45|NNE|7|20"
+    "poco nuvoloso|9|0|0|NE|6|19",
+    "nubi sparse|9|0|15|NNE|10|23",
+    "nubi sparse|10|0|20|NE|14|27",
+    "nubi sparse|11|0|25|NE|16|28",
+    "nubi sparse|11|0|20|NNE|17|28",
+    "nubi sparse|11|0|15|NNE|18|29",
+    "nubi sparse|10|0|30|NNE|16|29",
+    "nubi sparse|9|0|45|NNE|14|25",
+    "rovesci e schiarite|6|0.5|65|NNE|9|26",
+    "nuvoloso|6|0|45|NNE|5|16"
    ]
   },
   "saline+di+volterra": {
@@ -697,19 +698,27 @@ window.MM_FORECAST = {
  "alerts": [
   {
    "r": "M",
-   "kind": "vento",
-   "level": "gialla",
-   "area": "coste",
-   "s": "2026-10-30T01:00:00+01:00",
-   "e": "2026-11-01T23:59:00+01:00"
-  },
-  {
-   "r": "M",
    "kind": "temporali",
    "level": "gialla",
    "area": "",
-   "s": "2026-11-01T01:00:00+01:00",
-   "e": "2026-11-01T23:59:00+01:00"
+   "s": "2026-11-01T13:00:00+01:00",
+   "e": "2026-11-02T00:59:00+01:00"
+  },
+  {
+   "r": "M",
+   "kind": "vento",
+   "level": "gialla",
+   "area": "coste",
+   "s": "2026-11-01T13:00:00+01:00",
+   "e": "2026-11-02T00:59:00+01:00"
+  },
+  {
+   "r": "M",
+   "kind": "vento",
+   "level": "gialla",
+   "area": "coste e appennino",
+   "s": "2026-11-02T01:00:00+01:00",
+   "e": "2026-11-02T23:59:00+01:00"
   },
   {
    "r": "U",
@@ -717,15 +726,15 @@ window.MM_FORECAST = {
    "level": "gialla",
    "area": "",
    "s": "2026-11-01T07:00:00+01:00",
-   "e": "2026-11-01T13:59:00+01:00"
+   "e": "2026-11-01T12:59:00+01:00"
   },
   {
-   "r": "A",
-   "kind": "temporali",
+   "r": "U",
+   "kind": "vento",
    "level": "gialla",
    "area": "",
-   "s": "2026-10-31T02:00:00+01:00",
-   "e": "2026-10-31T23:59:00+01:00"
+   "s": "2026-11-02T01:00:00+01:00",
+   "e": "2026-11-02T23:59:00+01:00"
   },
   {
    "r": "A",
@@ -733,15 +742,39 @@ window.MM_FORECAST = {
    "level": "gialla",
    "area": "",
    "s": "2026-11-01T01:00:00+01:00",
-   "e": "2026-11-01T23:59:00+01:00"
+   "e": "2026-11-02T00:59:00+01:00"
+  },
+  {
+   "r": "A",
+   "kind": "pioggia",
+   "level": "gialla",
+   "area": "",
+   "s": "2026-11-01T10:00:00+01:00",
+   "e": "2026-11-02T23:59:00+01:00"
+  },
+  {
+   "r": "A",
+   "kind": "vento",
+   "level": "gialla",
+   "area": "coste ed appennino",
+   "s": "2026-11-02T01:00:00+01:00",
+   "e": "2026-11-02T23:59:00+01:00"
+  },
+  {
+   "r": "A",
+   "kind": "temporali",
+   "level": "gialla",
+   "area": "",
+   "s": "2026-11-02T10:00:00+01:00",
+   "e": "2026-11-02T23:59:00+01:00"
   },
   {
    "r": "T",
    "kind": "vento",
    "level": "gialla",
-   "area": "coste e appennini",
+   "area": "coste e appennino",
    "s": "2026-11-01T13:00:00+01:00",
-   "e": "2026-11-01T23:59:00+01:00"
+   "e": "2026-11-02T23:59:00+01:00"
   }
  ]
 };
