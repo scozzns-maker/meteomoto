@@ -307,7 +307,7 @@ function parseH(x){
 const DATA=PLACES.map(p=>{const d={},src=(F&&F.places&&F.places[p.k])||{};
   Object.keys(src).forEach(k=>{const hs=src[k];if(Array.isArray(hs)&&hs.length===10){const rows=hs.map(parseH);if(rows.every(Boolean))d[k]={h:rows}}});
   return Object.assign({},p,{d})});
-const META={readAt:(F&&F.readAt)||'1970-01-01T00:00:00Z',fcShort:(F&&F.fcShort)||'non disponibili',alertsReadLabel:(F&&F.alertsReadLabel)||'non disponibili',note:''};
+const META={readAt:(F&&F.readAt)||'1970-01-01T00:00:00Z',fcAt:(F&&F.fcAt)||null,fcShort:(F&&F.fcShort)||'non disponibili',alertsReadLabel:(F&&F.alertsReadLabel)||'non disponibili',note:''};
 const DAYS=(F&&Array.isArray(F.days)&&F.days.length)?F.days:[];
 const BAKED=(F&&Array.isArray(F.alerts))?F.alerts:[];
 const REG={M:'Marche',U:'Umbria',A:'Abruzzo',T:'Toscana'}, ORDER=['M','U','A','T'];
@@ -656,7 +656,7 @@ function renderNext(){
     const ready=runs.find(t=>t>now)+READY_MIN*6e4;
     const m=Math.max(1,Math.round((ready-now)/6e4)),h=Math.floor(m/60),mi=m%60;
     big=h?h+' h '+pad(mi)+' min':mi+' min';
-    top=now-last>13*36e5?'In ritardo · fra':'Aggiornamento fra';
+    top=now-last>7*36e5?'In ritardo · fra':'Aggiornamento fra';
   }
   $('next').innerHTML='<small>'+top+'</small><b>'+big+'</b>';
 }
@@ -672,6 +672,7 @@ function render(){
   if(S.view==='list')renderList();else renderMap();
   const st=$('stale');
   if(stale){st.hidden=false;st.textContent='Queste previsioni riguardano giorni ormai passati: l\'aggiornamento automatico dovrebbe arrivare a breve.'}
+  else if(META.fcAt&&(Date.now()-Date.parse(META.fcAt))/36e5>30){st.hidden=false;st.textContent='Le previsioni 3B più recenti che l\'aggiornamento automatico riesce a leggere sono di '+META.fcShort+': ricontrolla il meteo prima di partire.'}
   else if((Date.now()-Date.parse(META.readAt))/36e5>13){st.hidden=false;st.textContent='Previsioni lette più di 12 ore fa: l\'aggiornamento automatico è in ritardo, ricontrolla prima di partire.'}
   else st.hidden=true;
   const miss=DATA.filter(p=>!p.d[S.day]).map(p=>p.n);
