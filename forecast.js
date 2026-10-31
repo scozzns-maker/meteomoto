@@ -1,10 +1,10 @@
 // MeteoMoto - previsioni orarie 3B Meteo (ore 9-18) e allerte AccuWeather.
 // Riscritto ogni mattina dall'aggiornamento automatico. Ogni ora: "tempo|temperatura|mm|probabilità%|direzione vento|vento km/h|raffica km/h".
 window.MM_FORECAST = {
- "readAt": "2026-10-31T13:22:26+01:00",
- "fcAt": "2026-10-31T12:54:00+01:00",
- "fcShort": "sab 31/10, 12:54",
- "alertsReadLabel": "31/10 alle 13:21",
+ "readAt": "2026-10-31T18:49:32+01:00",
+ "fcAt": "2026-10-31T18:35:00+01:00",
+ "fcShort": "sab 31/10, 18:35",
+ "alertsReadLabel": "31/10 alle 18:45",
  "days": [
   {
    "k": "2026-10-31",
@@ -110,16 +110,16 @@ window.MM_FORECAST = {
     "nuvoloso|10|0|10|N|11|19"
    ],
    "2026-11-01": [
-    "nuvoloso|10|0|50|NNE|16|25",
-    "nuvoloso|10|0|45|NNE|9|29",
-    "nuvoloso|10|0|45|NNE|11|30",
-    "nuvoloso|11|0|45|NE|9|26",
-    "pioggia|8|1.8|70|NNE|9|19",
-    "pioggia|7|1.5|80|NNE|9|20",
-    "pioggia|7|1.3|90|ENE|5|16",
-    "pioggia|7|1.4|90|NNE|6|16",
-    "pioggia|6|1.2|90|NNE|6|16",
-    "pioggia|6|0.4|90|NNO|4|13"
+    "nuvoloso|9|0|45|NNE|10|22",
+    "nuvoloso|10|0|45|NNE|8|24",
+    "nuvoloso|11|0|45|NNE|12|29",
+    "pioggia debole|11|0.7|70|NNE|6|23",
+    "pioggia debole|9|0.7|85|NNE|11|25",
+    "pioggia|8|0.9|95|NNE|9|21",
+    "rovesci|8|3|95|E|7|17",
+    "pioggia|7|2.1|95|NNE|4|11",
+    "pioggia|6|0.8|95|N|6|15",
+    "pioggia|6|0.8|95|NNO|3|10"
    ]
   },
   "ancona": {
@@ -214,16 +214,16 @@ window.MM_FORECAST = {
     "nuvoloso|4|0|20|ENE|6|16"
    ],
    "2026-11-01": [
-    "nuvoloso|2|0|45|NE|1|8",
-    "nuvoloso|2|0|45|ENE|7|13",
-    "nuvoloso|2|0|45|NE|10|15",
-    "nuvoloso|3|0|45|ENE|10|19",
-    "nuvoloso|2|0|45|ENE|10|21",
-    "nuvoloso|2|0|45|ENE|10|23",
-    "nuvoloso|2|0|45|ENE|12|22",
-    "neve|0|4|65|ENE|13|26",
-    "neve debole|0|3|70|ENE|9|25",
-    "neve debole|0|2|85|ENE|6|21"
+    "nuvoloso|1|0|45|NE|5|9",
+    "nuvoloso|2|0|45|NE|8|17",
+    "nuvoloso|2|0|45|NE|9|19",
+    "nuvoloso|2|0|45|NE|9|18",
+    "nuvoloso|2|0|40|NE|10|21",
+    "nuvoloso|2|0|30|ENE|11|23",
+    "nuvoloso|2|0|25|ENE|12|24",
+    "nuvoloso|1|0|15|ENE|12|25",
+    "nuvoloso|0|0|30|ENE|9|27",
+    "neve|-1|5|50|ENE|8|26"
    ]
   },
   "scheggino": {
@@ -422,16 +422,16 @@ window.MM_FORECAST = {
     "nuvoloso|10|0|15|SE|6|10"
    ],
    "2026-11-01": [
-    "nuvoloso|8|0|45|NNO|3|7",
-    "nuvoloso|8|0|45|NNE|4|9",
-    "nuvoloso|9|0|45|NNE|4|11",
-    "pioggia|7|1.1|70|NNE|5|13",
-    "nuvoloso|8|0|45|NNE|4|13",
-    "pioggia|7|1.1|65|NNE|4|13",
-    "pioggia|7|0.4|60|N|4|12",
-    "rovesci|7|0.8|55|N|2|7",
-    "nuvoloso|7|0|50|SSO|1|6",
-    "nuvoloso|7|0|45|S|3|10"
+    "nuvoloso|8|0|45|NNO|3|8",
+    "nubi sparse|9|0|45|N|4|11",
+    "pioggia|7|0.8|75|NNE|7|13",
+    "pioggia|8|0.7|70|NNE|7|14",
+    "pioggia|8|0.5|85|NNE|6|13",
+    "nuvoloso|8|0|45|N|6|13",
+    "nuvoloso|8|0|45|N|3|11",
+    "nuvoloso|8|0|45|NNO|5|11",
+    "nuvoloso|7|0|45|NNE|4|10",
+    "nuvoloso|6|0|45|SO|3|9"
    ]
   },
   "lama+dei+peligni": {
@@ -474,16 +474,16 @@ window.MM_FORECAST = {
     "nuvoloso|8|0|5|SO|2|5"
    ],
    "2026-11-01": [
-    "pioggia debole|6|0.3|65|ENE|3|8",
-    "pioggia|6|0.8|65|ENE|4|9",
-    "pioggia|6|0.8|75|ENE|4|9",
-    "pioggia|6|0.6|85|E|2|8",
-    "pioggia|6|0.5|85|ENE|3|8",
-    "pioggia|6|0.6|80|NE|6|9",
-    "pioggia|5|0.6|75|N|4|11",
-    "rovesci|5|0.9|65|NNO|4|9",
-    "nuvoloso|5|0|45|ONO|3|7",
-    "nuvoloso|4|0|45|O|3|7"
+    "pioggia debole|4|0.4|50|ENE|4|7",
+    "nuvoloso|6|0|45|E|5|8",
+    "nuvoloso|7|0|45|ENE|4|8",
+    "pioggia debole|5|0.4|75|ENE|5|9",
+    "pioggia|5|0.9|80|ENE|4|9",
+    "pioggia|5|1.8|90|NE|3|8",
+    "pioggia|5|1.6|85|N|3|6",
+    "pioggia|4|2.7|70|N|5|9",
+    "pioggia|4|1.9|65|O|3|8",
+    "pioggia|4|1.2|60|OSO|2|7"
    ]
   },
   "fossacesia": {
@@ -682,16 +682,16 @@ window.MM_FORECAST = {
     "poco nuvoloso|7|0|0|NE|18|26"
    ],
    "2026-11-01": [
-    "poco nuvoloso|7|0|10|NE|20|25",
-    "nubi sparse|8|0|5|NE|23|33",
-    "nubi sparse|9|0|5|NE|26|31",
-    "nubi sparse|9|0|10|NE|23|33",
-    "nubi sparse|9|0|10|NE|24|32",
-    "nubi sparse|9|0|40|NE|21|36",
-    "nubi sparse|8|0|40|NE|21|33",
-    "nuvoloso|7|0|45|NE|19|35",
-    "possibili piogge|5|0.2|50|NNE|18|33",
-    "nubi sparse|4|0|30|NNE|20|31"
+    "poco nuvoloso|7|0|0|NE|23|34",
+    "poco nuvoloso|8|0|0|NE|21|33",
+    "nubi sparse|9|0|0|NE|22|32",
+    "nubi sparse|9|0|15|NE|23|33",
+    "nuvoloso|9|0|20|NE|21|35",
+    "nubi sparse|9|0|20|NE|23|34",
+    "nubi sparse|8|0|15|NE|22|34",
+    "nubi sparse|7|0|30|NE|21|33",
+    "nubi sparse|5|0|35|NNE|19|31",
+    "nubi sparse|4|0|30|NNE|18|38"
    ]
   }
  },
