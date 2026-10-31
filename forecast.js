@@ -1,10 +1,10 @@
 // MeteoMoto - previsioni orarie 3B Meteo (ore 9-18) e allerte AccuWeather.
 // Riscritto ogni mattina dall'aggiornamento automatico. Ogni ora: "tempo|temperatura|mm|probabilità%|direzione vento|vento km/h|raffica km/h".
 window.MM_FORECAST = {
- "readAt": "2026-10-31T13:05:02+01:00",
+ "readAt": "2026-10-31T13:22:26+01:00",
  "fcAt": "2026-10-31T12:54:00+01:00",
  "fcShort": "sab 31/10, 12:54",
- "alertsReadLabel": "31/10 alle 12:45",
+ "alertsReadLabel": "31/10 alle 13:21",
  "days": [
   {
    "k": "2026-10-31",
@@ -310,12 +310,12 @@ window.MM_FORECAST = {
     "nuvoloso|11|0|35|NE|11|29",
     "nuvoloso|11|0|35|NE|12|28",
     "nuvoloso|12|0|30|NE|13|30",
-    "nubi sparse|13|0|10|NE|16|31",
-    "nubi sparse|13|0|15|NE|15|32",
-    "nubi sparse|13|0|15|NNE|16|33",
-    "nubi sparse|12|0|15|NE|14|33",
-    "nuvoloso|10|0|15|NE|11|31",
-    "nubi sparse|10|0|15|NE|9|29"
+    "coperto|12|0|5|NNO|15|21",
+    "nubi sparse|12|0|0|N|16|33",
+    "nubi sparse|11|0|5|NE|16|34",
+    "nubi sparse|11|0|5|NE|14|33",
+    "poco nuvoloso|10|0|5|NE|10|33",
+    "poco nuvoloso|10|0|0|NE|9|28"
    ],
    "2026-11-01": [
     "nubi sparse|8|0|40|NE|17|30",
@@ -488,16 +488,16 @@ window.MM_FORECAST = {
   },
   "fossacesia": {
    "2026-10-31": [
-    "nuvoloso|14|0|15|ONO|14|24",
-    "nuvoloso|15|0|20|NO|16|26",
-    "nuvoloso|16|0|15|NNO|17|28",
-    "nuvoloso|16|0|15|NNO|17|26",
+    "nuvoloso|14|0|25|ONO|12|18",
+    "nuvoloso|15|0|25|NO|14|21",
+    "nuvoloso|16|0|25|NNO|17|24",
+    "nuvoloso|16|0|20|NNO|18|25",
     "nubi sparse|16|0|15|NNO|17|23",
-    "nubi sparse|16|0|10|NNO|17|26",
-    "nuvoloso|16|0|5|NNO|17|25",
+    "nubi sparse|16|0|5|NNO|17|23",
+    "nuvoloso|16|0|0|NNO|16|25",
     "nubi sparse|15|0|0|NNO|14|23",
-    "nubi sparse|14|0|0|NO|11|21",
-    "nubi sparse|13|0|15|ONO|10|18"
+    "nubi sparse|14|0|0|NO|10|19",
+    "nubi sparse|13|0|10|ONO|9|16"
    ],
    "2026-11-01": [
     "pioggia debole|11|0.4|75|ONO|7|16",
@@ -592,16 +592,16 @@ window.MM_FORECAST = {
   },
   "castiglione+di+garfagnana": {
    "2026-10-31": [
-    "poco nuvoloso|12|0|0|NE|6|13",
-    "poco nuvoloso|14|0|0|NE|8|17",
-    "poco nuvoloso|15|0|0|NE|10|19",
-    "poco nuvoloso|16|0|0|NE|11|18",
-    "poco nuvoloso|16|0|0|NE|12|17",
-    "poco nuvoloso|16|0|0|NE|11|18",
-    "poco nuvoloso|15|0|0|NE|10|16",
-    "sereno|14|0|0|NE|6|14",
-    "sereno|12|0|0|NNE|4|8",
-    "sereno|10|0|0|NNO|6|10"
+    "poco nuvoloso|12|0|0|NE|6|14",
+    "poco nuvoloso|14|0|0|NE|8|18",
+    "poco nuvoloso|15|0|0|NE|10|20",
+    "poco nuvoloso|16|0|0|NE|11|17",
+    "poco nuvoloso|16|0|0|NE|11|16",
+    "poco nuvoloso|16|0|0|NE|11|17",
+    "poco nuvoloso|15|0|0|NE|10|17",
+    "sereno|14|0|0|NE|7|15",
+    "sereno|12|0|0|NE|4|10",
+    "sereno|10|0|0|N|7|10"
    ],
    "2026-11-01": [
     "nubi sparse|9|0|20|NE|6|16",
