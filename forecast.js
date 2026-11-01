@@ -1,16 +1,11 @@
 // MeteoMoto - previsioni orarie 3B Meteo (ore 9-18) e allerte AccuWeather.
 // Riscritto ogni mattina dall'aggiornamento automatico. Ogni ora: "tempo|temperatura|mm|probabilità%|direzione vento|vento km/h|raffica km/h".
 window.MM_FORECAST = {
- "readAt": "2026-10-31T18:49:32+01:00",
- "fcAt": "2026-10-31T18:35:00+01:00",
- "fcShort": "sab 31/10, 18:35",
- "alertsReadLabel": "31/10 alle 18:45",
+ "readAt": "2026-11-01T00:59:29+01:00",
+ "fcAt": "2026-11-01T00:51:00+01:00",
+ "fcShort": "dom 01/11, 00:51",
+ "alertsReadLabel": "1/11 alle 0:58",
  "days": [
-  {
-   "k": "2026-10-31",
-   "a": "Sabato",
-   "b": "31 ottobre"
-  },
   {
    "k": "2026-11-01",
    "a": "Domenica",
@@ -19,44 +14,20 @@ window.MM_FORECAST = {
  ],
  "places": {
   "gabicce+mare": {
-   "2026-10-31": [
-    "nubi sparse|15|0|0|N|7|27",
-    "nubi sparse|15|0|0|N|11|28",
-    "nubi sparse|15|0|5|N|12|27",
-    "poco nuvoloso|16|0|5|NNE|13|28",
-    "poco nuvoloso|16|0|5|NNE|14|29",
-    "poco nuvoloso|16|0|5|NNE|18|30",
-    "nubi sparse|16|0|0|NNE|18|28",
-    "poco nuvoloso|16|0|0|NE|14|28",
-    "poco nuvoloso|15|0|0|NE|7|25",
-    "poco nuvoloso|15|0|0|NE|4|23"
-   ],
    "2026-11-01": [
-    "nubi sparse|14|0|25|NNE|16|26",
-    "nubi sparse|14|0|25|NNE|19|27",
-    "nuvoloso|14|0|25|NNE|23|32",
-    "nuvoloso|14|0|25|NNE|22|30",
-    "nuvoloso|14|0|40|NNE|21|30",
-    "molto nuvoloso|14|0|45|NNE|20|30",
-    "pioggia|12|1.5|75|NE|15|29",
-    "temporale|12|1.8|75|NE|13|29",
-    "temporale|11|1.8|75|NE|9|20",
-    "nuvoloso|13|0|45|NE|7|27"
+    "nubi sparse|14|0|30|NNE|13|26",
+    "nubi sparse|14|0|20|NNE|17|29",
+    "nuvoloso|14|0|20|NNE|21|31",
+    "nuvoloso|14|0|25|NNE|23|31",
+    "nuvoloso|14|0|45|NNE|23|29",
+    "molto nuvoloso|14|0|45|NNE|23|37",
+    "pioggia|12|1.5|80|NE|15|31",
+    "temporale|12|1.8|80|NE|12|28",
+    "temporale|11|1.8|75|NE|9|22",
+    "nuvoloso|13|0|45|NE|9|23"
    ]
   },
   "carpegna+park": {
-   "2026-10-31": [
-    "nuvoloso|7|0|0|NNE|15|26",
-    "nuvoloso|7|0|5|NNE|17|30",
-    "nuvoloso|8|0|5|NE|17|30",
-    "nuvoloso|8|0|15|NNE|19|31",
-    "nuvoloso|8|0|20|NNE|19|30",
-    "nuvoloso|8|0|20|NNE|19|28",
-    "nuvoloso|7|0|20|NNE|19|28",
-    "nuvoloso|7|0|5|NE|18|29",
-    "nuvoloso|6|0|0|NE|18|27",
-    "nubi sparse|5|0|0|NE|16|27"
-   ],
    "2026-11-01": [
     "nuvoloso|4|0|45|NNE|15|32",
     "nuvoloso|5|0|45|NNE|16|37",
@@ -71,44 +42,20 @@ window.MM_FORECAST = {
    ]
   },
   "borgo+pace": {
-   "2026-10-31": [
-    "nuvoloso|11|0|5|NNE|15|21",
-    "nuvoloso|12|0|0|NNE|17|23",
-    "nuvoloso|12|0|5|NNE|19|28",
-    "nubi sparse|13|0|5|NNE|20|31",
-    "nubi sparse|13|0|5|NNE|20|32",
-    "nubi sparse|13|0|0|NNE|20|31",
-    "nubi sparse|12|0|0|NNE|20|29",
-    "nubi sparse|11|0|0|NNE|17|29",
-    "nubi sparse|10|0|0|NNE|15|24",
-    "nubi sparse|9|0|0|NNE|14|19"
-   ],
    "2026-11-01": [
-    "nuvoloso|9|0|45|NNE|16|27",
-    "nuvoloso|9|0|50|NNE|17|28",
-    "possibili piogge|10|0.5|65|NNE|19|30",
-    "nuvoloso|10|0|45|NNE|17|30",
-    "pioggia|7|1|80|NNE|16|30",
-    "pioggia|8|0.7|95|NE|15|33",
-    "pioggia|8|0.8|90|NE|15|27",
-    "pioggia|7|1.1|90|NE|14|24",
-    "pioggia|7|1.2|90|NE|9|24",
-    "pioggia|6|1.6|90|NE|9|20"
+    "nuvoloso|9|0|50|NNE|15|26",
+    "nuvoloso|10|0|45|NNE|16|29",
+    "nuvoloso|9|0|45|NNE|18|33",
+    "nuvoloso|10|0|45|NNE|17|34",
+    "pioggia|7|0.4|95|NNE|18|32",
+    "pioggia|8|0.7|95|NNE|17|33",
+    "pioggia|7|1.1|95|NNE|16|30",
+    "rovesci|6|3|95|NE|10|28",
+    "pioggia|5|1.8|95|NE|7|22",
+    "pioggia|5|1.4|95|NE|8|21"
    ]
   },
   "genga": {
-   "2026-10-31": [
-    "pioggia|11|0.5|65|NNO|6|15",
-    "pioggia debole|11|0.4|60|N|6|13",
-    "nuvoloso|13|0|45|N|7|16",
-    "nuvoloso|14|0|25|N|14|26",
-    "nuvoloso|14|0|20|N|16|27",
-    "nuvoloso|14|0|35|N|15|24",
-    "pioviggine|14|0.3|50|N|15|23",
-    "nuvoloso|12|0|35|N|12|21",
-    "nuvoloso|11|0|25|N|10|19",
-    "nuvoloso|10|0|10|N|11|19"
-   ],
    "2026-11-01": [
     "nuvoloso|9|0|45|NNE|10|22",
     "nuvoloso|10|0|45|NNE|8|24",
@@ -123,18 +70,6 @@ window.MM_FORECAST = {
    ]
   },
   "ancona": {
-   "2026-10-31": [
-    "nuvoloso|14|0|45|O|5|11",
-    "pioggia|14|1|50|O|5|11",
-    "pioggia|15|0.5|50|O|2|5",
-    "nuvoloso|15|0|40|NO|3|7",
-    "nuvoloso|16|0|5|-|0|0",
-    "nubi sparse|16|0|5|-|0|0",
-    "nubi sparse|16|0|5|NNE|1|1",
-    "nubi sparse|15|0|10|NNE|1|1",
-    "nubi sparse|15|0|15|N|1|1",
-    "nubi sparse|15|0|30|NNO|3|4"
-   ],
    "2026-11-01": [
     "pioggia|12|0.9|80|ENE|11|23",
     "pioggia|11|2.1|95|ENE|12|23",
@@ -149,18 +84,6 @@ window.MM_FORECAST = {
    ]
   },
   "sassotetto": {
-   "2026-10-31": [
-    "nuvoloso|5|0|15|E|11|19",
-    "nuvoloso|5|0|5|ENE|12|18",
-    "pioviggine|5|0.3|60|ENE|13|15",
-    "nuvoloso|5|0|10|ENE|13|16",
-    "nuvoloso|5|0|45|ENE|13|14",
-    "pioggia|5|0.5|60|ENE|10|14",
-    "pioggia|4|0.7|60|ENE|6|12",
-    "nuvoloso|4|0|45|NE|5|9",
-    "pioggia debole|4|0.3|75|ENE|7|11",
-    "nuvoloso|4|0|45|NE|5|10"
-   ],
    "2026-11-01": [
     "nuvoloso|1|0|45|NE|9|16",
     "nuvoloso|0|0|45|NE|9|18",
@@ -175,44 +98,20 @@ window.MM_FORECAST = {
    ]
   },
   "arquata+del+tronto": {
-   "2026-10-31": [
-    "nuvoloso|9|0|30|ENE|1|5",
-    "nuvoloso|9|0|35|NE|3|5",
-    "pioviggine|10|0.3|50|ENE|4|7",
-    "nuvoloso|11|0|45|ENE|5|7",
-    "nuvoloso|11|0|45|ENE|6|8",
-    "nuvoloso|11|0|45|ENE|6|10",
-    "pioggia debole|10|0.2|55|ENE|6|10",
-    "pioggia debole|9|0.2|50|NE|5|10",
-    "pioggia|8|0.5|60|ENE|3|8",
-    "pioggia|8|0.6|60|NE|1|4"
-   ],
    "2026-11-01": [
-    "nuvoloso|7|0|45|NE|2|6",
-    "pioggia|6|0.7|65|ENE|2|8",
-    "pioggia|6|1.5|65|NE|5|12",
-    "nuvoloso|6|0|45|ENE|5|10",
-    "pioviggine|6|0.3|50|NE|5|9",
-    "nuvoloso|5|0|45|NE|4|9",
-    "nuvoloso|5|0|45|NE|3|8",
+    "nuvoloso|7|0|45|NE|5|5",
+    "pioggia|6|0.7|60|NNE|4|11",
+    "pioggia|6|1.5|60|NE|6|12",
+    "nuvoloso|6|0|45|NE|4|12",
+    "pioviggine|6|0.3|55|NE|4|12",
+    "nuvoloso|5|0|45|NE|3|9",
+    "nuvoloso|5|0|45|NE|2|6",
     "nuvoloso|5|0|45|ENE|2|6",
-    "nuvoloso|4|0|45|N|1|5",
-    "pioggia|4|0.5|70|NNO|2|3"
+    "nuvoloso|4|0|45|N|3|4",
+    "pioggia|4|0.5|65|NNO|1|5"
    ]
   },
   "castelluccio": {
-   "2026-10-31": [
-    "nuvoloso|3|0|0|ENE|12|35",
-    "nuvoloso|3|0|0|ENE|13|33",
-    "nuvoloso|4|0|0|ENE|14|34",
-    "nuvoloso|6|0|0|E|13|30",
-    "nuvoloso|7|0|5|E|12|21",
-    "nuvoloso|7|0|10|ENE|11|17",
-    "nuvoloso|7|0|15|ENE|11|14",
-    "nuvoloso|6|0|15|ENE|9|14",
-    "nuvoloso|5|0|20|ENE|8|17",
-    "nuvoloso|4|0|20|ENE|6|16"
-   ],
    "2026-11-01": [
     "nuvoloso|1|0|45|NE|5|9",
     "nuvoloso|2|0|45|NE|8|17",
@@ -227,18 +126,6 @@ window.MM_FORECAST = {
    ]
   },
   "scheggino": {
-   "2026-10-31": [
-    "poco nuvoloso|13|0|0|NO|5|6",
-    "nubi sparse|16|0|0|NO|6|7",
-    "nubi sparse|17|0|0|N|7|10",
-    "nubi sparse|18|0|0|NE|16|20",
-    "nubi sparse|18|0|0|NE|15|17",
-    "nubi sparse|18|0|0|NNE|18|23",
-    "nubi sparse|17|0|0|N|18|19",
-    "nubi sparse|15|0|0|NNE|13|18",
-    "poco nuvoloso|13|0|0|N|9|13",
-    "poco nuvoloso|11|0|0|NO|9|9"
-   ],
    "2026-11-01": [
     "poco nuvoloso|10|0|0|NNO|20|26",
     "poco nuvoloso|12|0|10|N|26|34",
@@ -253,18 +140,6 @@ window.MM_FORECAST = {
    ]
   },
   "spoleto": {
-   "2026-10-31": [
-    "poco nuvoloso|11|0|0|-|0|0",
-    "poco nuvoloso|14|0|0|-|0|0",
-    "nubi sparse|16|0|0|-|0|0",
-    "nubi sparse|17|0|0|NE|7|13",
-    "nubi sparse|18|0|0|NE|8|8",
-    "nubi sparse|18|0|0|NE|11|13",
-    "nubi sparse|17|0|0|NE|10|20",
-    "nubi sparse|15|0|0|ENE|9|17",
-    "nubi sparse|13|0|0|ENE|2|13",
-    "nubi sparse|11|0|0|ENE|2|2"
-   ],
    "2026-11-01": [
     "poco nuvoloso|9|0|0|NE|2|7",
     "poco nuvoloso|11|0|0|NNE|9|15",
@@ -279,18 +154,6 @@ window.MM_FORECAST = {
    ]
   },
   "marmore": {
-   "2026-10-31": [
-    "poco nuvoloso|12|0|0|N|4|6",
-    "poco nuvoloso|14|0|0|O|5|8",
-    "poco nuvoloso|16|0|0|O|6|10",
-    "poco nuvoloso|17|0|0|O|7|11",
-    "nubi sparse|18|0|0|ONO|7|11",
-    "nubi sparse|18|0|0|N|9|13",
-    "nubi sparse|18|0|0|N|10|20",
-    "nubi sparse|16|0|0|N|11|20",
-    "poco nuvoloso|14|0|0|NNE|10|15",
-    "poco nuvoloso|12|0|0|NE|7|14"
-   ],
    "2026-11-01": [
     "poco nuvoloso|11|0|0|NNE|11|18",
     "poco nuvoloso|12|0|0|NNE|14|26",
@@ -305,18 +168,6 @@ window.MM_FORECAST = {
    ]
   },
   "gualdo+tadino": {
-   "2026-10-31": [
-    "nuvoloso|10|0|15|NE|9|27",
-    "nuvoloso|11|0|35|NE|11|29",
-    "nuvoloso|11|0|35|NE|12|28",
-    "nuvoloso|12|0|30|NE|13|30",
-    "coperto|12|0|5|NNO|15|21",
-    "nubi sparse|12|0|0|N|16|33",
-    "nubi sparse|11|0|5|NE|16|34",
-    "nubi sparse|11|0|5|NE|14|33",
-    "poco nuvoloso|10|0|5|NE|10|33",
-    "poco nuvoloso|10|0|0|NE|9|28"
-   ],
    "2026-11-01": [
     "nubi sparse|8|0|40|NE|17|30",
     "nuvoloso|9|0|45|NE|19|33",
@@ -331,174 +182,90 @@ window.MM_FORECAST = {
    ]
   },
   "magione": {
-   "2026-10-31": [
-    "nubi sparse|13|0|0|NNE|26|26",
-    "nubi sparse|15|0|0|NE|27|27",
-    "nubi sparse|16|0|0|NE|26|27",
-    "nubi sparse|16|0|0|NE|24|26",
-    "nubi sparse|16|0|0|NE|23|24",
-    "poco nuvoloso|16|0|0|NE|23|23",
-    "poco nuvoloso|15|0|0|NE|24|31",
-    "poco nuvoloso|14|0|0|NE|25|25",
-    "poco nuvoloso|13|0|0|NE|28|36",
-    "poco nuvoloso|12|0|0|NE|31|41"
-   ],
    "2026-11-01": [
-    "poco nuvoloso|11|0|0|NNE|14|17",
-    "nubi sparse|12|0|20|NNE|17|23",
-    "nubi sparse|12|0|30|NNE|22|28",
-    "nubi sparse|13|0|40|NNE|23|23",
-    "nubi sparse|12|0|30|NNE|22|23",
-    "nuvoloso|10|0|45|NNE|22|23",
-    "pioggia debole|10|0.3|55|NNE|29|30",
-    "nubi sparse|10|0|50|NE|30|33",
-    "nubi sparse|9|0|40|NE|26|30",
-    "nubi sparse|8|0|40|NNE|24|26"
+    "poco nuvoloso|11|0|0|NE|19|19",
+    "nubi sparse|12|0|0|NNE|20|26",
+    "poco nuvoloso|13|0|5|NNE|25|29",
+    "nubi sparse|12|0|30|NNE|22|25",
+    "nubi sparse|12|0|35|NE|24|27",
+    "nuvoloso|12|0|45|N|27|31",
+    "nuvoloso|11|0|45|N|26|30",
+    "nubi sparse|9|0|45|NNE|27|35",
+    "nubi sparse|9|0|45|NE|34|44",
+    "nubi sparse|8|0|45|NE|22|34"
    ]
   },
   "assergi": {
-   "2026-10-31": [
-    "nubi sparse|8|0|0|SSE|6|8",
-    "possibili piogge|10|0.5|50|SSE|7|10",
-    "nubi sparse|11|0|0|SE|9|14",
-    "nubi sparse|12|0|5|ESE|10|16",
-    "nuvoloso|12|0|5|SE|10|16",
-    "nuvoloso|12|0|15|ESE|11|16",
-    "nuvoloso|12|0|20|SE|10|14",
-    "nuvoloso|10|0|15|SE|10|14",
-    "nuvoloso|9|0|15|SE|10|12",
-    "nuvoloso|8|0|15|SE|9|11"
-   ],
    "2026-11-01": [
-    "nubi sparse|6|0|10|SSE|5|7",
-    "nubi sparse|7|0|15|SE|6|9",
-    "nuvoloso|8|0|20|ESE|8|11",
-    "nubi sparse|8|0|20|E|9|13",
-    "nuvoloso|8|0|25|E|10|14",
-    "nubi sparse|8|0|30|E|11|15",
-    "nuvoloso|7|0|35|ESE|7|14",
-    "nuvoloso|6|0|40|ESE|7|12",
-    "nuvoloso|5|0|40|SE|6|10",
-    "nuvoloso|4|0|35|SSE|5|10"
+    "nubi sparse|6|0|5|SSE|4|6",
+    "nubi sparse|7|0|10|SE|8|10",
+    "nubi sparse|8|0|30|ESE|8|12",
+    "nubi sparse|8|0|35|E|8|14",
+    "nuvoloso|8|0|40|E|8|15",
+    "nuvoloso|8|0|35|E|7|14",
+    "pioggia|6|0.6|50|ESE|7|11",
+    "nuvoloso|6|0|40|SE|6|11",
+    "nuvoloso|5|0|50|SSE|5|9",
+    "nubi sparse|3|0|45|SE|5|8"
    ]
   },
   "isola+del+gran+sasso+ditalia": {
-   "2026-10-31": [
-    "nuvoloso|11|0|20|SO|0|5",
-    "possibili piogge|12|0.5|50|SSO|1|6",
-    "nuvoloso|13|0|35|ESE|1|9",
-    "nuvoloso|13|0|30|SSE|1|7",
-    "nuvoloso|14|0|30|ESE|1|8",
-    "nuvoloso|14|0|30|E|1|9",
-    "nuvoloso|13|0|45|E|3|9",
-    "nuvoloso|13|0|35|ENE|2|8",
-    "pioggia|11|0.6|50|SSO|2|7",
-    "pioggia|11|1.2|50|SO|2|6"
-   ],
    "2026-11-01": [
-    "nuvoloso|9|0|50|N|2|6",
-    "nuvoloso|11|0|45|NNE|3|8",
-    "pioggia|8|0.6|60|NNE|6|11",
-    "pioggia|9|0.8|70|N|3|12",
-    "pioggia|9|0.7|60|NNE|4|12",
-    "pioggia|8|0.4|70|N|4|8",
-    "pioggia|8|0.6|75|NO|2|10",
-    "nuvoloso|9|0|45|OSO|3|8",
-    "nuvoloso|8|0|45|OSO|3|6",
-    "molto nuvoloso|7|0|45|OSO|2|11"
+    "nubi sparse|7|0|40|E|3|8",
+    "nuvoloso|8|0|45|N|5|9",
+    "nuvoloso|10|0|45|NNO|4|13",
+    "nuvoloso|9|0|45|N|5|9",
+    "pioggia debole|9|0.4|55|N|4|9",
+    "nuvoloso|10|0|45|NNE|4|11",
+    "pioggia debole|8|0.4|50|NNE|3|8",
+    "nuvoloso|8|0|45|NNO|2|8",
+    "nuvoloso|7|0|45|OSO|2|6",
+    "nuvoloso|7|0|45|O|3|9"
    ]
   },
   "pretoro": {
-   "2026-10-31": [
-    "pioggia|9|0.5|80|NO|2|5",
-    "pioggia debole|10|0.4|85|NO|4|8",
-    "pioggia|10|0.5|80|N|3|8",
-    "nuvoloso|11|0|45|N|5|8",
-    "pioviggine|11|0.3|50|N|4|9",
-    "nuvoloso|12|0|20|NNE|6|14",
-    "nuvoloso|12|0|10|NE|7|14",
-    "nuvoloso|11|0|5|NE|6|13",
-    "nuvoloso|10|0|10|ESE|4|11",
-    "nuvoloso|10|0|15|SE|6|10"
-   ],
    "2026-11-01": [
-    "nuvoloso|8|0|45|NNO|3|8",
-    "nubi sparse|9|0|45|N|4|11",
-    "pioggia|7|0.8|75|NNE|7|13",
-    "pioggia|8|0.7|70|NNE|7|14",
-    "pioggia|8|0.5|85|NNE|6|13",
-    "nuvoloso|8|0|45|N|6|13",
-    "nuvoloso|8|0|45|N|3|11",
-    "nuvoloso|8|0|45|NNO|5|11",
-    "nuvoloso|7|0|45|NNE|4|10",
-    "nuvoloso|6|0|45|SO|3|9"
+    "nuvoloso|8|0|45|NNO|4|9",
+    "nubi sparse|9|0|45|N|6|11",
+    "pioggia|7|0.8|65|NNE|7|13",
+    "pioggia|8|0.7|65|NNE|6|14",
+    "pioggia|8|0.5|75|NNE|6|13",
+    "nuvoloso|8|0|45|NNE|7|14",
+    "nuvoloso|8|0|45|NNE|3|10",
+    "nuvoloso|8|0|45|NNO|3|9",
+    "nuvoloso|7|0|45|E|3|7",
+    "nuvoloso|6|0|45|S|3|8"
    ]
   },
   "lama+dei+peligni": {
-   "2026-10-31": [
-    "nuvoloso|10|0|25|ENE|4|7",
-    "nuvoloso|11|0|25|NE|6|10",
-    "nuvoloso|12|0|15|NE|9|12",
-    "nuvoloso|12|0|20|NE|12|15",
-    "pioviggine|12|0.3|50|NE|14|18",
-    "nuvoloso|11|0|20|NE|11|15",
-    "nuvoloso|11|0|15|NE|8|13",
-    "nuvoloso|10|0|15|NE|9|13",
-    "nuvoloso|9|0|5|ENE|4|8",
-    "nuvoloso|8|0|5|SO|4|6"
-   ],
    "2026-11-01": [
-    "nuvoloso|7|0|30|E|4|8",
-    "nuvoloso|7|0|45|ENE|3|9",
-    "pioggia|7|0.4|70|NE|3|6",
-    "pioggia debole|7|0.3|70|NE|3|6",
-    "pioggia|7|0.7|65|NE|3|6",
-    "pioggia debole|6|0.4|55|NE|3|7",
-    "nuvoloso|8|0|45|NE|3|9",
-    "rovesci|7|3.5|55|NNE|3|8",
-    "nuvoloso|6|0|50|NNE|2|6",
-    "nuvoloso|5|0|50|OSO|2|7"
+    "nuvoloso|8|0|20|E|5|8",
+    "nuvoloso|9|0|30|ENE|8|11",
+    "nuvoloso|8|0|45|ENE|3|8",
+    "pioggia|7|0.7|65|NNE|5|9",
+    "pioggia|7|0.9|75|NE|4|11",
+    "pioggia|6|1.2|80|NNE|2|7",
+    "pioggia|6|1.4|70|NNE|3|9",
+    "pioggia|6|2.8|70|NE|4|9",
+    "nuvoloso|6|0|45|NO|3|8",
+    "nuvoloso|5|0|45|OSO|2|6"
    ]
   },
   "palena": {
-   "2026-10-31": [
-    "pioggia debole|8|0.3|50|E|3|5",
-    "nuvoloso|10|0|50|ENE|4|7",
-    "pioggia|9|0.5|50|NNE|4|11",
-    "pioggia|9|0.4|50|NNE|7|13",
-    "pioviggine|9|0.3|50|NNE|7|13",
-    "nuvoloso|10|0|45|NE|7|12",
-    "nuvoloso|10|0|35|ENE|4|11",
-    "nuvoloso|9|0|35|ENE|3|8",
-    "nuvoloso|8|0|25|SE|3|6",
-    "nuvoloso|8|0|5|SO|2|5"
-   ],
    "2026-11-01": [
-    "pioggia debole|4|0.4|50|ENE|4|7",
-    "nuvoloso|6|0|45|E|5|8",
-    "nuvoloso|7|0|45|ENE|4|8",
-    "pioggia debole|5|0.4|75|ENE|5|9",
-    "pioggia|5|0.9|80|ENE|4|9",
-    "pioggia|5|1.8|90|NE|3|8",
-    "pioggia|5|1.6|85|N|3|6",
-    "pioggia|4|2.7|70|N|5|9",
-    "pioggia|4|1.9|65|O|3|8",
-    "pioggia|4|1.2|60|OSO|2|7"
+    "pioggia debole|4|0.4|50|E|5|8",
+    "nuvoloso|6|0|45|ENE|5|9",
+    "nuvoloso|7|0|45|ENE|4|10",
+    "pioggia debole|5|0.4|75|ENE|5|11",
+    "pioggia|5|0.9|85|ENE|4|11",
+    "pioggia|5|1.8|90|E|3|9",
+    "pioggia|5|1.6|90|N|3|5",
+    "pioggia|4|2.7|75|N|3|8",
+    "pioggia|4|1.9|75|O|3|9",
+    "pioggia|4|1.2|75|O|3|7"
    ]
   },
   "fossacesia": {
-   "2026-10-31": [
-    "nuvoloso|14|0|25|ONO|12|18",
-    "nuvoloso|15|0|25|NO|14|21",
-    "nuvoloso|16|0|25|NNO|17|24",
-    "nuvoloso|16|0|20|NNO|18|25",
-    "nubi sparse|16|0|15|NNO|17|23",
-    "nubi sparse|16|0|5|NNO|17|23",
-    "nuvoloso|16|0|0|NNO|16|25",
-    "nubi sparse|15|0|0|NNO|14|23",
-    "nubi sparse|14|0|0|NO|10|19",
-    "nubi sparse|13|0|10|ONO|9|16"
-   ],
    "2026-11-01": [
     "pioggia debole|11|0.4|75|ONO|7|16",
     "nuvoloso|11|0|45|NNO|5|14",
@@ -513,18 +280,6 @@ window.MM_FORECAST = {
    ]
   },
   "passo+della+futa": {
-   "2026-10-31": [
-    "nubi sparse|8|0|0|NNE|14|25",
-    "nubi sparse|9|0|0|NNE|15|25",
-    "nubi sparse|10|0|0|NNE|16|30",
-    "nubi sparse|11|0|0|NNE|17|31",
-    "poco nuvoloso|11|0|0|NNE|17|32",
-    "nubi sparse|11|0|0|NNE|17|33",
-    "nubi sparse|10|0|0|NNE|17|32",
-    "poco nuvoloso|9|0|0|NNE|15|28",
-    "poco nuvoloso|8|0|0|NNE|11|31",
-    "poco nuvoloso|7|0|0|NNE|13|29"
-   ],
    "2026-11-01": [
     "nubi sparse|5|0|50|NE|15|21",
     "nubi sparse|5|0|45|NE|17|26",
@@ -539,44 +294,20 @@ window.MM_FORECAST = {
    ]
   },
   "dicomano": {
-   "2026-10-31": [
-    "nubi sparse|14|0|0|NE|14|21",
-    "nubi sparse|15|0|0|NE|16|26",
-    "poco nuvoloso|16|0|0|NE|17|28",
-    "poco nuvoloso|16|0|0|NE|17|27",
-    "poco nuvoloso|17|0|0|NE|18|28",
-    "poco nuvoloso|17|0|0|NE|17|29",
-    "poco nuvoloso|16|0|0|NE|17|27",
-    "poco nuvoloso|15|0|0|NE|15|30",
-    "poco nuvoloso|12|0|0|NE|12|26",
-    "poco nuvoloso|10|0|0|NE|9|20"
-   ],
    "2026-11-01": [
-    "nubi sparse|11|0|35|NE|11|21",
-    "nubi sparse|12|0|45|NE|10|22",
-    "nubi sparse|13|0|45|NE|11|28",
-    "nubi sparse|12|0|45|NE|13|28",
-    "pioggia|12|0.5|60|NE|15|26",
-    "nubi sparse|12|0|40|NE|16|30",
-    "pioggia|10|1.3|50|NNE|15|30",
-    "pioggia|10|1|60|NNE|12|28",
-    "pioggia|9|1|70|NNE|14|27",
-    "pioggia|9|0.6|80|NNE|13|26"
+    "poco nuvoloso|11|0|50|NE|7|19",
+    "nubi sparse|12|0|45|NE|11|23",
+    "nuvoloso|13|0|45|NE|12|28",
+    "nubi sparse|13|0|45|NE|15|26",
+    "nubi sparse|12|0|45|NE|16|28",
+    "nubi sparse|12|0|45|NE|16|31",
+    "nubi sparse|11|0|45|NE|17|30",
+    "rovesci e schiarite|9|3.5|75|NNE|15|28",
+    "pioggia|8|0.9|80|NNE|13|25",
+    "pioggia|9|1|65|NNE|13|26"
    ]
   },
   "abetone": {
-   "2026-10-31": [
-    "nuvoloso|6|0|0|N|9|19",
-    "nubi sparse|6|0|0|N|11|24",
-    "nubi sparse|6|0|0|N|12|28",
-    "nubi sparse|7|0|0|N|12|30",
-    "poco nuvoloso|7|0|0|N|13|29",
-    "poco nuvoloso|7|0|0|N|12|27",
-    "nubi sparse|6|0|0|N|11|26",
-    "nubi sparse|5|0|0|N|11|22",
-    "nubi sparse|4|0|0|NO|9|14",
-    "nubi sparse|4|0|0|NO|8|13"
-   ],
    "2026-11-01": [
     "nuvoloso|1|0|45|NE|9|26",
     "nuvoloso|1|0|45|NE|6|26",
@@ -591,18 +322,6 @@ window.MM_FORECAST = {
    ]
   },
   "castiglione+di+garfagnana": {
-   "2026-10-31": [
-    "poco nuvoloso|12|0|0|NE|6|14",
-    "poco nuvoloso|14|0|0|NE|8|18",
-    "poco nuvoloso|15|0|0|NE|10|20",
-    "poco nuvoloso|16|0|0|NE|11|17",
-    "poco nuvoloso|16|0|0|NE|11|16",
-    "poco nuvoloso|16|0|0|NE|11|17",
-    "poco nuvoloso|15|0|0|NE|10|17",
-    "sereno|14|0|0|NE|7|15",
-    "sereno|12|0|0|NE|4|10",
-    "sereno|10|0|0|N|7|10"
-   ],
    "2026-11-01": [
     "nubi sparse|9|0|20|NE|6|16",
     "nubi sparse|10|0|30|NE|8|19",
@@ -617,18 +336,6 @@ window.MM_FORECAST = {
    ]
   },
   "radda+in+chianti": {
-   "2026-10-31": [
-    "poco nuvoloso|11|0|0|NE|6|15",
-    "poco nuvoloso|13|0|0|NE|7|17",
-    "poco nuvoloso|14|0|0|NE|9|18",
-    "poco nuvoloso|15|0|0|NE|8|15",
-    "nubi sparse|15|0|0|NE|8|13",
-    "nubi sparse|15|0|0|NE|9|14",
-    "nubi sparse|15|0|0|NE|10|16",
-    "nubi sparse|13|0|0|NE|9|13",
-    "poco nuvoloso|11|0|0|NNE|6|16",
-    "poco nuvoloso|10|0|0|NNE|5|15"
-   ],
    "2026-11-01": [
     "poco nuvoloso|9|0|0|NE|6|19",
     "nubi sparse|9|0|15|NNE|10|23",
@@ -643,55 +350,31 @@ window.MM_FORECAST = {
    ]
   },
   "saline+di+volterra": {
-   "2026-10-31": [
-    "poco nuvoloso|14|0|0|NE|11|16",
-    "poco nuvoloso|16|0|0|NE|16|21",
-    "poco nuvoloso|17|0|0|NE|18|27",
-    "poco nuvoloso|18|0|0|NE|18|26",
-    "poco nuvoloso|18|0|0|NE|18|26",
-    "poco nuvoloso|18|0|0|NE|18|26",
-    "poco nuvoloso|18|0|0|NE|19|28",
-    "poco nuvoloso|17|0|0|NE|18|28",
-    "poco nuvoloso|15|0|0|NE|16|26",
-    "poco nuvoloso|13|0|0|NE|12|24"
-   ],
    "2026-11-01": [
-    "nubi sparse|12|0|0|NE|8|17",
-    "nubi sparse|13|0|0|NE|12|26",
-    "poco nuvoloso|14|0|5|NE|16|29",
-    "poco nuvoloso|14|0|10|NE|19|31",
-    "poco nuvoloso|15|0|15|NE|21|33",
-    "poco nuvoloso|14|0|15|NE|20|34",
-    "poco nuvoloso|14|0|20|NNE|18|31",
-    "nubi sparse|13|0|20|NE|20|31",
-    "nubi sparse|11|0|20|NNE|16|27",
-    "nubi sparse|10|0|20|NE|13|24"
+    "nubi sparse|11|0|0|NNE|7|12",
+    "nubi sparse|12|0|0|NNE|14|26",
+    "nubi sparse|13|0|0|NE|18|31",
+    "nubi sparse|14|0|5|NE|21|31",
+    "nubi sparse|14|0|5|NE|21|33",
+    "poco nuvoloso|14|0|5|NE|22|33",
+    "poco nuvoloso|14|0|5|NE|21|32",
+    "velature|12|0|25|NE|20|31",
+    "poco nuvoloso|11|0|30|NNE|14|29",
+    "nubi sparse|10|0|30|NNE|14|26"
    ]
   },
   "piancastagnaio": {
-   "2026-10-31": [
-    "nubi sparse|9|0|0|NE|19|27",
-    "nubi sparse|10|0|0|NE|20|29",
-    "nubi sparse|12|0|0|NE|22|30",
-    "nubi sparse|12|0|0|NE|21|30",
-    "nubi sparse|12|0|0|NE|21|29",
-    "nubi sparse|12|0|0|NE|20|28",
-    "nubi sparse|12|0|0|NE|20|29",
-    "poco nuvoloso|10|0|0|NE|19|28",
-    "poco nuvoloso|8|0|0|NE|19|27",
-    "poco nuvoloso|7|0|0|NE|18|26"
-   ],
    "2026-11-01": [
-    "poco nuvoloso|7|0|0|NE|23|34",
-    "poco nuvoloso|8|0|0|NE|21|33",
-    "nubi sparse|9|0|0|NE|22|32",
-    "nubi sparse|9|0|15|NE|23|33",
-    "nuvoloso|9|0|20|NE|21|35",
-    "nubi sparse|9|0|20|NE|23|34",
-    "nubi sparse|8|0|15|NE|22|34",
-    "nubi sparse|7|0|30|NE|21|33",
-    "nubi sparse|5|0|35|NNE|19|31",
-    "nubi sparse|4|0|30|NNE|18|38"
+    "poco nuvoloso|7|0|0|NE|18|33",
+    "poco nuvoloso|8|0|0|NE|20|32",
+    "nubi sparse|9|0|0|NE|20|31",
+    "nubi sparse|9|0|10|NE|20|34",
+    "nuvoloso|9|0|10|NE|21|34",
+    "nubi sparse|9|0|15|NE|22|34",
+    "nubi sparse|8|0|20|NE|21|34",
+    "nubi sparse|7|0|35|NNE|21|33",
+    "nubi sparse|5|0|45|NNE|19|32",
+    "nubi sparse|4|0|35|NNE|19|36"
    ]
   }
  },
