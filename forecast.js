@@ -1,10 +1,10 @@
 // MeteoMoto - previsioni orarie 3B Meteo (ore 9-18) e allerte AccuWeather.
 // Riscritto ogni mattina dall'aggiornamento automatico. Ogni ora: "tempo|temperatura|mm|probabilità%|direzione vento|vento km/h|raffica km/h".
 window.MM_FORECAST = {
- "readAt": "2026-11-01T00:59:29+01:00",
- "fcAt": "2026-11-01T00:51:00+01:00",
- "fcShort": "dom 01/11, 00:51",
- "alertsReadLabel": "1/11 alle 0:58",
+ "readAt": "2026-11-01T07:04:27+01:00",
+ "fcAt": "2026-11-01T06:58:00+01:00",
+ "fcShort": "dom 01/11, 06:58",
+ "alertsReadLabel": "1/11 alle 7:02",
  "days": [
   {
    "k": "2026-11-01",
@@ -85,21 +85,21 @@ window.MM_FORECAST = {
   },
   "sassotetto": {
    "2026-11-01": [
-    "nuvoloso|1|0|45|NE|9|16",
-    "nuvoloso|0|0|45|NE|9|18",
-    "neve|0|5|80|NE|9|17",
-    "neve debole|0|4|90|NE|10|18",
-    "neve|0|5|90|ENE|11|18",
-    "neve debole|0|4|80|ENE|11|18",
-    "nuvoloso|0|0|45|ENE|10|21",
-    "nuvoloso|0|0|45|NE|8|18",
-    "nuvoloso|0|0|45|ENE|8|14",
-    "neve|-1|10|85|ENE|5|14"
+    "neve debole|1|5|70|NE|7|18",
+    "neve|1|11|85|NE|9|21",
+    "neve|-1|5|75|NE|10|20",
+    "neve|-1|4|80|NE|11|21",
+    "nevischio|0|6|65|ENE|8|17",
+    "neve|0|5|60|ENE|8|15",
+    "nuvoloso|0|0|45|ENE|10|17",
+    "nuvoloso|0|0|45|ENE|9|17",
+    "nuvoloso|0|0|45|ENE|8|16",
+    "neve|-1|8|90|E|7|14"
    ]
   },
   "arquata+del+tronto": {
    "2026-11-01": [
-    "nuvoloso|7|0|45|NE|5|5",
+    "nuvoloso|7|0|45|NE|2|5",
     "pioggia|6|0.7|60|NNE|4|11",
     "pioggia|6|1.5|60|NE|6|12",
     "nuvoloso|6|0|45|NE|4|12",
@@ -113,16 +113,16 @@ window.MM_FORECAST = {
   },
   "castelluccio": {
    "2026-11-01": [
-    "nuvoloso|1|0|45|NE|5|9",
-    "nuvoloso|2|0|45|NE|8|17",
-    "nuvoloso|2|0|45|NE|9|19",
-    "nuvoloso|2|0|45|NE|9|18",
-    "nuvoloso|2|0|40|NE|10|21",
-    "nuvoloso|2|0|30|ENE|11|23",
-    "nuvoloso|2|0|25|ENE|12|24",
-    "nuvoloso|1|0|15|ENE|12|25",
-    "nuvoloso|0|0|30|ENE|9|27",
-    "neve|-1|5|50|ENE|8|26"
+    "nuvoloso|1|0|30|ENE|3|7",
+    "nuvoloso|2|0|35|NE|6|9",
+    "nuvoloso|2|0|35|NE|8|14",
+    "nuvoloso|2|0|40|ENE|8|16",
+    "nuvoloso|2|0|40|ENE|10|16",
+    "nuvoloso|2|0|45|ENE|12|21",
+    "nuvoloso|2|0|40|ENE|12|23",
+    "nuvoloso|1|0|50|ENE|13|22",
+    "nuvoloso|0|0|45|ENE|9|24",
+    "neve|-1|5|55|ENE|9|23"
    ]
   },
   "scheggino": {
@@ -267,16 +267,16 @@ window.MM_FORECAST = {
   },
   "fossacesia": {
    "2026-11-01": [
-    "pioggia debole|11|0.4|75|ONO|7|16",
-    "nuvoloso|11|0|45|NNO|5|14",
-    "nuvoloso|12|0|45|NO|7|12",
-    "nuvoloso|12|0|45|NO|11|19",
-    "nuvoloso|13|0|50|NNO|10|17",
-    "nuvoloso|12|0|50|NNO|11|22",
-    "nuvoloso|12|0|45|NO|10|19",
-    "nubi sparse|11|0|45|NO|10|17",
-    "velature estese|10|0|50|ONO|8|15",
-    "nubi sparse|9|0|45|ONO|9|15"
+    "pioggia debole|11|0.4|95|NO|6|15",
+    "nuvoloso|11|0|35|NNO|9|18",
+    "nuvoloso|12|0|35|NNO|9|16",
+    "nuvoloso|12|0|40|NO|7|13",
+    "nuvoloso|13|0|40|NO|8|16",
+    "nuvoloso|12|0|35|NO|12|22",
+    "nuvoloso|12|0|25|NO|14|26",
+    "nubi sparse|11|0|40|ONO|10|17",
+    "velature estese|10|0|45|ONO|11|17",
+    "nubi sparse|9|0|45|O|9|16"
    ]
   },
   "passo+della+futa": {
@@ -309,16 +309,16 @@ window.MM_FORECAST = {
   },
   "abetone": {
    "2026-11-01": [
-    "nuvoloso|1|0|45|NE|9|26",
-    "nuvoloso|1|0|45|NE|6|26",
-    "nuvoloso|2|0|45|NE|20|37",
-    "nuvoloso|2|0|40|NE|22|36",
-    "nuvoloso|2|0|45|NE|24|39",
-    "neve|1|5|55|NNE|28|39",
-    "nuvoloso|1|0|45|NE|28|41",
-    "nuvoloso|-1|0|45|NNE|27|41",
-    "nuvoloso|-1|0|45|NE|27|39",
-    "nuvoloso|0|0|40|NNE|28|41"
+    "nuvoloso|2|0|30|NE|9|23",
+    "nuvoloso|2|0|35|NE|12|25",
+    "nuvoloso|2|0|35|NE|20|32",
+    "nuvoloso|2|0|35|NE|20|31",
+    "nuvoloso|2|0|40|NNE|24|39",
+    "neve|1|5|50|NNE|28|37",
+    "nuvoloso|1|0|45|NNE|28|39",
+    "nuvoloso|-1|0|45|NNE|31|40",
+    "nuvoloso|-1|0|45|NNE|29|40",
+    "nuvoloso|0|0|45|NE|26|41"
    ]
   },
   "castiglione+di+garfagnana": {
@@ -429,6 +429,14 @@ window.MM_FORECAST = {
   },
   {
    "r": "A",
+   "kind": "temporali",
+   "level": "gialla",
+   "area": "",
+   "s": "2026-11-02T10:00:00+01:00",
+   "e": "2026-11-02T23:59:00+01:00"
+  },
+  {
+   "r": "A",
    "kind": "pioggia",
    "level": "gialla",
    "area": "",
@@ -441,14 +449,6 @@ window.MM_FORECAST = {
    "level": "gialla",
    "area": "coste ed appennino",
    "s": "2026-11-02T01:00:00+01:00",
-   "e": "2026-11-02T23:59:00+01:00"
-  },
-  {
-   "r": "A",
-   "kind": "temporali",
-   "level": "gialla",
-   "area": "",
-   "s": "2026-11-02T10:00:00+01:00",
    "e": "2026-11-02T23:59:00+01:00"
   },
   {
