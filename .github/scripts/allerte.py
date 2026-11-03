@@ -138,6 +138,15 @@ def main():
     latest = None
     picked = {}
     debug_done = os.environ.get('CAP_DEBUG') != '1'
+    if not debug_done:
+        if entries:
+            notice('Prima voce del feed', ET.tostring(entries[0], encoding='unicode')[:3000])
+        rows = []
+        for en in entries:
+            geo = '/'.join(txt(g, CAP + 'value') for g in en.findall(CAP + 'geocode'))
+            rows.append(' | '.join([geo, txt(en, CAP + 'areaDesc'), txt(en, CAP + 'event'), txt(en, CAP + 'onset'),
+                                    txt(en, CAP + 'expires'), txt(en, CAP + 'status'), txt(en, CAP + 'message_type')]))
+        notice(f'Voci del feed ({len(entries)})', '\n'.join(rows))
     for en in entries:
         sent = when(txt(en, CAP + 'sent')) or when(txt(en, ATOM + 'updated'))
         if sent and (latest is None or sent > latest):
