@@ -224,6 +224,9 @@ h1 span{color:var(--accent)}
 .rule b{font-family:var(--display);font-size:18px;font-weight:700;display:block;line-height:1.15}
 .rule p{color:var(--ink2);font-size:15px}
 .foot{color:var(--muted);font-size:13.5px;margin-top:18px;line-height:1.5}
+.foot a,.asrc a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.retry{margin-top:10px;display:inline-block;border:1.5px solid var(--ink);background:var(--surface);color:var(--ink);border-radius:999px;padding:8px 18px;font-weight:700;cursor:pointer}
+.loading{color:var(--muted);padding:40px 0;text-align:center;font-size:15.5px}
 @media (min-width:600px){
   .regions{grid-template-columns:repeat(4,1fr)}
   h1{font-size:44px}
@@ -275,8 +278,8 @@ h1 span{color:var(--accent)}
     <h2 id="howT">Come diamo il verdetto</h2>
     <p>Ogni località ha un giudizio per la mattina (9–12) e uno per il pomeriggio (13–18); sulla mappa ogni ora ha il suo colore.</p>
     <div class="rule"><span class="badge lv0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><b>Si va</b><p>Asciutto (pioggia sotto il 40% e nessun accumulo), raffiche sotto i 45 km/h e almeno 8° dalle 9 in poi, nessuna allerta sulla zona.</p></div></div>
-    <div class="rule"><span class="badge lv1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v9M12 19v.1"/></svg></span><div><b>Con prudenza</b><p>Qualche goccia o pioggia possibile dal 40%, raffiche fra 45 e 64 km/h, temperatura sotto gli 8°, oppure un'allerta gialla o arancione.</p></div></div>
-    <div class="rule"><span class="badge lv2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5l9-6.5 9 6.5V20H3z"/><path d="M7 20v-7h10v7M7 15.5h10M7 18h10"/></svg></span><div><b>Garage</b><p>Pioggia vera (almeno 2 mm o 3 ore bagnate nella fascia), neve o temporali, raffiche da 65 km/h, 2° o meno (ghiaccio) oppure massima sotto i 5°.</p></div></div>
+    <div class="rule"><span class="badge lv1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v9M12 19v.1"/></svg></span><div><b>Con prudenza</b><p>Qualche goccia o pioggia possibile dal 40%, nebbia, raffiche fra 45 e 64 km/h, temperatura sotto gli 8°, oppure un'allerta gialla o arancione sulla zona.</p></div></div>
+    <div class="rule"><span class="badge lv2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5l9-6.5 9 6.5V20H3z"/><path d="M7 20v-7h10v7M7 15.5h10M7 18h10"/></svg></span><div><b>Garage</b><p>Pioggia vera (almeno 2 mm o 3 ore bagnate nella fascia), neve, pioggia gelata o temporali, raffiche da 65 km/h, 2° o meno (ghiaccio), massima sotto i 5° oppure un'allerta rossa.</p></div></div>
   </section>
 
   <p class="foot" id="foot"></p>
@@ -289,31 +292,79 @@ h1 span{color:var(--accent)}
   <div id="sheetBody"></div>
 </div>
 
-<!-- Previsioni: forecast.js, riscritto ogni mattina dall'aggiornamento automatico -->
-<script src="forecast.js"></script>
 <script>
 (function(){
 'use strict';
-/* Località fisse; le previsioni orarie arrivano da forecast.js (window.MM_FORECAST) */
+/* Località fisse; le previsioni orarie arrivano da Open-Meteo */
 const PLACES=[{"k":"gabicce+mare","n":"Gabicce Mare","g":"Panoramica del San Bartolo","r":"M","alt":11,"la":43.9636,"lo":12.7601,"coast":true},{"k":"carpegna+park","n":"Monte Carpegna","g":"Carpegna e Cippo","r":"M","alt":1020,"la":43.7853,"lo":12.3007,"coast":false},{"k":"borgo+pace","n":"Borgo Pace","g":"Bocca Trabaria","r":"M","alt":469,"la":43.6581,"lo":12.2934,"coast":false},{"k":"genga","n":"Genga","g":"Gola della Rossa e Frasassi","r":"M","alt":322,"la":43.4291,"lo":12.9352,"coast":false},{"k":"ancona","n":"Ancona","g":"Riviera del Conero","r":"M","alt":16,"la":43.6158,"lo":13.5189,"coast":true},{"k":"sassotetto","n":"Sassotetto","g":"Strada di Sassotetto","r":"M","alt":1457,"la":43.0039,"lo":13.2451,"coast":false},{"k":"arquata+del+tronto","n":"Arquata del Tronto","g":"Sibillini e Forca di Presta","r":"M","alt":777,"la":42.7723,"lo":13.2949,"coast":false},{"k":"castelluccio","n":"Castelluccio","g":"Piana di Castelluccio","r":"U","alt":1452,"la":42.8286,"lo":13.209,"coast":false},{"k":"scheggino","n":"Scheggino","g":"Valnerina","r":"U","alt":281,"la":42.7121,"lo":12.8295,"coast":false},{"k":"spoleto","n":"Spoleto","g":"Monteluco e Forca di Cerro","r":"U","alt":396,"la":42.7405,"lo":12.7378,"coast":false},{"k":"marmore","n":"Marmore","g":"Cascata delle Marmore e Piediluco","r":"U","alt":377,"la":42.5486,"lo":12.7125,"coast":false},{"k":"gualdo+tadino","n":"Gualdo Tadino","g":"Valsorda e Scheggia","r":"U","alt":536,"la":43.2341,"lo":12.7822,"coast":false},{"k":"magione","n":"Magione","g":"Giro del Trasimeno","r":"U","alt":299,"la":43.1198,"lo":12.1861,"coast":false},{"k":"assergi","n":"Assergi","g":"Campo Imperatore","r":"A","alt":886,"la":42.4135,"lo":13.5054,"coast":false},{"k":"isola+del+gran+sasso+ditalia","n":"Isola del Gran Sasso","g":"Gran Sasso teramano","r":"A","alt":415,"la":42.5013,"lo":13.6612,"coast":false},{"k":"pretoro","n":"Pretoro","g":"Majella e Passo Lanciano","r":"A","alt":560,"la":42.2193,"lo":14.1401,"coast":false},{"k":"lama+dei+peligni","n":"Lama dei Peligni","g":"Majella orientale","r":"A","alt":669,"la":42.0435,"lo":14.1883,"coast":false},{"k":"palena","n":"Palena","g":"Valico della Forchetta","r":"A","alt":767,"la":41.98,"lo":14.13,"coast":false},{"k":"fossacesia","n":"Fossacesia","g":"Costa dei Trabocchi","r":"A","alt":140,"la":42.2441,"lo":14.4802,"coast":true},{"k":"passo+della+futa","n":"Passo della Futa","g":"Futa e Giogo","r":"T","alt":903,"la":44.0949,"lo":11.2754,"coast":false},{"k":"dicomano","n":"Dicomano","g":"Verso il Muraglione","r":"T","alt":162,"la":43.891,"lo":11.5233,"coast":false},{"k":"abetone","n":"Abetone","g":"Passo dell'Abetone","r":"T","alt":1388,"la":44.14,"lo":10.66,"coast":false},{"k":"castiglione+di+garfagnana","n":"Castiglione di Garfagnana","g":"Passo delle Radici","r":"T","alt":545,"la":44.1527,"lo":10.4113,"coast":false},{"k":"radda+in+chianti","n":"Radda in Chianti","g":"Chiantigiana","r":"T","alt":530,"la":43.5018,"lo":11.3545,"coast":false},{"k":"saline+di+volterra","n":"Saline di Volterra","g":"Colline di Volterra","r":"T","alt":75,"la":43.361,"lo":10.8134,"coast":false},{"k":"piancastagnaio","n":"Piancastagnaio","g":"Monte Amiata","r":"T","alt":772,"la":42.85,"lo":11.6867,"coast":false}];
-const F=window.MM_FORECAST&&typeof window.MM_FORECAST==='object'?window.MM_FORECAST:null;
-/* L'aggiornamento automatico parte ogni 6 ore (0:42, 6:42, 12:42, 18:42) e pubblica circa 20 minuti dopo */
-const RUN_HOURS=[0,6,12,18],RUN_M=42,READY_MIN=20;
-function parseH(x){
-  if(Array.isArray(x))return x.length>=7?x:null;
-  const f=String(x).split('|');if(f.length<7)return null;
-  const r=[f[0].trim(),Number(f[1]),Number(String(f[2]).replace(',','.')),Number(f[3]),f[4].trim().toUpperCase(),Number(f[5]),Number(f[6])];
-  return [1,2,3,5,6].every(i=>isFinite(r[i]))?r:null}
-const DATA=PLACES.map(p=>{const d={},src=(F&&F.places&&F.places[p.k])||{};
-  Object.keys(src).forEach(k=>{const hs=src[k];if(Array.isArray(hs)&&hs.length===10){const rows=hs.map(parseH);if(rows.every(Boolean))d[k]={h:rows}}});
-  return Object.assign({},p,{d})});
-const META={readAt:(F&&F.readAt)||'1970-01-01T00:00:00Z',fcAt:(F&&F.fcAt)||null,fcShort:(F&&F.fcShort)||'non disponibili',alertsReadLabel:(F&&F.alertsReadLabel)||'non disponibili',note:''};
-const DAYS=(F&&Array.isArray(F.days)&&F.days.length)?F.days:[];
-const BAKED=(F&&Array.isArray(F.alerts))?F.alerts:[];
+/* Previsioni lette in diretta da Open-Meteo a ogni apertura: ICON-2I (2 km) finché copre il giorno, poi il miglior modello disponibile.
+   Ogni ora: [tempo, temperatura, mm, probabilità %, direzione vento, vento km/h, raffica km/h] */
+const OM='https://api.open-meteo.com/v1/forecast',ICON='italia_meteo_arpae_icon_2i';
+const OMV='temperature_2m,precipitation,weather_code,wind_speed_10m,wind_direction_10m,wind_gusts_10m';
+const CACHE_KEY='meteomoto-fc-v2',REFRESH_MIN=15;
+let DATA=PLACES.map(p=>Object.assign({},p,{d:{}}));
+const FC={at:0,ok:false,loading:true,err:'',cached:false};
+const MONTHS=['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto','settembre','ottobre','novembre','dicembre'];
+/* Weekend mostrato: da lunedì a venerdì il prossimo sabato e domenica; sabato sabato e domenica; domenica solo domenica */
+function weekendDays(){
+  const n=rome(Date.now()),base=Date.UTC(n.y,n.mo-1,n.d),dow=new Date(base).getUTCDay();
+  const off=dow===0?[0]:dow===6?[0,1]:[6-dow,7-dow];
+  return off.map(o=>{const d=new Date(base+o*864e5);return {k:d.toISOString().slice(0,10),a:d.getUTCDay()===6?'Sabato':'Domenica',b:d.getUTCDate()+' '+MONTHS[d.getUTCMonth()]}})}
+const WMO={0:'sereno',1:'quasi sereno',2:'nubi sparse',3:'coperto',45:'nebbia',48:'nebbia con brina',51:'pioviggine debole',53:'pioviggine',55:'pioviggine intensa',56:'pioviggine gelata',57:'pioviggine gelata',
+  61:'pioggia debole',63:'pioggia',65:'pioggia forte',66:'pioggia gelata',67:'pioggia gelata',71:'neve debole',73:'neve',75:'neve forte',77:'neve granulare',80:'rovesci deboli',81:'rovesci',82:'rovesci forti',85:'rovesci di neve deboli',86:'rovesci di neve',95:'temporale',96:'temporale con grandine',99:'temporale con grandine'};
+const COMP=['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSO','SO','OSO','O','ONO','NO','NNO'];
+function wmoText(c,mm){return c!=null&&WMO[c]?WMO[c]:(mm>0?'pioggia debole':'nuvoloso')}
+function compass(deg){return deg==null||!isFinite(deg)?'N':COMP[Math.round(((deg%360)+360)%360/22.5)%16]}
+function omURL(model,vars,days){
+  return OM+'?latitude='+PLACES.map(p=>p.la).join(',')+'&longitude='+PLACES.map(p=>p.lo).join(',')+'&hourly='+vars+(model?'&models='+model:'')+
+    '&timezone=Europe%2FRome&start_date='+days[0].k+'&end_date='+days[days.length-1].k}
+async function getJSON(u,ms){
+  const c=new AbortController(),t=setTimeout(()=>c.abort(),ms||20000);
+  try{const r=await fetch(u,{signal:c.signal,cache:'no-store'});const j=await r.json().catch(()=>null);
+    if(!r.ok||!j||j.error)throw new Error((j&&j.reason)||('HTTP '+r.status));return j}
+  finally{clearTimeout(t)}}
+function hoursOf(res,i){const o=Array.isArray(res)?res[i]:(i===0?res:null),H=o&&o.hourly;if(!H||!Array.isArray(H.time))return null;
+  if(!H._ix){H._ix={};H.time.forEach((t,j)=>{H._ix[t]=j})}return H}
+function build(icon,best,days){
+  return PLACES.map((p,i)=>{
+    const I=icon?hoursOf(icon,i):null,B=best?hoursOf(best,i):null,d={};
+    days.forEach(day=>{
+      const at=(H,h)=>H?H._ix[day.k+'T'+pad(h)+':00']:undefined;
+      const useI=!!I&&HOURS.every(h=>{const j=at(I,h);return j!=null&&I.temperature_2m[j]!=null&&I.precipitation[j]!=null});
+      const rows=[];
+      for(const h of HOURS){
+        const ji=at(I,h),jb=at(B,h),S=useI?I:B,j=useI?ji:jb;
+        if(!S||j==null){rows.length=0;break}
+        const v=n=>{let x=S[n]?S[n][j]:null;if(x==null&&B&&jb!=null&&B[n])x=B[n][jb];return x};
+        const t=v('temperature_2m'),mm=v('precipitation');
+        if(t==null||mm==null){rows.length=0;break}
+        const pr=B&&jb!=null&&B.precipitation_probability?B.precipitation_probability[jb]:null;
+        const ws=v('wind_speed_10m'),wg=v('wind_gusts_10m'),m1=Math.round(mm*10)/10;
+        rows.push([wmoText(v('weather_code'),m1),Math.round(t),m1,pr==null?-1:Math.round(pr),compass(v('wind_direction_10m')),Math.round(ws||0),Math.round(Math.max(wg||0,ws||0))]);
+      }
+      if(rows.length===HOURS.length)d[day.k]={h:rows,src:useI?'icon':'best'};
+    });
+    return d})}
+function applyData(list){DATA=PLACES.map((p,i)=>Object.assign({},p,{d:list[i]||{}}))}
+function loadCache(days){
+  try{const c=JSON.parse(localStorage.getItem(CACHE_KEY)||'null');
+    if(!c||!Array.isArray(c.d)||c.days!==days.map(d=>d.k).join(','))return false;
+    applyData(c.d);FC.at=c.at;FC.ok=true;FC.cached=true;return true}catch(e){return false}}
+async function loadForecast(){
+  const days=weekendDays();
+  FC.loading=true;
+  const [ri,rb]=await Promise.allSettled([getJSON(omURL(ICON,OMV,days)),getJSON(omURL('',OMV+',precipitation_probability',days))]);
+  FC.loading=false;
+  if(rb.status!=='fulfilled'&&ri.status!=='fulfilled'){FC.err=String((rb.reason&&rb.reason.message)||'errore di rete');render();return}
+  const list=build(ri.status==='fulfilled'?ri.value:null,rb.status==='fulfilled'?rb.value:null,days);
+  if(!list.some(d=>Object.keys(d).length)){FC.err='dati mancanti';render();return}
+  DAYS=days;if(!DAYS.some(d=>d.k===S.day)){S.day=DAYS[0].k;S.hour=startHour()}
+  applyData(list);FC.at=Date.now();FC.ok=true;FC.cached=false;FC.err='';
+  try{localStorage.setItem(CACHE_KEY,JSON.stringify({at:FC.at,days:days.map(d=>d.k).join(','),d:list}))}catch(e){}
+  render()}
 const REG={M:'Marche',U:'Umbria',A:'Abruzzo',T:'Toscana'}, ORDER=['M','U','A','T'];
-/* Un punto AccuWeather per regione: le allerte Meteoalarm sono regionali. */
-const AKEY={M:'1550880',U:'1545605',A:'211844',T:'215916'};
-const ATOOL='widgets-gov-alert-map-claude', ASERVER='AccuWeather';
+/* Codici Meteoalarm (EMMA_ID) delle regioni */
+const GEO={IT011:'M',IT010:'U',IT013:'A',IT009:'T'};
 const HOURS=[9,10,11,12,13,14,15,16,17,18];
 const SLOTS=[{k:'m',n:'Mattina',a:9,b:12},{k:'a',n:'Pomeriggio',a:13,b:18}];
 const LAB=['Si va','Con prudenza','Garage'];
@@ -332,6 +383,7 @@ const WX={
   cloud:'<svg viewBox="0 0 32 32"><path d="M8 25h16a5.5 5.5 0 00.8-10.94A8 8 0 009.4 15.6 4.8 4.8 0 008 25z" fill="#97a5ae"/></svg>',
   rain:'<svg viewBox="0 0 32 32"><path d="M8 19h16a5.5 5.5 0 00.8-10.94A8 8 0 009.4 9.6 4.8 4.8 0 008 19z" fill="#8796a0"/><g stroke="#2f7fd6" stroke-width="2.4" stroke-linecap="round"><path d="M11 22.5l-1.5 4M17 22.5l-1.5 4M23 22.5l-1.5 4"/></g></svg>',
   snow:'<svg viewBox="0 0 32 32"><path d="M8 19h16a5.5 5.5 0 00.8-10.94A8 8 0 009.4 9.6 4.8 4.8 0 008 19z" fill="#8796a0"/><g fill="#5aa2ef"><circle cx="10.5" cy="24" r="2"/><circle cx="16.5" cy="27" r="2"/><circle cx="22.5" cy="24" r="2"/></g></svg>',
+  fog:'<svg viewBox="0 0 32 32"><path d="M8 17h16a5.5 5.5 0 00.8-10.94A8 8 0 009.4 7.6 4.8 4.8 0 008 17z" fill="#a9b6bf"/><g stroke="#8796a0" stroke-width="2.4" stroke-linecap="round"><path d="M5 21h22M8 25h17M11 29h12"/></g></svg>',
   storm:'<svg viewBox="0 0 32 32"><path d="M8 19h16a5.5 5.5 0 00.8-10.94A8 8 0 009.4 9.6 4.8 4.8 0 008 19z" fill="#6f7f8a"/><path d="M17.5 17.5l-4.5 7h4l-2 6 6.5-8.5h-4l2-4.5z" fill="#f5b400"/></svg>'
 };
 const DIR={N:0,NNE:22.5,NE:45,ENE:67.5,E:90,ESE:112.5,SE:135,SSE:157.5,S:180,SSO:202.5,SO:225,OSO:247.5,O:270,ONO:292.5,NO:315,NNO:337.5};
@@ -357,35 +409,41 @@ function dayLabel(t){const p=rome(t);return p.wd+' '+p.d}
 
 /* Tempo */
 function kind(c){c=c.toLowerCase();if(/temporal/.test(c))return 'storm';if(/neve/.test(c))return 'snow';if(/piogg|rovesc|pioviggin/.test(c))return 'rain';
-  if(/sereno/.test(c))return 'sun';if(/poco nuvoloso|velature|nubi sparse/.test(c))return 'part';return 'cloud'}
-function rank(c){c=c.toLowerCase();if(/temporal/.test(c))return 9;if(/neve/.test(c))return /debole/.test(c)?7:8;
-  if(/schiarite|debole/.test(c)&&/piogg|rovesc/.test(c))return 5;if(/possibili|pioviggin/.test(c))return 4;if(/piogg|rovesc/.test(c))return 6;
+  if(/nebbia/.test(c))return 'fog';if(/sereno/.test(c))return 'sun';if(/poco nuvoloso|velature|nubi sparse/.test(c))return 'part';return 'cloud'}
+function rank(c){c=c.toLowerCase();if(/temporal/.test(c))return 9;if(/gelat/.test(c))return 8;if(/neve/.test(c))return /debol/.test(c)?7:8;
+  if(/schiarite|debol/.test(c)&&/piogg|rovesc/.test(c))return 5;if(/nebbia/.test(c))return 3.5;if(/possibili|pioviggin/.test(c))return 4;if(/piogg|rovesc/.test(c))return 6;
   if(/poco nuvoloso|velature/.test(c))return 1;if(/nubi sparse/.test(c))return 2;if(/nuvoloso|coperto/.test(c))return 3;return 0}
 const wet=x=>x[2]>0||/piogg|rovesc|pioviggin|neve|temporal/i.test(x[0]);
 
-/* Allerte: lette in diretta da AccuWeather quando possibile, altrimenti quelle salvate alla pubblicazione */
-const LIVE={}, LIVE_AT={};
-let ALERT_NOTE='';
-function baked(r){return BAKED.filter(a=>a.r===r).map(a=>({r:a.r,kind:a.kind,level:a.level,area:a.area||'',s:Date.parse(a.s),e:Date.parse(a.e)}))}
-function alertsOf(r){return (LIVE[r]||baked(r)).filter(a=>a.e>Date.now()-6*36e5)}
-function applies(a,p){const ar=(a.area||'').toLowerCase(),c=/cost/.test(ar),ap=/appennin|rilievi|monti/.test(ar);
+/* Allerte Meteoalarm: alerts.json, riscritto da GitHub Actions (legge il feed ogni 30 minuti) */
+let ALERTS=[];
+const AL={ok:false,err:false,latest:0,checked:0};
+const AKIND=[[/thunder/,'temporali'],[/rain.?flood/,'pioggia e piene'],[/flood/,'piene dei fiumi'],[/rain/,'pioggia'],[/snow|ice/,'neve e ghiaccio'],[/wind/,'vento'],[/fog/,'nebbia'],
+  [/high.?temp/,'caldo'],[/low.?temp/,'freddo'],[/coastal/,'mareggiate'],[/forest|fire/,'incendi boschivi'],[/avalanch/,'valanghe']];
+function mapAlert(a){
+  const ev=String(a.event||'').toLowerCase(),k=AKIND.find(x=>x[0].test(ev));
+  return {r:GEO[String(a.geo||'').toUpperCase()],kind:k?k[1]:'fenomeni intensi',level:/red/.test(ev)?'rossa':/orange/.test(ev)?'arancione':'gialla',
+    area:String(a.zone||'').toLowerCase(),s:Date.parse(a.onset),e:Date.parse(a.expires)}}
+async function loadAlerts(){
+  try{const j=await getJSON('alerts.json?t='+Math.floor(Date.now()/6e4),15000);
+    ALERTS=(Array.isArray(j.alerts)?j.alerts:[]).map(mapAlert).filter(a=>a.r&&isFinite(a.s)&&isFinite(a.e));
+    AL.ok=true;AL.err=false;AL.latest=Date.parse(j.latestSent)||0;AL.checked=Date.parse(j.checkedAt)||0}
+  catch(e){AL.err=true}
+  render()}
+function alertsOf(r){return ALERTS.filter(a=>a.r===r&&a.e>Date.now()-6*36e5)}
+function applies(a,p){
+  if(a.kind==='incendi boschivi')return false;
+  if(a.kind==='mareggiate')return p.coast;
+  if(a.kind==='valanghe')return p.alt>=1000;
+  const ar=a.area,c=/cost|coast/.test(ar),ap=/appennin|apennin|rilievi|monti|mountain|relief/.test(ar);
   if(!c&&!ap)return true;return (c&&p.coast)||(ap&&p.alt>=600)}
 function alertsFor(p,s,e){return alertsOf(p.r).filter(a=>a.s<e&&a.e>s&&applies(a,p))}
 function alertText(a){return 'Allerta '+a.level+' per '+a.kind+(a.area?' ('+a.area+')':'')}
 function alertWhen(a){const s=rome(a.s),e=rome(a.e);
   if(s.y===e.y&&s.mo===e.mo&&s.d===e.d)return dayLabel(a.s)+(s.h<=1&&e.h>=23?', tutto il giorno':' dalle '+s.h+' alle '+(e.mi>=59?e.h+1:e.h));
-  return 'da '+dayLabel(a.s)+' a '+dayLabel(a.e)+(e.h>=23?' sera':' ore '+e.h)}
-function normAlerts(pl,r){
-  if(typeof pl==='string'){try{pl=JSON.parse(pl)}catch(e){return null}}
-  if(!pl||typeof pl!=='object')return null;
-  if(!Array.isArray(pl.alerts))return pl.location?[]:null;
-  return pl.alerts.map(a=>{
-    const ar=(a.affectedAreas||[])[0]||{},nm=String(a.name||a.alertName||'Allerta'),tx=String(ar.text||'');
-    const lv=/rosso|red/i.test(nm)?'rossa':/arancion|orange/i.test(nm)?'arancione':'gialla';
-    const kd=((nm.match(/per\s+(.+)$/i)||[])[1]||nm).toLowerCase();
-    const m=tx.match(/intensit\S*\s+([A-ZÀ-Ý][A-ZÀ-Ý ,'’]{2,}?)\s*(?:\n|\(|$)/);
-    return {r,kind:kd,level:lv,area:m?m[1].trim().toLowerCase():'',s:+(a.startDateTimeEpoch||ar.startDateTimeEpoch||0),e:+(a.endDateTimeEpoch||ar.endDateTimeEpoch||0)}
-  }).filter(a=>a.e>0)}
+  return 'da '+dayLabel(a.s)+' a '+dayLabel(a.e)+(e.h>=23?' sera':' ore '+(e.mi>=59?e.h+1:e.h))}
+function whenTxt(t){const k=romeYmd(t),today=romeYmd(Date.now()),yest=romeYmd(Date.now()-864e5),p=rome(t);
+  return (k===today?'oggi':k===yest?'ieri':p.d+' '+MONTHS[p.mo-1])+' alle '+p.h+':'+pad(p.mi)}
 
 /* Giudizi */
 let MEMO={};
@@ -393,10 +451,10 @@ function hourLv(p,day,i){
   const key='h'+p.k+day+i;if(key in MEMO)return MEMO[key];
   const x=p.d[day].h[i],c=x[0].toLowerCase(),t=x[1],mm=x[2],pr=x[3],g=x[6],hh=HOURS[i];
   let lv=0;
-  if(/neve|temporal/.test(c)||t<=2||g>=65||mm>=1.5||(pr>=80&&mm>0))lv=2;
+  if(/neve|temporal|gelat/.test(c)||t<=2||g>=65||mm>=1.5||(pr>=80&&mm>0))lv=2;
   else{const al=alertsFor(p,romeEpoch(day,hh),romeEpoch(day,hh+1));
     if(al.some(a=>a.level==='rossa'))lv=2;
-    else if(wet(x)||pr>=40||g>=45||t<8||al.length)lv=1}
+    else if(wet(x)||/nebbia/.test(c)||pr>=40||g>=45||t<8||al.length)lv=1}
   return MEMO[key]=lv}
 function slotJ(p,day,sl){
   const key='s'+p.k+day+sl.k;if(key in MEMO)return MEMO[key];
@@ -405,14 +463,17 @@ function slotJ(p,day,sl){
   const tmin=Math.min(...hs.map(x=>x[1])),tmax=Math.max(...hs.map(x=>x[1]));
   const mm=Math.round(hs.reduce((s,x)=>s+x[2],0)*10)/10,pr=Math.max(...hs.map(x=>x[3])),g=Math.max(...hs.map(x=>x[6]));
   const wetH=hs.filter(x=>x[2]>0).length,snowH=hs.filter(x=>/neve/i.test(x[0])),stormH=hs.filter(x=>/temporal/i.test(x[0]));
+  const iceH=hs.filter(x=>/gelat/i.test(x[0])),fogH=hs.filter(x=>/nebbia/i.test(x[0]));
   const why=[];let lv=0;const add=(l,t)=>{why.push({l,t});if(l>lv)lv=l};
   if(snowH.length)add(2,'Neve prevista ('+snowH.length+(snowH.length>1?' ore':' ora')+')');
   if(stormH.length)add(2,'Temporali');
+  if(iceH.length)add(2,'Pioggia gelata: strade ghiacciate');
   if(!snowH.length){
     if(mm>=2||wetH>=3)add(2,'Pioggia: '+mmf(mm)+' mm in '+wetH+' ore');
     else if(mm>0)add(1,'Qualche goccia: '+mmf(mm)+' mm');
     else if(pr>=40)add(1,'Pioggia possibile, fino al '+pr+'%');
   }
+  if(fogH.length)add(1,'Nebbia ('+fogH.length+(fogH.length>1?' ore':' ora')+')');
   if(g>=65)add(2,'Raffiche fino a '+g+' km/h');else if(g>=45)add(1,'Raffiche fino a '+g+' km/h: attenzione su crinali e viadotti');
   if(tmin<=2)add(2,'Rischio ghiaccio: si scende a '+tmin+'°');
   else if(tmax<5)add(2,'Molto freddo: massima '+tmax+'°');
@@ -434,12 +495,10 @@ function dayJ(p,day){
   return MEMO[key]={lv,m,a,label:COMBO[''+m.lv+a.lv],score,tmax:Math.max(m.tmax,a.tmax),tmin:Math.min(m.tmin,a.tmin)}}
 
 /* Stato */
-const todayK=romeYmd(Date.now());
-let avail=DAYS.filter(d=>d.k>=todayK);
-const stale=!avail.length;if(stale)avail=DAYS.slice();
+let DAYS=weekendDays();
 const reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-const S={day:avail.length?avail[0].k:'',reg:'all',view:'map',hour:9,playing:!reduce};
-function startHour(){const n=rome(Date.now());return (S.day===todayK&&n.h>=9&&n.h<=18)?n.h:9}
+const S={day:DAYS[0].k,reg:'all',view:'map',hour:9,playing:!reduce};
+function startHour(){const n=rome(Date.now());return (S.day===romeYmd(Date.now())&&n.h>=9&&n.h<=18)?n.h:9}
 S.hour=startHour();
 function placesIn(r){return DATA.filter(p=>(r==='all'||p.r===r)&&p.d[S.day])}
 
@@ -448,7 +507,7 @@ function regionStats(r){
   return {c,n:js.length,avg:js.length?js.reduce((s,j)=>s+j.lv,0)/js.length:0}}
 
 function renderBar(){
-  $('days').innerHTML=avail.map(d=>'<button type="button" data-day="'+d.k+'" aria-pressed="'+(d.k===S.day)+'">'+esc(d.a)+'<small>'+esc(d.b)+'</small></button>').join('');
+  $('days').innerHTML=DAYS.map(d=>'<button type="button" data-day="'+d.k+'" aria-pressed="'+(d.k===S.day)+'">'+esc(d.a)+'<small>'+esc(d.b)+'</small></button>').join('');
   const all=[{k:'all',n:'Tutte'}].concat(ORDER.map(r=>({k:r,n:REG[r]})));
   $('chips').innerHTML=all.map(c=>{let dot='';
     if(c.k!=='all'){const a=regionStats(c.k).avg;dot='<span class="dot" style="background:var('+(a<.5?'--ok':a<1.5?'--warn':'--bad')+')"></span>'}
@@ -476,20 +535,22 @@ function renderVerdict(){
     if(wetAft.length)parts.push('Nel pomeriggio piove su '+list(wetAft)+'.');
   }
   const snow=js.filter(o=>o.p.d[S.day].h.some(x=>/neve/i.test(x[0]))).map(o=>esc(o.p.n));
+  const fog=js.filter(o=>o.p.d[S.day].h.some(x=>/nebbia/i.test(x[0]))).map(o=>esc(o.p.n));
   if(snow.length)parts.push('Neve in quota a '+list(snow)+'.');
+  if(fog.length)parts.push('Nebbia a '+list(fog.slice(0,3))+(fog.length>3?' e in altre '+(fog.length-3):'')+'.');
   const cold=js.filter(o=>o.j.tmin<8&&!snow.includes(esc(o.p.n))).sort((a,b)=>a.j.tmin-b.j.tmin);
   if(cold.length)parts.push('Sotto gli 8° fra le 9 e le 18 a '+list(cold.slice(0,3).map(o=>esc(o.p.n)+' ('+o.j.tmin+'°)'))+(cold.length===4?' e in un\'altra località':cold.length>4?' e in altre '+(cold.length-3):'')+'.');
   const gusty=js.filter(o=>Math.max(o.j.m.g,o.j.a.g)>=45).sort((a,b)=>Math.max(b.j.m.g,b.j.a.g)-Math.max(a.j.m.g,a.j.a.g));
   if(gusty.length)parts.push('Raffiche oltre i 45 km/h a '+list(gusty.slice(0,3).map(o=>esc(o.p.n)))+'.');
   const best=js.slice().sort((a,b)=>a.j.score-b.j.score)[0];
   const al=[];regs.forEach(r=>alertsOf(r).filter(a=>a.s<romeEpoch(S.day,19)&&a.e>romeEpoch(S.day,9)).forEach(a=>al.push('<div class="alert'+(a.level==='rossa'?' red':'')+'">'+IC.warnS+'<span><b>'+REG[r]+':</b> '+esc(alertText(a).replace(/^A/,'a'))+', '+esc(alertWhen(a))+'.</span></div>')));
-  const src=Object.keys(LIVE).length?'Allerte AccuWeather (Meteoalarm), lette in diretta alle '+hm(Math.min(...Object.values(LIVE_AT))):'Allerte AccuWeather (Meteoalarm) lette il '+esc(META.alertsReadLabel);
+  const src=AL.ok?'Allerte <a href="https://www.meteoalarm.org" target="_blank" rel="noopener">Meteoalarm</a> del Servizio Meteorologico dell\'Aeronautica Militare'+(AL.latest?', ultimo bollettino '+whenTxt(AL.latest):'')+(AL.checked&&Date.now()-AL.checked>8*36e5?'. Il controllo automatico delle allerte non gira da '+whenTxt(AL.checked)+': verifica su meteoalarm.org':''):'Allerte Meteoalarm non disponibili in questo momento: verifica su <a href="https://www.meteoalarm.org" target="_blank" rel="noopener">meteoalarm.org</a>';
   $('verdict').style.setProperty('--vc','var('+vc+')');
   const bj=best?best.j:null;
   $('verdict').innerHTML='<p class="lab">'+esc(d.a)+' '+esc(d.b)+(S.reg!=='all'?' · '+REG[S.reg]:'')+'</p><h2>'+head+'</h2><p class="cnt">'+c[0]+' località su '+N+' da «Si va», '+c[1]+' con prudenza, '+c[2]+' da garage</p>'+
     (parts.length?'<p>'+parts.join(' ')+'</p>':'')+
     (best?'<button type="button" class="best" data-pt="'+best.p.k+'"><span class="badge lv'+bj.lv+'" style="width:40px;height:40px">'+[IC.ok,IC.warn,IC.bad][bj.lv]+'</span><span><span class="bt" style="display:block">La scelta migliore</span><span class="bn" style="display:block">'+esc(best.p.n)+' <span style="font-weight:600;color:var(--muted);font-size:16px">'+esc(best.p.g)+'</span></span><span class="bm" style="display:block">'+esc(bj.label)+' · '+bj.tmin+'–'+bj.tmax+'°'+(bj.m.mm+bj.a.mm>0?', '+mmf(bj.m.mm+bj.a.mm)+' mm':', asciutto')+'</span></span></button>':'')+
-    '<div class="alerts">'+(al.length?al.join(''):'<div class="asrc">Nessuna allerta meteo in corso per questo giorno.</div>')+'<p class="asrc">'+src+'.'+(ALERT_NOTE?' '+ALERT_NOTE:'')+'</p></div>';
+    '<div class="alerts">'+(al.length?al.join(''):'<div class="asrc">Nessuna allerta meteo in corso per questo giorno.</div>')+'<p class="asrc">'+src+'.</p></div>';
 }
 
 function renderRegions(){
@@ -508,7 +569,7 @@ function slotRow(sl,j){
     '<span class="sf"><b>'+j.tmin+'–'+j.tmax+'°</b> · '+fact+(j.g>=45?' · raffiche <b>'+j.g+'</b>':'')+'</span></span>'}
 function cardHTML(p){
   const j=dayJ(p,S.day);
-  if(!j)return '<article class="card"><button type="button" data-pt="'+p.k+'"><span class="nm">'+esc(p.n)+'</span><span class="giro">Dati 3B non disponibili per questo giorno</span></button></article>';
+  if(!j)return '<article class="card"><button type="button" data-pt="'+p.k+'"><span class="nm">'+esc(p.n)+'</span><span class="giro">Previsioni non disponibili per questo giorno</span></button></article>';
   return '<article class="card lv'+j.lv+'"><button type="button" data-pt="'+p.k+'" aria-label="'+esc(p.n)+': '+esc(j.label)+'. Apri il dettaglio ora per ora">'+
     '<span class="r1"><span class="badge">'+[IC.ok,IC.warn,IC.bad][j.lv]+'</span><span class="who"><span class="nm">'+esc(p.n)+'</span><span class="giro">'+esc(p.g)+' · '+p.alt+'&nbsp;m</span><span class="vl">'+esc(j.label)+'</span></span><span class="wx">'+WX[kind(j.m.lv<=j.a.lv?j.m.cond:j.a.cond)]+'<span class="tmax">'+j.tmax+'°</span></span></span>'+
     '<span class="slots">'+slotRow(SLOTS[0],j.m)+slotRow(SLOTS[1],j.a)+'</span><span class="more">Ora per ora'+IC.chev+'</span></button></article>'}
@@ -600,7 +661,7 @@ function paintBars(){
     const el=$('hb'+hh);if(el)el.innerHTML=[0,1,2].map(k=>c[k]?'<i class="s'+k+'" style="height:'+(c[k]/n*100).toFixed(1)+'%"></i>':'').join('')});
 }
 function paintHour(){
-  const i=HOURS.indexOf(S.hour);if(i<0)return;
+  const i=HOURS.indexOf(S.hour);if(i<0||!$('htNum'))return;
   const c=[0,0,0];
   MK.forEach(m=>{const x=m.p.d[S.day].h[i],lv=hourLv(m.p,S.day,i);c[lv]++;
     m.c.setAttribute('class','c c'+lv);m.t.setAttribute('class','pv t'+lv);m.t.textContent=x[1]+'°';
@@ -627,13 +688,13 @@ function openSheet(k){
   const j=dayJ(p,S.day),d=DAYS.find(x=>x.k===S.day);
   lastFocus=document.activeElement;
   let h='<div class="sh"><span class="badge lv'+(j?j.lv:1)+'">'+[IC.ok,IC.warn,IC.bad][j?j.lv:1]+'</span><div><p class="eyebrow">'+REG[p.r]+' · '+esc(d.a)+' '+esc(d.b)+'</p><h2 style="font-size:26px;line-height:1.05">'+esc(p.n)+'</h2><p class="giro">'+esc(p.g)+' · '+p.alt+' m</p></div></div>';
-  if(!j){h+='<p>Per questo giorno 3B Meteo non ha dati aggiornati su questa località.</p>'}
+  if(!j){h+='<p>Per questo giorno non ci sono previsioni su questa località.</p>'}
   else{
     h+='<p class="vl lv'+j.lv+'" style="margin:-4px 0 6px"><span class="vl">'+esc(j.label)+'</span></p>';
     SLOTS.forEach(sl=>{const x=j[sl.k];h+='<div class="sblk"><h3><i style="background:var('+LVC[x.lv]+')"></i>'+sl.n+' <small>'+sl.a+'–'+sl.b+' · '+LAB[x.lv]+'</small></h3><ul class="why">'+x.why.map(w=>'<li class="w'+w.l+'"><i></i><span>'+esc(w.t)+'</span></li>').join('')+'</ul></div>'});
-    h+='<div class="sblk"><h3>Ora per ora <small>fonte 3B Meteo</small></h3><table class="ht"><thead><tr><th>Ora</th><th></th><th>Temp.</th><th>Pioggia</th><th>Vento</th></tr></thead><tbody>'+
-      p.d[S.day].h.map((x,i)=>{const lv=hourLv(p,S.day,i);return '<tr'+(HOURS[i]===S.hour&&S.view==='map'?' class="on"':'')+'><td style="--hc:var('+LVC[lv]+')">'+HOURS[i]+'</td><td title="'+esc(x[0])+'">'+WX[kind(x[0])]+'</td><td><b>'+x[1]+'°</b></td><td>'+(x[2]>0?mmf(x[2])+' mm':'<span class="mu">0</span>')+' <span class="mu">'+x[3]+'%</span></td><td><span class="wd">'+arrow(x[4])+x[5]+'<span class="mu">/'+x[6]+'</span></span></td></tr>'}).join('')+
-      '</tbody></table><p class="asrc">Vento: velocità media / raffica in km/h. La freccia indica dove soffia.</p></div>';
+    h+='<div class="sblk"><h3>Ora per ora <small>'+(p.d[S.day].src==='icon'?'modello ICON-2I, 2 km':'Open-Meteo, miglior modello')+'</small></h3><table class="ht"><thead><tr><th>Ora</th><th></th><th>Temp.</th><th>Pioggia</th><th>Vento</th></tr></thead><tbody>'+
+      p.d[S.day].h.map((x,i)=>{const lv=hourLv(p,S.day,i);return '<tr'+(HOURS[i]===S.hour&&S.view==='map'?' class="on"':'')+'><td style="--hc:var('+LVC[lv]+')">'+HOURS[i]+'</td><td title="'+esc(x[0])+'">'+WX[kind(x[0])]+'</td><td><b>'+x[1]+'°</b></td><td>'+(x[2]>0?mmf(x[2])+' mm':'<span class="mu">0</span>')+(x[3]>=0?' <span class="mu">'+x[3]+'%</span>':'')+'</td><td><span class="wd">'+arrow(x[4])+x[5]+'<span class="mu">/'+x[6]+'</span></span></td></tr>'}).join('')+
+      '</tbody></table><p class="asrc">Pioggia: millimetri caduti nell\'ora precedente e probabilità. Vento: velocità media / raffica in km/h; la freccia indica dove soffia.</p></div>';
   }
   $('sheetBody').innerHTML=h;
   $('scrim').hidden=false;$('sheet').hidden=false;$('sheet').scrollTop=0;$('closeSheet').focus();
@@ -641,65 +702,46 @@ function openSheet(k){
 function closeSheet(){$('scrim').hidden=true;$('sheet').hidden=true;if(lastFocus&&lastFocus.focus)lastFocus.focus()}
 
 function renderFresh(){
-  const live=Object.keys(LIVE).length;
-  $('fresh').innerHTML='<b>Previsioni 3B</b> · '+esc(META.fcShort)+'<br><b>Allerte</b> · '+(live?'in diretta, '+hm(Math.min(...Object.values(LIVE_AT))):esc(META.alertsReadLabel));
+  const f=FC.at?whenTxt(FC.at):'';
+  $('fresh').innerHTML='<b>Previsioni</b> · Open-Meteo, '+(FC.ok?(FC.cached&&FC.loading?'aggiorno…':'lette '+esc(f)):FC.loading?'in arrivo…':'non disponibili')+
+    '<br><b>Allerte</b> · Meteoalarm'+(AL.ok?(AL.latest?', bollettino '+esc(whenTxt(AL.latest)):''):AL.err?', non disponibili':'');
+  const p=FC.at?rome(FC.at):null;
+  $('next').innerHTML=FC.ok?'<small>'+(FC.err?'Offline · lette':'Aggiornate')+'</small><b>'+(romeYmd(FC.at)===romeYmd(Date.now())?p.h+':'+pad(p.mi):p.d+'/'+p.mo)+'</b>':'<small>Previsioni</small><b>'+(FC.loading?'…':'–')+'</b>';
 }
-/* Conto alla rovescia al prossimo aggiornamento automatico */
-function renderNext(){
-  const now=Date.now(),last=Date.parse(META.readAt)||0;
-  const k=romeYmd(now),k2=romeYmd(now+864e5);
-  const runs=RUN_HOURS.map(h=>romeEpoch(k,h)+RUN_M*6e4).concat([romeEpoch(k2,RUN_HOURS[0])+RUN_M*6e4]);
-  const cur=runs.filter(t=>t<=now).pop();
-  let top,big;
-  if(cur&&now<cur+45*6e4&&last<cur){top='Aggiornamento';big='in corso'}
-  else{
-    const ready=runs.find(t=>t>now)+READY_MIN*6e4;
-    const m=Math.max(1,Math.round((ready-now)/6e4)),h=Math.floor(m/60),mi=m%60;
-    big=h?h+' h '+pad(mi)+' min':mi+' min';
-    top=now-last>7*36e5?'In ritardo · fra':'Aggiornamento fra';
-  }
-  $('next').innerHTML='<small>'+top+'</small><b>'+big+'</b>';
-}
-setInterval(renderNext,30000);
 function render(){
   MEMO={};
-  renderFresh();renderNext();
-  if(!S.day){$('map').innerHTML='<p class="stale">Previsioni non disponibili in questo momento: arriveranno con il prossimo aggiornamento automatico.</p>';return}
+  renderFresh();
+  const st=$('stale');
+  const has=DATA.some(p=>p.d[S.day]);
+  if(!has){
+    ['verdict','regions','list'].forEach(id=>{$(id).innerHTML=''});
+    $('map').hidden=false;$('list').hidden=true;
+    renderBar();
+    $('map').innerHTML=FC.loading?'<p class="loading">Carico le previsioni…</p>':'';
+    if(!FC.loading){st.hidden=false;st.innerHTML='Non riesco a leggere le previsioni da Open-Meteo. Controlla la connessione e riprova.<br><button type="button" class="retry" data-retry>Riprova</button>'}
+    else st.hidden=true;
+    return}
   renderBar();renderVerdict();renderRegions();
   $('viewTitle').textContent=S.reg==='all'?'4 regioni':REG[S.reg];
   $('vList').setAttribute('aria-pressed',S.view==='list');$('vMap').setAttribute('aria-pressed',S.view==='map');
   $('list').hidden=S.view!=='list';$('map').hidden=S.view!=='map';
   if(S.view==='list')renderList();else renderMap();
-  const st=$('stale');
-  if(stale){st.hidden=false;st.textContent='Queste previsioni riguardano giorni ormai passati: l\'aggiornamento automatico dovrebbe arrivare a breve.'}
-  else if(META.fcAt&&(Date.now()-Date.parse(META.fcAt))/36e5>30){st.hidden=false;st.textContent='Le previsioni 3B più recenti che l\'aggiornamento automatico riesce a leggere sono di '+META.fcShort+': ricontrolla il meteo prima di partire.'}
-  else if((Date.now()-Date.parse(META.readAt))/36e5>13){st.hidden=false;st.textContent='Previsioni lette più di 12 ore fa: l\'aggiornamento automatico è in ritardo, ricontrolla prima di partire.'}
+  if(FC.err&&FC.ok){st.hidden=false;st.innerHTML='Non riesco ad aggiornare le previsioni: mostro quelle lette '+esc(whenTxt(FC.at))+'.<br><button type="button" class="retry" data-retry>Riprova</button>'}
   else st.hidden=true;
   const miss=DATA.filter(p=>!p.d[S.day]).map(p=>p.n);
-  $('foot').innerHTML='Previsioni orarie: 3B Meteo, rilette in automatico ogni 6 ore (alle 0:42, 6:42, 12:42 e 18:42, pronte una ventina di minuti dopo). Allerte: Servizio Meteorologico via Meteoalarm, riportate da AccuWeather e lette a ogni aggiornamento automatico'+(MCP?' (in diretta se il connettore AccuWeather è attivo)':'')+'; non sostituiscono gli avvisi della Protezione Civile. '+
-    (miss.length?'Senza dati per questo giorno (pagina 3B non aggiornata): '+esc(list(miss))+'. ':'')+'Mappa schematica, coste approssimate. Ricontrolla sempre il meteo prima di partire.';
+  const icon=DATA.some(p=>p.d[S.day]&&p.d[S.day].src==='icon');
+  $('foot').innerHTML='Previsioni orarie: <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo.com</a> (dati <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>), lette a ogni apertura della pagina. '+
+    (icon?'Per questo giorno: modello ICON-2I di ItaliaMeteo-ARPAE (griglia di 2 km); probabilità di pioggia dai modelli d\'insieme. ':'Per questo giorno, ancora lontano, il miglior modello disponibile su Open-Meteo; il modello italiano ICON-2I (2 km) entra in gioco negli ultimi 2-3 giorni prima. ')+
+    'Allerte: <a href="https://www.meteoalarm.org" target="_blank" rel="noopener">www.meteoalarm.org</a>, emesse dal Servizio Meteorologico dell\'Aeronautica Militare e rilette ogni 30 minuti: possono arrivare con qualche ritardo rispetto a meteoalarm.org. Riguardano solo intensità e ricorrenza dei fenomeni e non sono gli avvisi ufficiali della Protezione Civile. '+
+    (miss.length?'Senza previsioni per questo giorno: '+esc(list(miss))+'. ':'')+'Mappa schematica, coste approssimate. Ricontrolla sempre il meteo prima di partire.';
 }
-
-/* Allerte in diretta via connettore AccuWeather */
-let MCP=null;
-const DENY={needs_reauth:'Ricollega AccuWeather in Impostazioni → Connettori per le allerte in diretta.',server_not_connected:'Aggiungi il connettore AccuWeather in Impostazioni → Connettori per le allerte in diretta.',blocked_by_policy:'Le allerte in diretta non sono consentite dalla tua organizzazione.',not_in_manifest:'Le allerte in diretta sono disattivate per questa pagina.',approval_required:'Le allerte in diretta aspettano il tuo consenso al connettore AccuWeather.',selection_required:'Scegli quale connettore AccuWeather usare per le allerte in diretta.'};
-function onAlertData(r,res){
-  const al=normAlerts(res&&res.payload,r);if(al===null)return;
-  LIVE[r]=al;LIVE_AT[r]=res.cache&&res.cache.storedAt?res.cache.storedAt:Date.now();ALERT_NOTE='';render()}
-function onAlertError(r,err){
-  const code=err&&err.code;
-  if(DENY[code]){delete LIVE[r];delete LIVE_AT[r];ALERT_NOTE=DENY[code]}
-  else if(code==='not_granted'||code==='capability_disabled'||code==='capability_removed'){ALERT_NOTE=''}
-  else ALERT_NOTE='AccuWeather non risponde in questo momento: mostro l\'ultima lettura.';
-  render()}
-(async function(){
-  try{if(window.claude&&claude.use)MCP=await claude.use('mcp')}catch(e){MCP=null}
-  if(!MCP)return;
-  ORDER.forEach(r=>{try{MCP.watchTool(ASERVER,ATOOL,{queryParams:{LocationKey:AKEY[r],lang:'it'}},ev=>{if(ev.type==='data')onAlertData(r,ev.result);else onAlertError(r,ev.error)},{cache:{staleTime:15*60e3,gcTime:24*36e5}})}catch(e){}});
-})();
+function refresh(){FC.err='';FC.loading=true;render();loadForecast();loadAlerts()}
+document.addEventListener('visibilitychange',()=>{if(!document.hidden&&Date.now()-FC.at>REFRESH_MIN*6e4&&!FC.loading)refresh()});
+setInterval(()=>{if(!document.hidden&&Date.now()-FC.at>30*6e4&&!FC.loading)refresh()},60000);
 
 /* Eventi */
 document.addEventListener('click',e=>{
+  if(e.target.closest('[data-retry]')){refresh();return}
   const t=e.target.closest('[data-day],[data-reg],[data-pt],[data-hour]');if(!t)return;
   if(t.hasAttribute('data-day')){S.day=t.getAttribute('data-day');S.hour=startHour();render();return}
   if(t.hasAttribute('data-reg')){S.reg=t.getAttribute('data-reg');render();if(t.classList.contains('rt'))$('viewTitle').scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});return}
@@ -715,7 +757,9 @@ document.addEventListener('keydown',e=>{
 $('vList').onclick=()=>{S.view='list';render()};
 $('vMap').onclick=()=>{S.view='map';render()};
 $('scrim').onclick=closeSheet;$('closeSheet').onclick=closeSheet;
+loadCache(DAYS);
 render();
+loadForecast();loadAlerts();
 })();
 </script>
 </body>

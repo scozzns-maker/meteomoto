@@ -18,12 +18,6 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
-      - name: Controllo CORS (diagnostica)
-        if: github.event_name != 'schedule'
-        continue-on-error: true
-        run: |
-          h=$(curl -sS -m 20 -D - -o /dev/null -H 'Origin: https://scozzns-maker.github.io' https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-italy | tr -d '\r' | grep -i -E '^(http|access-control|content-type)' | tr '\n' ' ')
-          echo "::notice title=CORS feed::$h"
       - name: Leggi Meteoalarm
         env:
           REGIONS: IT011,IT010,IT013,IT009

@@ -73,7 +73,7 @@ def clean(s, n=600):
 
 def read_cap(url, debug=False):
     """Testi del bollettino CAP completo: descrizione italiana e inglese, titolo, zone."""
-    out = {'desc': '', 'descEn': '', 'headline': '', 'areas': []}
+    out = {'desc': '', 'descEn': '', 'headline': '', 'areas': [], 'zone': ''}
     try:
         raw, ctype = get(url, timeout=20)
     except Exception as e:  # noqa: BLE001
@@ -110,6 +110,7 @@ def read_cap(url, debug=False):
                 d = clean(a.get('areaDesc', ''), 120) if isinstance(a, dict) else ''
                 if d and d not in out['areas']:
                     out['areas'].append(d)
+        out['zone'] = zone(out['desc']) or zone(out['descEn'])
         return out
     try:
         root = ET.fromstring(raw)
@@ -129,7 +130,16 @@ def read_cap(url, debug=False):
             d = clean(txt(area, CAP + 'areaDesc'), 120)
             if d and d not in out['areas']:
                 out['areas'].append(d)
+    out['zone'] = zone(out['desc']) or zone(out['descEn'])
     return out
+
+
+def zone(desc):
+    """Zona scritta in maiuscolo in fondo alla descrizione, prima dell'avvertenza tra parentesi
+    (es. «... di moderata intensità COSTE E APPENNINI (AVVERTENZA: ...)» -> «COSTE E APPENNINI»)."""
+    head = (desc or '').split('(')[0].strip()
+    m = re.search(r"([A-ZÀ-Ý][A-ZÀ-Ý '’,\-/]{2,})$", head)
+    return m.group(1).strip(' ,-') if m else ''
 
 
 def main():
@@ -206,7 +216,7 @@ def main():
     alerts = sorted(picked.values(), key=lambda a: (a['onset'], a['geo'], a['event']))
     for a in alerts:
         url = a.pop('cap')
-        info = read_cap(url, debug=not debug_done) if url else {'desc': '', 'descEn': '', 'headline': '', 'areas': []}
+        info = read_cap(url, debug=not debug_done) if url else {'desc': '', 'descEn': '', 'headline': '', 'areas': [], 'zone': ''}
         debug_done = True
         a.update(info)
 
