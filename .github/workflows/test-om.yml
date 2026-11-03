@@ -1,0 +1,19 @@
+name: Prova Open-Meteo
+on:
+  push:
+    branches: [test-openmeteo]
+jobs:
+  prova:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Chiamate di prova
+        run: |
+          i=0
+          while read -r u; do
+            i=$((i+1))
+            code=$(curl -sS -o r$i.json -w '%{http_code}' -H 'Origin: https://scozzns-maker.github.io' -D h$i.txt "$u")
+            cors=$(grep -i '^access-control-allow-origin' h$i.txt | tr -d '\r')
+            sum=$(python3 check.py r$i.json 2>&1 | tr '\n' ' ')
+            echo "::notice title=URL $i HTTP $code::$cors | $sum"
+          done < urls.txt
