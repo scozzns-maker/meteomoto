@@ -1,0 +1,13 @@
+{
+ "source": "Meteoalarm",
+ "issuer": "Servizio Meteorologico dell'Aeronautica Militare",
+ "regions": [
+  "IT011",
+  "IT010",
+  "IT013",
+  "IT009"
+ ],
+ "latestSent": "2026-11-03T09:17:15Z",
+ "checkedAt": "2026-11-03T21:03:09Z",
+ "alerts": []
+}
