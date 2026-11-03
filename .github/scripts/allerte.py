@@ -58,6 +58,14 @@ def txt(el, path):
     return (x.text or '').strip() if x is not None and x.text else ''
 
 
+def child(el, name):
+    """Testo del primo figlio con quel nome locale, in qualunque namespace (il feed mescola Atom e CAP)."""
+    for x in el:
+        if x.tag.rsplit('}', 1)[-1] == name:
+            return (x.text or '').strip()
+    return ''
+
+
 def clean(s, n=600):
     s = re.sub(r'\s+', ' ', s or '').strip()
     return s[:n]
@@ -143,18 +151,23 @@ def main():
             notice('Prima voce del feed', ET.tostring(entries[0], encoding='unicode')[:3000])
         rows = []
         for en in entries:
-            geo = '/'.join(txt(g, CAP + 'value') for g in en.findall(CAP + 'geocode'))
+            geo = '/'.join(child(g, 'value') for g in en.findall(CAP + 'geocode'))
             rows.append(' | '.join([geo, txt(en, CAP + 'areaDesc'), txt(en, CAP + 'event'), txt(en, CAP + 'onset'),
                                     txt(en, CAP + 'expires'), txt(en, CAP + 'status'), txt(en, CAP + 'message_type')]))
         notice(f'Voci del feed ({len(entries)})', '\n'.join(rows))
+        for ln in entries[0].findall(ATOM + 'link') if entries else []:
+            if 'cap' in (ln.get('type') or '').lower():
+                read_cap(ln.get('href'), debug=True)
+                break
+        debug_done = True
     for en in entries:
         sent = when(txt(en, CAP + 'sent')) or when(txt(en, ATOM + 'updated'))
         if sent and (latest is None or sent > latest):
             latest = sent
         geo = ''
         for g in en.findall(CAP + 'geocode'):
-            if txt(g, CAP + 'valueName').upper() == 'EMMA_ID':
-                geo = txt(g, CAP + 'value').upper()
+            if child(g, 'valueName').upper() == 'EMMA_ID':
+                geo = child(g, 'value').upper()
         if geo not in REGIONS:
             continue
         status = txt(en, CAP + 'status').lower()
