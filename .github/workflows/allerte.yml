@@ -1,0 +1,40 @@
+# Legge le allerte Meteoalarm ogni 30 minuti e aggiorna alerts.json (solo se cambiano, o ogni 6 ore).
+name: Allerte Meteoalarm
+on:
+  schedule:
+    - cron: '7,37 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/**']
+permissions:
+  contents: write
+concurrency:
+  group: allerte
+  cancel-in-progress: false
+jobs:
+  allerte:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Controllo CORS (diagnostica)
+        if: github.event_name != 'schedule'
+        continue-on-error: true
+        run: |
+          h=$(curl -sS -m 20 -D - -o /dev/null -H 'Origin: https://scozzns-maker.github.io' https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-italy | tr -d '\r' | grep -i -E '^(http|access-control|content-type)' | tr '\n' ' ')
+          echo "::notice title=CORS feed::$h"
+      - name: Leggi Meteoalarm
+        env:
+          REGIONS: IT011,IT010,IT013,IT009
+          CAP_DEBUG: ${{ github.event_name != 'schedule' && '1' || '0' }}
+        run: python3 .github/scripts/allerte.py
+      - name: Pubblica se cambiate
+        run: |
+          if [ -z "$(git status --porcelain -- alerts.json)" ]; then echo "Nessuna modifica da pubblicare"; exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add alerts.json
+          git commit -q -m 'Allerte Meteoalarm aggiornate'
+          git pull -q --rebase origin main
+          git push -q
