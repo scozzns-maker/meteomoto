@@ -8,6 +8,41 @@
   "IT009"
  ],
  "latestSent": "2026-11-08T09:25:03Z",
- "checkedAt": "2026-11-08T16:41:00Z",
- "alerts": []
+ "checkedAt": "2026-11-08T23:39:02Z",
+ "alerts": [
+  {
+   "id": "2.49.0.0.380.3.IT.261108102502.010",
+   "geo": "IT009",
+   "region": "Toscana",
+   "event": "Orange Rain Warning",
+   "severity": "Severe",
+   "onset": "2026-11-10T00:00:00Z",
+   "expires": "2026-11-10T22:59:00Z",
+   "sent": "2026-11-08T09:25:03Z",
+   "desc": "Sono previsti fenomeni meteorologici intensi PARTE NORD (DISCLAIMER: \"Le informazioni fornite su METEOALARM per l'Italia riguardano esclusivamente l'intensità e la ricorrenza dei fenomeni, maggiori dettagli sono disponibili su www.meteoam.it. Le informazioni METEOALARM non forniscono la valutazione di impatto sul territorio e non rappresentano i messaggi di Allerta Ufficiali che vengono emessi dal Servizio Nazionale di Protezione Civile https://www.protezionecivile.gov.it\")",
+   "descEn": "Severe weather expected NORTH PART (DISCLAIMER: \"Information provided on METEOALARM for Italy regard only the intensity and recurrence of the phenomena, further details can be found at www.meteoam.it. METEOALARM information do not provide the assessment of impact on the territory and they do not represent the Official Alerts messages that are issued by the National Civil Protection Service https://www.protezionecivile.gov.it\")",
+   "headline": "Allerta Pioggia Arancione per l'Italia - Toscana",
+   "areas": [
+    "Toscana"
+   ],
+   "zone": "PARTE NORD"
+  },
+  {
+   "id": "2.49.0.0.380.3.IT.261108102502.011",
+   "geo": "IT009",
+   "region": "Toscana",
+   "event": "Yellow Thunderstorm Warning",
+   "severity": "Moderate",
+   "onset": "2026-11-10T12:00:00Z",
+   "expires": "2026-11-10T17:59:00Z",
+   "sent": "2026-11-08T09:25:03Z",
+   "desc": "Sono previsti fenomeni meteorologici di moderata intensità COSTE (DISCLAIMER: \"Le informazioni fornite su METEOALARM per l'Italia riguardano esclusivamente l'intensità e la ricorrenza dei fenomeni, maggiori dettagli sono disponibili su www.meteoam.it. Le informazioni METEOALARM non forniscono la valutazione di impatto sul territorio e non rappresentano i messaggi di Allerta Ufficiali che vengono emessi dal Servizio Nazionale di Protezione Civile https://www.protezionecivile.gov.it\")",
+   "descEn": "Moderate intensity weather phenomena expected COASTS (DISCLAIMER: \"Information provided on METEOALARM for Italy regard only the intensity and recurrence of the phenomena, further details can be found at www.meteoam.it. METEOALARM information do not provide the assessment of impact on the territory and they do not represent the Official Alerts messages that are issued by the National Civil Protection Service https://www.protezionecivile.gov.it\")",
+   "headline": "Allerta Temporali Giallo per l'Italia - Toscana",
+   "areas": [
+    "Toscana"
+   ],
+   "zone": "COSTE"
+  }
+ ]
 }
