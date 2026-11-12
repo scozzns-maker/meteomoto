@@ -3,7 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>MeteoMoto</title>
+<title>MeteoMoto · Si esce o si resta in garage?</title>
+<meta name="description" content="Meteo del weekend ora per ora per 40 mete da giro in moto di Marche, Umbria, Abruzzo e Toscana, con verdetto: si va, con prudenza o garage.">
+<meta name="theme-color" content="#eff1f0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1214" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MeteoMoto">
+<meta property="og:description" content="Si esce o si resta in garage? Il meteo del weekend per 40 mete da giro in moto.">
+<meta property="og:url" content="https://scozzns-maker.github.io/meteomoto/">
+<meta property="og:image" content="https://scozzns-maker.github.io/meteomoto/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://api.open-meteo.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&amp;family=Barlow+Semi+Condensed:wght@600;700&amp;display=swap">
@@ -48,7 +63,7 @@ p{margin:0}
 
 /* Testata */
 .top{display:flex;gap:14px;align-items:center;padding-bottom:8px}
-.logo{width:56px;height:56px;flex:none;display:block}
+.logo{width:60px;height:60px;flex:none;display:block;border-radius:14px;box-shadow:0 1px 2px rgba(0,0,0,.18),0 6px 16px -8px rgba(217,82,12,.55)}
 .eyebrow{font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600}
 h1{font-size:38px;line-height:1;margin-top:3px}
 h1 span{color:var(--accent)}
@@ -237,11 +252,20 @@ h1 span{color:var(--accent)}
 <body>
 <div class="wrap">
   <header class="top">
-    <svg class="logo" viewBox="0 0 60 60" role="img" aria-label="Logo MeteoMoto: una strada a curve sotto il sole">
-      <circle cx="30" cy="30" r="29" fill="var(--accent)"/>
-      <circle cx="40" cy="18" r="6.5" fill="var(--accent-ink)" opacity=".9"/>
-      <path d="M17 58 C 18 46, 40 44, 36 34 C 33 27, 20 28, 24 20" fill="none" stroke="var(--ink)" stroke-width="9" stroke-linecap="round"/>
-      <path d="M17 58 C 18 46, 40 44, 36 34 C 33 27, 20 28, 24 20" fill="none" stroke="var(--accent-ink)" stroke-width="1.6" stroke-dasharray="3.5 3.5" stroke-linecap="round"/>
+    <svg class="logo" viewBox="0 0 64 64" role="img" aria-label="Logo MeteoMoto: una strada a curve tra le colline al tramonto">
+    <defs>
+      <linearGradient id="mm-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c2410c"/><stop offset=".62" stop-color="#f58a1f"/><stop offset="1" stop-color="#ffc24a"/></linearGradient>
+      <clipPath id="mm-clip"><rect width="64" height="64" rx="15"/></clipPath>
+    </defs>
+    <g clip-path="url(#mm-clip)">
+      <rect width="64" height="64" fill="url(#mm-sky)"/>
+      <circle cx="43" cy="27" r="10" fill="#fff4d8"/>
+      <path d="M0 35 Q12 23 24 31 Q31 35 39 30 Q52 22 64 31 V64 H0Z" fill="#8a2f0a"/>
+      <path d="M0 42 Q13 32 27 38 Q34 41 41 37.5 Q53 32 64 39 V64 H0Z" fill="#1c2a33"/>
+      <path d="M9 64 C16 54 43 53 41 45.5 C39.6 40.6 31.6 41.5 33.6 37.6 L35.4 37.4 C34.6 40.4 46.5 39.6 50 46 C54.5 54.5 37 56 39 64Z" fill="#fbf3e4"/>
+      <path d="M24 64 C26.5 55 48.7 53.7 45.5 45.8 C43 40.1 33.1 41 34.5 37.6" fill="none" stroke="#d9520c" stroke-width="1.3" stroke-dasharray="3.2 2.8" stroke-linecap="round"/>
+    </g>
+    <rect x=".5" y=".5" width="63" height="63" rx="14.5" fill="none" stroke="#fff" stroke-opacity=".16"/>
     </svg>
     <div>
       <p class="eyebrow">Marche · Umbria · Abruzzo · Toscana</p>
@@ -296,12 +320,12 @@ h1 span{color:var(--accent)}
 (function(){
 'use strict';
 /* Località fisse; le previsioni orarie arrivano da Open-Meteo */
-const PLACES=[{"k":"gabicce+mare","n":"Gabicce Mare","g":"Panoramica del San Bartolo","r":"M","alt":11,"la":43.9636,"lo":12.7601,"coast":true},{"k":"carpegna+park","n":"Monte Carpegna","g":"Carpegna e Cippo","r":"M","alt":1020,"la":43.7853,"lo":12.3007,"coast":false},{"k":"borgo+pace","n":"Borgo Pace","g":"Bocca Trabaria","r":"M","alt":469,"la":43.6581,"lo":12.2934,"coast":false},{"k":"genga","n":"Genga","g":"Gola della Rossa e Frasassi","r":"M","alt":322,"la":43.4291,"lo":12.9352,"coast":false},{"k":"ancona","n":"Ancona","g":"Riviera del Conero","r":"M","alt":16,"la":43.6158,"lo":13.5189,"coast":true},{"k":"sassotetto","n":"Sassotetto","g":"Strada di Sassotetto","r":"M","alt":1457,"la":43.0039,"lo":13.2451,"coast":false},{"k":"arquata+del+tronto","n":"Arquata del Tronto","g":"Sibillini e Forca di Presta","r":"M","alt":777,"la":42.7723,"lo":13.2949,"coast":false},{"k":"castelluccio","n":"Castelluccio","g":"Piana di Castelluccio","r":"U","alt":1452,"la":42.8286,"lo":13.209,"coast":false},{"k":"scheggino","n":"Scheggino","g":"Valnerina","r":"U","alt":281,"la":42.7121,"lo":12.8295,"coast":false},{"k":"spoleto","n":"Spoleto","g":"Monteluco e Forca di Cerro","r":"U","alt":396,"la":42.7405,"lo":12.7378,"coast":false},{"k":"marmore","n":"Marmore","g":"Cascata delle Marmore e Piediluco","r":"U","alt":377,"la":42.5486,"lo":12.7125,"coast":false},{"k":"gualdo+tadino","n":"Gualdo Tadino","g":"Valsorda e Scheggia","r":"U","alt":536,"la":43.2341,"lo":12.7822,"coast":false},{"k":"magione","n":"Magione","g":"Giro del Trasimeno","r":"U","alt":299,"la":43.1198,"lo":12.1861,"coast":false},{"k":"assergi","n":"Assergi","g":"Campo Imperatore","r":"A","alt":886,"la":42.4135,"lo":13.5054,"coast":false},{"k":"isola+del+gran+sasso+ditalia","n":"Isola del Gran Sasso","g":"Gran Sasso teramano","r":"A","alt":415,"la":42.5013,"lo":13.6612,"coast":false},{"k":"pretoro","n":"Pretoro","g":"Majella e Passo Lanciano","r":"A","alt":560,"la":42.2193,"lo":14.1401,"coast":false},{"k":"lama+dei+peligni","n":"Lama dei Peligni","g":"Majella orientale","r":"A","alt":669,"la":42.0435,"lo":14.1883,"coast":false},{"k":"palena","n":"Palena","g":"Valico della Forchetta","r":"A","alt":767,"la":41.98,"lo":14.13,"coast":false},{"k":"fossacesia","n":"Fossacesia","g":"Costa dei Trabocchi","r":"A","alt":140,"la":42.2441,"lo":14.4802,"coast":true},{"k":"passo+della+futa","n":"Passo della Futa","g":"Futa e Giogo","r":"T","alt":903,"la":44.0949,"lo":11.2754,"coast":false},{"k":"dicomano","n":"Dicomano","g":"Verso il Muraglione","r":"T","alt":162,"la":43.891,"lo":11.5233,"coast":false},{"k":"abetone","n":"Abetone","g":"Passo dell'Abetone","r":"T","alt":1388,"la":44.14,"lo":10.66,"coast":false},{"k":"castiglione+di+garfagnana","n":"Castiglione di Garfagnana","g":"Passo delle Radici","r":"T","alt":545,"la":44.1527,"lo":10.4113,"coast":false},{"k":"radda+in+chianti","n":"Radda in Chianti","g":"Chiantigiana","r":"T","alt":530,"la":43.5018,"lo":11.3545,"coast":false},{"k":"saline+di+volterra","n":"Saline di Volterra","g":"Colline di Volterra","r":"T","alt":75,"la":43.361,"lo":10.8134,"coast":false},{"k":"piancastagnaio","n":"Piancastagnaio","g":"Monte Amiata","r":"T","alt":772,"la":42.85,"lo":11.6867,"coast":false}];
+const PLACES=[{"k":"gabicce+mare","n":"Gabicce Mare","g":"Panoramica del San Bartolo","r":"M","alt":11,"la":43.9636,"lo":12.7601,"coast":true},{"k":"carpegna+park","n":"Monte Carpegna","g":"Carpegna e Cippo","r":"M","alt":1020,"la":43.7853,"lo":12.3007,"coast":false},{"k":"borgo+pace","n":"Borgo Pace","g":"Bocca Trabaria","r":"M","alt":469,"la":43.6581,"lo":12.2934,"coast":false},{"k":"genga","n":"Genga","g":"Gola della Rossa e Frasassi","r":"M","alt":322,"la":43.4291,"lo":12.9352,"coast":false},{"k":"ancona","n":"Ancona","g":"Riviera del Conero","r":"M","alt":16,"la":43.6158,"lo":13.5189,"coast":true},{"k":"sassotetto","n":"Sassotetto","g":"Strada di Sassotetto","r":"M","alt":1457,"la":43.0039,"lo":13.2451,"coast":false},{"k":"arquata+del+tronto","n":"Arquata del Tronto","g":"Sibillini e Forca di Presta","r":"M","alt":777,"la":42.7723,"lo":13.2949,"coast":false},{"k":"acqualagna","n":"Acqualagna","g":"Gola del Furlo","r":"M","alt":204,"la":43.6261,"lo":12.676,"coast":false},{"k":"cingoli","n":"Cingoli","g":"Balcone delle Marche","r":"M","alt":631,"la":43.3757,"lo":13.2079,"coast":false},{"k":"grottammare","n":"Grottammare","g":"Riviera delle Palme","r":"M","alt":4,"la":42.9818,"lo":13.8676,"coast":true},{"k":"castelluccio","n":"Castelluccio","g":"Piana di Castelluccio","r":"U","alt":1452,"la":42.8286,"lo":13.209,"coast":false},{"k":"scheggino","n":"Scheggino","g":"Valnerina","r":"U","alt":281,"la":42.7121,"lo":12.8295,"coast":false},{"k":"spoleto","n":"Spoleto","g":"Monteluco e Forca di Cerro","r":"U","alt":396,"la":42.7405,"lo":12.7378,"coast":false},{"k":"marmore","n":"Marmore","g":"Cascata delle Marmore e Piediluco","r":"U","alt":377,"la":42.5486,"lo":12.7125,"coast":false},{"k":"gualdo+tadino","n":"Gualdo Tadino","g":"Valsorda e Scheggia","r":"U","alt":536,"la":43.2341,"lo":12.7822,"coast":false},{"k":"magione","n":"Magione","g":"Giro del Trasimeno","r":"U","alt":299,"la":43.1198,"lo":12.1861,"coast":false},{"k":"gubbio","n":"Gubbio","g":"Contessa e Madonna della Cima","r":"U","alt":522,"la":43.35,"lo":12.5731,"coast":false},{"k":"assisi","n":"Assisi","g":"Monte Subasio","r":"U","alt":424,"la":43.0667,"lo":12.6211,"coast":false},{"k":"todi","n":"Todi","g":"Colline del Tevere","r":"U","alt":400,"la":42.7788,"lo":12.412,"coast":false},{"k":"orvieto","n":"Orvieto","g":"Lago di Corbara","r":"U","alt":325,"la":42.7192,"lo":12.1125,"coast":false},{"k":"assergi","n":"Assergi","g":"Campo Imperatore","r":"A","alt":886,"la":42.4135,"lo":13.5054,"coast":false},{"k":"isola+del+gran+sasso+ditalia","n":"Isola del Gran Sasso","g":"Gran Sasso teramano","r":"A","alt":415,"la":42.5013,"lo":13.6612,"coast":false},{"k":"pretoro","n":"Pretoro","g":"Majella e Passo Lanciano","r":"A","alt":560,"la":42.2193,"lo":14.1401,"coast":false},{"k":"lama+dei+peligni","n":"Lama dei Peligni","g":"Majella orientale","r":"A","alt":669,"la":42.0435,"lo":14.1883,"coast":false},{"k":"palena","n":"Palena","g":"Valico della Forchetta","r":"A","alt":767,"la":41.98,"lo":14.13,"coast":false},{"k":"fossacesia","n":"Fossacesia","g":"Costa dei Trabocchi","r":"A","alt":140,"la":42.2441,"lo":14.4802,"coast":true},{"k":"campotosto","n":"Campotosto","g":"Lago di Campotosto e Capannelle","r":"A","alt":1420,"la":42.5588,"lo":13.368,"coast":false},{"k":"ovindoli","n":"Ovindoli","g":"Altopiano delle Rocche","r":"A","alt":1375,"la":42.1377,"lo":13.516,"coast":false},{"k":"scanno","n":"Scanno","g":"Gole del Sagittario","r":"A","alt":1050,"la":41.9044,"lo":13.8796,"coast":false},{"k":"pescasseroli","n":"Pescasseroli","g":"Parco Nazionale e Forca d’Acero","r":"A","alt":1167,"la":41.8034,"lo":13.7871,"coast":false},{"k":"passo+della+futa","n":"Passo della Futa","g":"Futa e Giogo","r":"T","alt":903,"la":44.0949,"lo":11.2754,"coast":false},{"k":"dicomano","n":"Dicomano","g":"Verso il Muraglione","r":"T","alt":162,"la":43.891,"lo":11.5233,"coast":false},{"k":"abetone","n":"Abetone","g":"Passo dell'Abetone","r":"T","alt":1388,"la":44.14,"lo":10.66,"coast":false},{"k":"castiglione+di+garfagnana","n":"Castiglione di Garfagnana","g":"Passo delle Radici","r":"T","alt":545,"la":44.1527,"lo":10.4113,"coast":false},{"k":"radda+in+chianti","n":"Radda in Chianti","g":"Chiantigiana","r":"T","alt":530,"la":43.5018,"lo":11.3545,"coast":false},{"k":"saline+di+volterra","n":"Saline di Volterra","g":"Colline di Volterra","r":"T","alt":75,"la":43.361,"lo":10.8134,"coast":false},{"k":"piancastagnaio","n":"Piancastagnaio","g":"Monte Amiata","r":"T","alt":772,"la":42.85,"lo":11.6867,"coast":false},{"k":"poppi","n":"Poppi","g":"Casentino e Passo della Consuma","r":"T","alt":437,"la":43.7212,"lo":11.7664,"coast":false},{"k":"pienza","n":"Pienza","g":"Val d’Orcia","r":"T","alt":491,"la":43.0787,"lo":11.6767,"coast":false},{"k":"castiglione+della+pescaia","n":"Castiglione della Pescaia","g":"Costa della Maremma","r":"T","alt":4,"la":42.7685,"lo":10.8775,"coast":true}];
 /* Previsioni lette in diretta da Open-Meteo a ogni apertura: ICON-2I (2 km) finché copre il giorno, poi il miglior modello disponibile.
    Ogni ora: [tempo, temperatura, mm, probabilità %, direzione vento, vento km/h, raffica km/h] */
 const OM='https://api.open-meteo.com/v1/forecast',ICON='italia_meteo_arpae_icon_2i';
 const OMV='temperature_2m,precipitation,weather_code,wind_speed_10m,wind_direction_10m,wind_gusts_10m';
-const CACHE_KEY='meteomoto-fc-v2',REFRESH_MIN=15;
+const CACHE_KEY='meteomoto-fc-v3',REFRESH_MIN=15,FRESH_MIN=10,ICON_DAYS=3;
 let DATA=PLACES.map(p=>Object.assign({},p,{d:{}}));
 const FC={at:0,ok:false,loading:true,err:'',cached:false};
 const MONTHS=['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto','settembre','ottobre','novembre','dicembre'];
@@ -348,12 +372,14 @@ function build(icon,best,days){
 function applyData(list){DATA=PLACES.map((p,i)=>Object.assign({},p,{d:list[i]||{}}))}
 function loadCache(days){
   try{const c=JSON.parse(localStorage.getItem(CACHE_KEY)||'null');
-    if(!c||!Array.isArray(c.d)||c.days!==days.map(d=>d.k).join(','))return false;
+    if(!c||!Array.isArray(c.d)||c.d.length!==PLACES.length||c.days!==days.map(d=>d.k).join(','))return false;
     applyData(c.d);FC.at=c.at;FC.ok=true;FC.cached=true;return true}catch(e){return false}}
 async function loadForecast(){
   const days=weekendDays();
   FC.loading=true;
-  const [ri,rb]=await Promise.allSettled([getJSON(omURL(ICON,OMV,days)),getJSON(omURL('',OMV+',precipitation_probability',days))]);
+  /* ICON-2I arriva a circa 3 giorni: se il weekend è più lontano non lo chiedo nemmeno */
+  const far=(Date.parse(days[0].k)-Date.parse(romeYmd(Date.now())))/864e5>ICON_DAYS;
+  const [ri,rb]=await Promise.allSettled([far?Promise.reject(new Error('fuori portata')):getJSON(omURL(ICON,OMV,days)),getJSON(omURL('',OMV+',precipitation_probability',days))]);
   FC.loading=false;
   if(rb.status!=='fulfilled'&&ri.status!=='fulfilled'){FC.err=String((rb.reason&&rb.reason.message)||'errore di rete');render();return}
   const list=build(ri.status==='fulfilled'?ri.value:null,rb.status==='fulfilled'?rb.value:null,days);
@@ -675,9 +701,11 @@ function paintHour(){
 function paintPlay(){const b=$('play');if(!b)return;b.innerHTML=S.playing?IC.pause:IC.play;b.setAttribute('aria-label',S.playing?'Ferma l\'animazione':'Avvia l\'animazione ora per ora')}
 let timer=null,hold=0;
 function tick(){
-  if(!S.playing||S.view!=='map'||document.hidden||!$('sheet').hidden)return;
+  if(!S.playing||S.view!=='map'||document.hidden||!mapSeen||!$('sheet').hidden)return;
   if(S.hour>=18){if(hold<1){hold++;return}hold=0;S.hour=9}else S.hour++;
   paintHour()}
+let mapSeen=true;
+if('IntersectionObserver' in window)new IntersectionObserver(es=>{mapSeen=es[0].isIntersecting}).observe($('map'));
 function startTimer(){if(!timer)timer=setInterval(tick,1150)}
 startTimer();
 
@@ -757,9 +785,12 @@ document.addEventListener('keydown',e=>{
 $('vList').onclick=()=>{S.view='list';render()};
 $('vMap').onclick=()=>{S.view='map';render()};
 $('scrim').onclick=closeSheet;$('closeSheet').onclick=closeSheet;
-loadCache(DAYS);
+const warm=loadCache(DAYS)&&Date.now()-FC.at<FRESH_MIN*6e4;
+if(warm){FC.loading=false;FC.cached=false}
 render();
-loadForecast();loadAlerts();
+if(!warm)loadForecast();
+loadAlerts();
+try{localStorage.removeItem('meteomoto-fc-v2')}catch(e){}
 })();
 </script>
 </body>

@@ -214,11 +214,23 @@ def main():
             picked[key] = item
 
     alerts = sorted(picked.values(), key=lambda a: (a['onset'], a['geo'], a['event']))
+    try:
+        with open(OUT, encoding='utf-8') as f:
+            prev = json.load(f)
+    except (OSError, ValueError):
+        prev = None
+    # La zona si legge dal bollettino CAP completo: lo scarico solo per le allerte nuove o riemesse.
+    known = {(x.get('id'), x.get('sent')): x.get('zone', '') for x in (prev or {}).get('alerts', []) if 'zone' in x}
     for a in alerts:
         url = a.pop('cap')
-        info = read_cap(url, debug=not debug_done) if url else {'desc': '', 'descEn': '', 'headline': '', 'areas': [], 'zone': ''}
-        debug_done = True
-        a.update(info)
+        key = (a['id'], a['sent'])
+        if key in known and debug_done:
+            a['zone'] = known[key]
+        else:
+            a['zone'] = read_cap(url, debug=not debug_done)['zone'] if url else ''
+            debug_done = True
+        for k in ('region', 'severity'):
+            a.pop(k, None)
 
     doc = {
         'source': 'Meteoalarm',
@@ -229,18 +241,13 @@ def main():
         'alerts': alerts,
     }
 
-    try:
-        with open(OUT, encoding='utf-8') as f:
-            prev = json.load(f)
-    except (OSError, ValueError):
-        prev = None
     if prev and prev.get('alerts') == alerts and prev.get('latestSent') == doc['latestSent'] and prev.get('regions') == REGIONS:
         age = now - (when(prev.get('checkedAt')) or now - dt.timedelta(days=1))
         if age < dt.timedelta(hours=HEARTBEAT_H):
             print(f'Nessuna modifica ({len(alerts)} allerte). Ultimo salvataggio {age} fa.')
             return 0
     with open(OUT, 'w', encoding='utf-8') as f:
-        json.dump(doc, f, ensure_ascii=False, indent=1)
+        json.dump(doc, f, ensure_ascii=False, separators=(',', ':'))
         f.write('\n')
     print(f'Scritto {OUT}: {len(alerts)} allerte per {",".join(REGIONS)} su {len(entries)} voci del feed.')
     return 0
