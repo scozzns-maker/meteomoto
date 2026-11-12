@@ -7,18 +7,35 @@
   "IT013",
   "IT009"
  ],
- "latestSent": "2026-11-11T10:15:15Z",
- "checkedAt": "2026-11-12T07:18:37Z",
+ "latestSent": "2026-11-12T10:29:49Z",
+ "checkedAt": "2026-11-12T11:06:29Z",
  "alerts": [
   {
-   "id": "2.49.0.0.380.3.IT.261111111513.087",
+   "id": "2.49.0.0.380.3.IT.261112112948.130",
+   "geo": "IT009",
+   "region": "Toscana",
+   "event": "Orange Thunderstorm Warning",
+   "severity": "Severe",
+   "onset": "2026-11-12T09:00:00Z",
+   "expires": "2026-11-12T23:59:00Z",
+   "sent": "2026-11-12T10:29:48Z",
+   "desc": "Sono previsti fenomeni meteorologici intensi SETTORE NORD (DISCLAIMER: \"Le informazioni fornite su METEOALARM per l'Italia riguardano esclusivamente l'intensità e la ricorrenza dei fenomeni, maggiori dettagli sono disponibili su www.meteoam.it. Le informazioni METEOALARM non forniscono la valutazione di impatto sul territorio e non rappresentano i messaggi di Allerta Ufficiali che vengono emessi dal Servizio Nazionale di Protezione Civile https://www.protezionecivile.gov.it\")",
+   "descEn": "Severe weather expected NORTH SECTOR (DISCLAIMER: \"Information provided on METEOALARM for Italy regard only the intensity and recurrence of the phenomena, further details can be found at www.meteoam.it. METEOALARM information do not provide the assessment of impact on the territory and they do not represent the Official Alerts messages that are issued by the National Civil Protection Service https://www.protezionecivile.gov.it\")",
+   "headline": "Allerta Temporali Arancione per l'Italia - Toscana",
+   "areas": [
+    "Toscana"
+   ],
+   "zone": "SETTORE NORD"
+  },
+  {
+   "id": "2.49.0.0.380.3.IT.261112112948.131",
    "geo": "IT009",
    "region": "Toscana",
    "event": "Orange Wind Warning",
    "severity": "Severe",
-   "onset": "2026-11-11T06:00:00Z",
+   "onset": "2026-11-12T09:00:00Z",
    "expires": "2026-11-12T23:59:00Z",
-   "sent": "2026-11-11T10:15:14Z",
+   "sent": "2026-11-12T10:29:48Z",
    "desc": "Sono previsti fenomeni meteorologici intensi APPENNINO E COSTE (DISCLAIMER: \"Le informazioni fornite su METEOALARM per l'Italia riguardano esclusivamente l'intensità e la ricorrenza dei fenomeni, maggiori dettagli sono disponibili su www.meteoam.it. Le informazioni METEOALARM non forniscono la valutazione di impatto sul territorio e non rappresentano i messaggi di Allerta Ufficiali che vengono emessi dal Servizio Nazionale di Protezione Civile https://www.protezionecivile.gov.it\")",
    "descEn": "Severe weather expected APENNINES AND COASTS (DISCLAIMER: \"Information provided on METEOALARM for Italy regard only the intensity and recurrence of the phenomena, further details can be found at www.meteoam.it. METEOALARM information do not provide the assessment of impact on the territory and they do not represent the Official Alerts messages that are issued by the National Civil Protection Service https://www.protezionecivile.gov.it\")",
    "headline": "Allerta Vento Arancione per l'Italia - Toscana",
@@ -28,65 +45,14 @@
    "zone": "APPENNINO E COSTE"
   },
   {
-   "id": "2.49.0.0.380.3.IT.261111111513.064",
-   "geo": "IT009",
-   "region": "Toscana",
-   "event": "Orange Rain Warning",
-   "severity": "Severe",
-   "onset": "2026-11-11T09:00:00Z",
-   "expires": "2026-11-11T23:59:00Z",
-   "sent": "2026-11-11T10:15:14Z",
-   "desc": "Sono previsti fenomeni meteorologici intensi PARTE NORD (DISCLAIMER: \"Le informazioni fornite su METEOALARM per l'Italia riguardano esclusivamente l'intensità e la ricorrenza dei fenomeni, maggiori dettagli sono disponibili su www.meteoam.it. Le informazioni METEOALARM non forniscono la valutazione di impatto sul territorio e non rappresentano i messaggi di Allerta Ufficiali che vengono emessi dal Servizio Nazionale di Protezione Civile https://www.protezionecivile.gov.it\")",
-   "descEn": "Severe weather expected NORTHERN PART (DISCLAIMER: \"Information provided on METEOALARM for Italy regard only the intensity and recurrence of the phenomena, further details can be found at www.meteoam.it. METEOALARM information do not provide the assessment of impact on the territory and they do not represent the Official Alerts messages that are issued by the National Civil Protection Service https://www.protezionecivile.gov.it\")",
-   "headline": "Allerta Pioggia Arancione per l'Italia - Toscana",
-   "areas": [
-    "Toscana"
-   ],
-   "zone": "PARTE NORD"
-  },
-  {
-   "id": "2.49.0.0.380.3.IT.261111111513.065",
-   "geo": "IT009",
-   "region": "Toscana",
-   "event": "Yellow Thunderstorm Warning",
-   "severity": "Moderate",
-   "onset": "2026-11-11T09:00:00Z",
-   "expires": "2026-11-11T23:59:00Z",
-   "sent": "2026-11-11T10:15:14Z",
-   "desc": "Sono previsti fenomeni meteorologici di moderata intensità SETTORE NORD E APPENNINO (DISCLAIMER: \"Le informazioni fornite su METEOALARM per l'Italia riguardano esclusivamente l'intensità e la ricorrenza dei fenomeni, maggiori dettagli sono disponibili su www.meteoam.it. Le informazioni METEOALARM non forniscono la valutazione di impatto sul territorio e non rappresentano i messaggi di Allerta Ufficiali che vengono emessi dal Servizio Nazionale di Protezione Civile https://www.protezionecivile.gov.it\")",
-   "descEn": "Moderate intensity weather phenomena expected NORTHERN SECTOR AND APENNINES (DISCLAIMER: \"Information provided on METEOALARM for Italy regard only the intensity and recurrence of the phenomena, further details can be found at www.meteoam.it. METEOALARM information do not provide the assessment of impact on the territory and they do not represent the Official Alerts messages that are issued by the National Civil Protection Service https://www.protezionecivile.gov.it\")",
-   "headline": "Allerta Temporali Giallo per l'Italia - Toscana",
-   "areas": [
-    "Toscana"
-   ],
-   "zone": "SETTORE NORD E APPENNINO"
-  },
-  {
-   "id": "2.49.0.0.380.3.IT.261111111513.086",
-   "geo": "IT009",
-   "region": "Toscana",
-   "event": "Orange Thunderstorm Warning",
-   "severity": "Severe",
-   "onset": "2026-11-12T00:00:00Z",
-   "expires": "2026-11-12T23:59:00Z",
-   "sent": "2026-11-11T10:15:14Z",
-   "desc": "Sono previsti fenomeni meteorologici intensi SETTORE NORD (DISCLAIMER: \"Le informazioni fornite su METEOALARM per l'Italia riguardano esclusivamente l'intensità e la ricorrenza dei fenomeni, maggiori dettagli sono disponibili su www.meteoam.it. Le informazioni METEOALARM non forniscono la valutazione di impatto sul territorio e non rappresentano i messaggi di Allerta Ufficiali che vengono emessi dal Servizio Nazionale di Protezione Civile https://www.protezionecivile.gov.it\")",
-   "descEn": "Severe weather expected NORTH SECTOR (DISCLAIMER: \"Information provided on METEOALARM for Italy regard only the intensity and recurrence of the phenomena, further details can be found at www.meteoam.it. METEOALARM information do not provide the assessment of impact on the territory and they do not represent the Official Alerts messages that are issued by the National Civil Protection Service https://www.protezionecivile.gov.it\")",
-   "headline": "Allerta Temporali Arancione per l'Italia - Toscana",
-   "areas": [
-    "Toscana"
-   ],
-   "zone": "SETTORE NORD"
-  },
-  {
-   "id": "2.49.0.0.380.3.IT.261111111513.085",
+   "id": "2.49.0.0.380.3.IT.261112112948.129",
    "geo": "IT009",
    "region": "Toscana",
    "event": "Red Rain Warning",
    "severity": "Extreme",
-   "onset": "2026-11-12T00:00:00Z",
+   "onset": "2026-11-12T09:00:00Z",
    "expires": "2026-11-12T23:59:00Z",
-   "sent": "2026-11-11T10:15:14Z",
+   "sent": "2026-11-12T10:29:48Z",
    "desc": "Sono previsti eventi meteorologici estremi SETTORE NORD (DISCLAIMER: \"Le informazioni fornite su METEOALARM per l'Italia riguardano esclusivamente l'intensità e la ricorrenza dei fenomeni, maggiori dettagli sono disponibili su www.meteoam.it. Le informazioni METEOALARM non forniscono la valutazione di impatto sul territorio e non rappresentano i messaggi di Allerta Ufficiali che vengono emessi dal Servizio Nazionale di Protezione Civile https://www.protezionecivile.gov.it\")",
    "descEn": "Extreme weather events expected NORTH SECTOR (DISCLAIMER: \"Information provided on METEOALARM for Italy regard only the intensity and recurrence of the phenomena, further details can be found at www.meteoam.it. METEOALARM information do not provide the assessment of impact on the territory and they do not represent the Official Alerts messages that are issued by the National Civil Protection Service https://www.protezionecivile.gov.it\")",
    "headline": "Allerta Pioggia Rosso per l'Italia - Toscana",
@@ -96,14 +62,48 @@
    "zone": "SETTORE NORD"
   },
   {
-   "id": "2.49.0.0.380.3.IT.261111111513.089",
+   "id": "2.49.0.0.380.3.IT.261112112948.132",
+   "geo": "IT011",
+   "region": "Marche",
+   "event": "Yellow Thunderstorm Warning",
+   "severity": "Moderate",
+   "onset": "2026-11-12T09:00:00Z",
+   "expires": "2026-11-12T23:59:00Z",
+   "sent": "2026-11-12T10:29:48Z",
+   "desc": "Sono previsti fenomeni meteorologici di moderata intensità APPENNINO (DISCLAIMER: \"Le informazioni fornite su METEOALARM per l'Italia riguardano esclusivamente l'intensità e la ricorrenza dei fenomeni, maggiori dettagli sono disponibili su www.meteoam.it. Le informazioni METEOALARM non forniscono la valutazione di impatto sul territorio e non rappresentano i messaggi di Allerta Ufficiali che vengono emessi dal Servizio Nazionale di Protezione Civile https://www.protezionecivile.gov.it\")",
+   "descEn": "Moderate intensity weather phenomena expected APENNINES (DISCLAIMER: \"Information provided on METEOALARM for Italy regard only the intensity and recurrence of the phenomena, further details can be found at www.meteoam.it. METEOALARM information do not provide the assessment of impact on the territory and they do not represent the Official Alerts messages that are issued by the National Civil Protection Service https://www.protezionecivile.gov.it\")",
+   "headline": "Allerta Temporali Giallo per l'Italia - Marche",
+   "areas": [
+    "Marche"
+   ],
+   "zone": "APPENNINO"
+  },
+  {
+   "id": "2.49.0.0.380.3.IT.261112112948.133",
+   "geo": "IT013",
+   "region": "Abruzzo",
+   "event": "Yellow Thunderstorm Warning",
+   "severity": "Moderate",
+   "onset": "2026-11-12T09:00:00Z",
+   "expires": "2026-11-12T23:59:00Z",
+   "sent": "2026-11-12T10:29:48Z",
+   "desc": "Sono previsti fenomeni meteorologici di moderata intensità APPENNINO (DISCLAIMER: \"Le informazioni fornite su METEOALARM per l'Italia riguardano esclusivamente l'intensità e la ricorrenza dei fenomeni, maggiori dettagli sono disponibili su www.meteoam.it. Le informazioni METEOALARM non forniscono la valutazione di impatto sul territorio e non rappresentano i messaggi di Allerta Ufficiali che vengono emessi dal Servizio Nazionale di Protezione Civile https://www.protezionecivile.gov.it\")",
+   "descEn": "Moderate intensity weather phenomena expected APENNINES (DISCLAIMER: \"Information provided on METEOALARM for Italy regard only the intensity and recurrence of the phenomena, further details can be found at www.meteoam.it. METEOALARM information do not provide the assessment of impact on the territory and they do not represent the Official Alerts messages that are issued by the National Civil Protection Service https://www.protezionecivile.gov.it\")",
+   "headline": "Allerta Temporali Giallo per l'Italia - Abruzzo",
+   "areas": [
+    "Abruzzo"
+   ],
+   "zone": "APPENNINO"
+  },
+  {
+   "id": "2.49.0.0.380.3.IT.261112112948.137",
    "geo": "IT010",
    "region": "Umbria",
    "event": "Orange Wind Warning",
    "severity": "Severe",
-   "onset": "2026-11-12T12:00:00Z",
+   "onset": "2026-11-12T10:00:00Z",
    "expires": "2026-11-12T23:59:00Z",
-   "sent": "2026-11-11T10:15:14Z",
+   "sent": "2026-11-12T10:29:48Z",
    "desc": "Sono previsti fenomeni meteorologici intensi APPENNINO (DISCLAIMER: \"Le informazioni fornite su METEOALARM per l'Italia riguardano esclusivamente l'intensità e la ricorrenza dei fenomeni, maggiori dettagli sono disponibili su www.meteoam.it. Le informazioni METEOALARM non forniscono la valutazione di impatto sul territorio e non rappresentano i messaggi di Allerta Ufficiali che vengono emessi dal Servizio Nazionale di Protezione Civile https://www.protezionecivile.gov.it\")",
    "descEn": "Severe weather expected APENNINES (DISCLAIMER: \"Information provided on METEOALARM for Italy regard only the intensity and recurrence of the phenomena, further details can be found at www.meteoam.it. METEOALARM information do not provide the assessment of impact on the territory and they do not represent the Official Alerts messages that are issued by the National Civil Protection Service https://www.protezionecivile.gov.it\")",
    "headline": "Allerta Vento Arancione per l'Italia - Umbria",
@@ -113,14 +113,14 @@
    "zone": "APPENNINO"
   },
   {
-   "id": "2.49.0.0.380.3.IT.261111111513.093",
+   "id": "2.49.0.0.380.3.IT.261112112948.140",
    "geo": "IT010",
    "region": "Umbria",
    "event": "Yellow Thunderstorm Warning",
    "severity": "Moderate",
-   "onset": "2026-11-12T12:00:00Z",
+   "onset": "2026-11-12T10:00:00Z",
    "expires": "2026-11-12T23:59:00Z",
-   "sent": "2026-11-11T10:15:14Z",
+   "sent": "2026-11-12T10:29:48Z",
    "desc": "Sono previsti fenomeni meteorologici di moderata intensità (DISCLAIMER: \"Le informazioni fornite su METEOALARM per l'Italia riguardano esclusivamente l'intensità e la ricorrenza dei fenomeni, maggiori dettagli sono disponibili su www.meteoam.it. Le informazioni METEOALARM non forniscono la valutazione di impatto sul territorio e non rappresentano i messaggi di Allerta Ufficiali che vengono emessi dal Servizio Nazionale di Protezione Civile https://www.protezionecivile.gov.it\")",
    "descEn": "Moderate intensity weather phenomena expected (DISCLAIMER: \"Information provided on METEOALARM for Italy regard only the intensity and recurrence of the phenomena, further details can be found at www.meteoam.it. METEOALARM information do not provide the assessment of impact on the territory and they do not represent the Official Alerts messages that are issued by the National Civil Protection Service https://www.protezionecivile.gov.it\")",
    "headline": "Allerta Temporali Giallo per l'Italia - Umbria",
@@ -130,14 +130,14 @@
    "zone": ""
   },
   {
-   "id": "2.49.0.0.380.3.IT.261111111513.088",
+   "id": "2.49.0.0.380.3.IT.261112112948.136",
    "geo": "IT011",
    "region": "Marche",
    "event": "Orange Wind Warning",
    "severity": "Severe",
-   "onset": "2026-11-12T12:00:00Z",
+   "onset": "2026-11-12T10:00:00Z",
    "expires": "2026-11-12T23:59:00Z",
-   "sent": "2026-11-11T10:15:14Z",
+   "sent": "2026-11-12T10:29:48Z",
    "desc": "Sono previsti fenomeni meteorologici intensi APPENNINO (DISCLAIMER: \"Le informazioni fornite su METEOALARM per l'Italia riguardano esclusivamente l'intensità e la ricorrenza dei fenomeni, maggiori dettagli sono disponibili su www.meteoam.it. Le informazioni METEOALARM non forniscono la valutazione di impatto sul territorio e non rappresentano i messaggi di Allerta Ufficiali che vengono emessi dal Servizio Nazionale di Protezione Civile https://www.protezionecivile.gov.it\")",
    "descEn": "Severe weather expected APENNINES (DISCLAIMER: \"Information provided on METEOALARM for Italy regard only the intensity and recurrence of the phenomena, further details can be found at www.meteoam.it. METEOALARM information do not provide the assessment of impact on the territory and they do not represent the Official Alerts messages that are issued by the National Civil Protection Service https://www.protezionecivile.gov.it\")",
    "headline": "Allerta Vento Arancione per l'Italia - Marche",
@@ -147,14 +147,14 @@
    "zone": "APPENNINO"
   },
   {
-   "id": "2.49.0.0.380.3.IT.261111111513.090",
+   "id": "2.49.0.0.380.3.IT.261112112948.145",
    "geo": "IT013",
    "region": "Abruzzo",
    "event": "Orange Wind Warning",
    "severity": "Severe",
-   "onset": "2026-11-12T12:00:00Z",
+   "onset": "2026-11-12T10:00:00Z",
    "expires": "2026-11-12T23:59:00Z",
-   "sent": "2026-11-11T10:15:14Z",
+   "sent": "2026-11-12T10:29:48Z",
    "desc": "Sono previsti fenomeni meteorologici intensi APPENNINO (DISCLAIMER: \"Le informazioni fornite su METEOALARM per l'Italia riguardano esclusivamente l'intensità e la ricorrenza dei fenomeni, maggiori dettagli sono disponibili su www.meteoam.it. Le informazioni METEOALARM non forniscono la valutazione di impatto sul territorio e non rappresentano i messaggi di Allerta Ufficiali che vengono emessi dal Servizio Nazionale di Protezione Civile https://www.protezionecivile.gov.it\")",
    "descEn": "Severe weather expected APENNINES (DISCLAIMER: \"Information provided on METEOALARM for Italy regard only the intensity and recurrence of the phenomena, further details can be found at www.meteoam.it. METEOALARM information do not provide the assessment of impact on the territory and they do not represent the Official Alerts messages that are issued by the National Civil Protection Service https://www.protezionecivile.gov.it\")",
    "headline": "Allerta Vento Arancione per l'Italia - Abruzzo",
@@ -164,48 +164,14 @@
    "zone": "APPENNINO"
   },
   {
-   "id": "2.49.0.0.380.3.IT.261111111513.115",
-   "geo": "IT009",
-   "region": "Toscana",
-   "event": "Orange Rain Warning",
-   "severity": "Severe",
-   "onset": "2026-11-13T00:00:00Z",
-   "expires": "2026-11-13T05:59:00Z",
-   "sent": "2026-11-11T10:15:14Z",
-   "desc": "Sono previsti fenomeni meteorologici intensi SETTORE NORD (DISCLAIMER: \"Le informazioni fornite su METEOALARM per l'Italia riguardano esclusivamente l'intensità e la ricorrenza dei fenomeni, maggiori dettagli sono disponibili su www.meteoam.it. Le informazioni METEOALARM non forniscono la valutazione di impatto sul territorio e non rappresentano i messaggi di Allerta Ufficiali che vengono emessi dal Servizio Nazionale di Protezione Civile https://www.protezionecivile.gov.it\")",
-   "descEn": "Severe weather expected NORTH SECTOR (DISCLAIMER: \"Information provided on METEOALARM for Italy regard only the intensity and recurrence of the phenomena, further details can be found at www.meteoam.it. METEOALARM information do not provide the assessment of impact on the territory and they do not represent the Official Alerts messages that are issued by the National Civil Protection Service https://www.protezionecivile.gov.it\")",
-   "headline": "Allerta Pioggia Arancione per l'Italia - Toscana",
-   "areas": [
-    "Toscana"
-   ],
-   "zone": "SETTORE NORD"
-  },
-  {
-   "id": "2.49.0.0.380.3.IT.261111111513.116",
-   "geo": "IT009",
-   "region": "Toscana",
-   "event": "Orange Thunderstorm Warning",
-   "severity": "Severe",
-   "onset": "2026-11-13T00:00:00Z",
-   "expires": "2026-11-13T05:59:00Z",
-   "sent": "2026-11-11T10:15:14Z",
-   "desc": "Sono previsti fenomeni meteorologici intensi SETTORE NORD (DISCLAIMER: \"Le informazioni fornite su METEOALARM per l'Italia riguardano esclusivamente l'intensità e la ricorrenza dei fenomeni, maggiori dettagli sono disponibili su www.meteoam.it. Le informazioni METEOALARM non forniscono la valutazione di impatto sul territorio e non rappresentano i messaggi di Allerta Ufficiali che vengono emessi dal Servizio Nazionale di Protezione Civile https://www.protezionecivile.gov.it\")",
-   "descEn": "Severe weather expected NORTH SECTOR (DISCLAIMER: \"Information provided on METEOALARM for Italy regard only the intensity and recurrence of the phenomena, further details can be found at www.meteoam.it. METEOALARM information do not provide the assessment of impact on the territory and they do not represent the Official Alerts messages that are issued by the National Civil Protection Service https://www.protezionecivile.gov.it\")",
-   "headline": "Allerta Temporali Arancione per l'Italia - Toscana",
-   "areas": [
-    "Toscana"
-   ],
-   "zone": "SETTORE NORD"
-  },
-  {
-   "id": "2.49.0.0.380.3.IT.261111111513.118",
+   "id": "2.49.0.0.380.3.IT.261112112948.162",
    "geo": "IT009",
    "region": "Toscana",
    "event": "Orange Wind Warning",
    "severity": "Severe",
    "onset": "2026-11-13T00:00:00Z",
-   "expires": "2026-11-13T05:59:00Z",
-   "sent": "2026-11-11T10:15:14Z",
+   "expires": "2026-11-13T11:59:00Z",
+   "sent": "2026-11-12T10:29:48Z",
    "desc": "Sono previsti fenomeni meteorologici intensi APPENNINO (DISCLAIMER: \"Le informazioni fornite su METEOALARM per l'Italia riguardano esclusivamente l'intensità e la ricorrenza dei fenomeni, maggiori dettagli sono disponibili su www.meteoam.it. Le informazioni METEOALARM non forniscono la valutazione di impatto sul territorio e non rappresentano i messaggi di Allerta Ufficiali che vengono emessi dal Servizio Nazionale di Protezione Civile https://www.protezionecivile.gov.it\")",
    "descEn": "Severe weather expected APENNINES (DISCLAIMER: \"Information provided on METEOALARM for Italy regard only the intensity and recurrence of the phenomena, further details can be found at www.meteoam.it. METEOALARM information do not provide the assessment of impact on the territory and they do not represent the Official Alerts messages that are issued by the National Civil Protection Service https://www.protezionecivile.gov.it\")",
    "headline": "Allerta Vento Arancione per l'Italia - Toscana",
@@ -215,65 +181,31 @@
    "zone": "APPENNINO"
   },
   {
-   "id": "2.49.0.0.380.3.IT.261111111513.117",
-   "geo": "IT009",
-   "region": "Toscana",
-   "event": "Yellow Thunderstorm Warning",
-   "severity": "Moderate",
-   "onset": "2026-11-13T00:00:00Z",
-   "expires": "2026-11-13T22:59:00Z",
-   "sent": "2026-11-11T10:15:14Z",
-   "desc": "Sono previsti fenomeni meteorologici di moderata intensità SETTORE CENTRO-SUD (DISCLAIMER: \"Le informazioni fornite su METEOALARM per l'Italia riguardano esclusivamente l'intensità e la ricorrenza dei fenomeni, maggiori dettagli sono disponibili su www.meteoam.it. Le informazioni METEOALARM non forniscono la valutazione di impatto sul territorio e non rappresentano i messaggi di Allerta Ufficiali che vengono emessi dal Servizio Nazionale di Protezione Civile https://www.protezionecivile.gov.it\")",
-   "descEn": "Moderate intensity weather phenomena expected CENTRAL-SOUTHERN SECTOR (DISCLAIMER: \"Information provided on METEOALARM for Italy regard only the intensity and recurrence of the phenomena, further details can be found at www.meteoam.it. METEOALARM information do not provide the assessment of impact on the territory and they do not represent the Official Alerts messages that are issued by the National Civil Protection Service https://www.protezionecivile.gov.it\")",
-   "headline": "Allerta Temporali Giallo per l'Italia - Toscana",
-   "areas": [
-    "Toscana"
-   ],
-   "zone": "SETTORE CENTRO-SUD"
-  },
-  {
-   "id": "2.49.0.0.380.3.IT.261111111513.128",
+   "id": "2.49.0.0.380.3.IT.261112112948.163",
    "geo": "IT010",
    "region": "Umbria",
    "event": "Orange Wind Warning",
    "severity": "Severe",
    "onset": "2026-11-13T00:00:00Z",
-   "expires": "2026-11-13T05:59:00Z",
-   "sent": "2026-11-11T10:15:14Z",
-   "desc": "Sono previsti fenomeni meteorologici intensi SETTORE EST (DISCLAIMER: \"Le informazioni fornite su METEOALARM per l'Italia riguardano esclusivamente l'intensità e la ricorrenza dei fenomeni, maggiori dettagli sono disponibili su www.meteoam.it. Le informazioni METEOALARM non forniscono la valutazione di impatto sul territorio e non rappresentano i messaggi di Allerta Ufficiali che vengono emessi dal Servizio Nazionale di Protezione Civile https://www.protezionecivile.gov.it\")",
-   "descEn": "Severe weather expected EAST SECTOR (DISCLAIMER: \"Information provided on METEOALARM for Italy regard only the intensity and recurrence of the phenomena, further details can be found at www.meteoam.it. METEOALARM information do not provide the assessment of impact on the territory and they do not represent the Official Alerts messages that are issued by the National Civil Protection Service https://www.protezionecivile.gov.it\")",
+   "expires": "2026-11-13T11:59:00Z",
+   "sent": "2026-11-12T10:29:49Z",
+   "desc": "Sono previsti fenomeni meteorologici intensi APPENNINO (DISCLAIMER: \"Le informazioni fornite su METEOALARM per l'Italia riguardano esclusivamente l'intensità e la ricorrenza dei fenomeni, maggiori dettagli sono disponibili su www.meteoam.it. Le informazioni METEOALARM non forniscono la valutazione di impatto sul territorio e non rappresentano i messaggi di Allerta Ufficiali che vengono emessi dal Servizio Nazionale di Protezione Civile https://www.protezionecivile.gov.it\")",
+   "descEn": "Severe weather expected APENNINES (DISCLAIMER: \"Information provided on METEOALARM for Italy regard only the intensity and recurrence of the phenomena, further details can be found at www.meteoam.it. METEOALARM information do not provide the assessment of impact on the territory and they do not represent the Official Alerts messages that are issued by the National Civil Protection Service https://www.protezionecivile.gov.it\")",
    "headline": "Allerta Vento Arancione per l'Italia - Umbria",
    "areas": [
     "Umbria"
    ],
-   "zone": "SETTORE EST"
+   "zone": "APPENNINO"
   },
   {
-   "id": "2.49.0.0.380.3.IT.261111111513.125",
-   "geo": "IT010",
-   "region": "Umbria",
-   "event": "Yellow Thunderstorm Warning",
-   "severity": "Moderate",
-   "onset": "2026-11-13T00:00:00Z",
-   "expires": "2026-11-13T22:59:00Z",
-   "sent": "2026-11-11T10:15:14Z",
-   "desc": "Sono previsti fenomeni meteorologici di moderata intensità (DISCLAIMER: \"Le informazioni fornite su METEOALARM per l'Italia riguardano esclusivamente l'intensità e la ricorrenza dei fenomeni, maggiori dettagli sono disponibili su www.meteoam.it. Le informazioni METEOALARM non forniscono la valutazione di impatto sul territorio e non rappresentano i messaggi di Allerta Ufficiali che vengono emessi dal Servizio Nazionale di Protezione Civile https://www.protezionecivile.gov.it\")",
-   "descEn": "Moderate intensity weather phenomena expected (DISCLAIMER: \"Information provided on METEOALARM for Italy regard only the intensity and recurrence of the phenomena, further details can be found at www.meteoam.it. METEOALARM information do not provide the assessment of impact on the territory and they do not represent the Official Alerts messages that are issued by the National Civil Protection Service https://www.protezionecivile.gov.it\")",
-   "headline": "Allerta Temporali Giallo per l'Italia - Umbria",
-   "areas": [
-    "Umbria"
-   ],
-   "zone": ""
-  },
-  {
-   "id": "2.49.0.0.380.3.IT.261111111513.119",
+   "id": "2.49.0.0.380.3.IT.261112112948.169",
    "geo": "IT011",
    "region": "Marche",
    "event": "Orange Wind Warning",
    "severity": "Severe",
    "onset": "2026-11-13T00:00:00Z",
-   "expires": "2026-11-13T05:59:00Z",
-   "sent": "2026-11-11T10:15:14Z",
+   "expires": "2026-11-13T17:59:00Z",
+   "sent": "2026-11-12T10:29:49Z",
    "desc": "Sono previsti fenomeni meteorologici intensi APPENNINO (DISCLAIMER: \"Le informazioni fornite su METEOALARM per l'Italia riguardano esclusivamente l'intensità e la ricorrenza dei fenomeni, maggiori dettagli sono disponibili su www.meteoam.it. Le informazioni METEOALARM non forniscono la valutazione di impatto sul territorio e non rappresentano i messaggi di Allerta Ufficiali che vengono emessi dal Servizio Nazionale di Protezione Civile https://www.protezionecivile.gov.it\")",
    "descEn": "Severe weather expected APENNINES (DISCLAIMER: \"Information provided on METEOALARM for Italy regard only the intensity and recurrence of the phenomena, further details can be found at www.meteoam.it. METEOALARM information do not provide the assessment of impact on the territory and they do not represent the Official Alerts messages that are issued by the National Civil Protection Service https://www.protezionecivile.gov.it\")",
    "headline": "Allerta Vento Arancione per l'Italia - Marche",
@@ -283,19 +215,87 @@
    "zone": "APPENNINO"
   },
   {
-   "id": "2.49.0.0.380.3.IT.261111111513.120",
+   "id": "2.49.0.0.380.3.IT.261112112948.170",
    "geo": "IT013",
    "region": "Abruzzo",
    "event": "Orange Wind Warning",
    "severity": "Severe",
    "onset": "2026-11-13T00:00:00Z",
-   "expires": "2026-11-13T05:59:00Z",
-   "sent": "2026-11-11T10:15:14Z",
+   "expires": "2026-11-13T17:59:00Z",
+   "sent": "2026-11-12T10:29:49Z",
    "desc": "Sono previsti fenomeni meteorologici intensi APPENNINO (DISCLAIMER: \"Le informazioni fornite su METEOALARM per l'Italia riguardano esclusivamente l'intensità e la ricorrenza dei fenomeni, maggiori dettagli sono disponibili su www.meteoam.it. Le informazioni METEOALARM non forniscono la valutazione di impatto sul territorio e non rappresentano i messaggi di Allerta Ufficiali che vengono emessi dal Servizio Nazionale di Protezione Civile https://www.protezionecivile.gov.it\")",
    "descEn": "Severe weather expected APENNINES (DISCLAIMER: \"Information provided on METEOALARM for Italy regard only the intensity and recurrence of the phenomena, further details can be found at www.meteoam.it. METEOALARM information do not provide the assessment of impact on the territory and they do not represent the Official Alerts messages that are issued by the National Civil Protection Service https://www.protezionecivile.gov.it\")",
    "headline": "Allerta Vento Arancione per l'Italia - Abruzzo",
    "areas": [
     "Abruzzo"
+   ],
+   "zone": "APPENNINO"
+  },
+  {
+   "id": "2.49.0.0.380.3.IT.261112112948.177",
+   "geo": "IT013",
+   "region": "Abruzzo",
+   "event": "Yellow Thunderstorm Warning",
+   "severity": "Moderate",
+   "onset": "2026-11-13T00:00:00Z",
+   "expires": "2026-11-13T23:59:00Z",
+   "sent": "2026-11-12T10:29:49Z",
+   "desc": "Sono previsti fenomeni meteorologici di moderata intensità APPENNINO (DISCLAIMER: \"Le informazioni fornite su METEOALARM per l'Italia riguardano esclusivamente l'intensità e la ricorrenza dei fenomeni, maggiori dettagli sono disponibili su www.meteoam.it. Le informazioni METEOALARM non forniscono la valutazione di impatto sul territorio e non rappresentano i messaggi di Allerta Ufficiali che vengono emessi dal Servizio Nazionale di Protezione Civile https://www.protezionecivile.gov.it\")",
+   "descEn": "Moderate intensity weather phenomena expected APENNINES (DISCLAIMER: \"Information provided on METEOALARM for Italy regard only the intensity and recurrence of the phenomena, further details can be found at www.meteoam.it. METEOALARM information do not provide the assessment of impact on the territory and they do not represent the Official Alerts messages that are issued by the National Civil Protection Service https://www.protezionecivile.gov.it\")",
+   "headline": "Allerta Temporali Giallo per l'Italia - Abruzzo",
+   "areas": [
+    "Abruzzo"
+   ],
+   "zone": "APPENNINO"
+  },
+  {
+   "id": "2.49.0.0.380.3.IT.261112112948.166",
+   "geo": "IT009",
+   "region": "Toscana",
+   "event": "Orange Thunderstorm Warning",
+   "severity": "Severe",
+   "onset": "2026-11-13T06:00:00Z",
+   "expires": "2026-11-13T17:59:00Z",
+   "sent": "2026-11-12T10:29:49Z",
+   "desc": "Sono previsti fenomeni meteorologici intensi APPENNINO (DISCLAIMER: \"Le informazioni fornite su METEOALARM per l'Italia riguardano esclusivamente l'intensità e la ricorrenza dei fenomeni, maggiori dettagli sono disponibili su www.meteoam.it. Le informazioni METEOALARM non forniscono la valutazione di impatto sul territorio e non rappresentano i messaggi di Allerta Ufficiali che vengono emessi dal Servizio Nazionale di Protezione Civile https://www.protezionecivile.gov.it\")",
+   "descEn": "Severe weather expected APENNINES (DISCLAIMER: \"Information provided on METEOALARM for Italy regard only the intensity and recurrence of the phenomena, further details can be found at www.meteoam.it. METEOALARM information do not provide the assessment of impact on the territory and they do not represent the Official Alerts messages that are issued by the National Civil Protection Service https://www.protezionecivile.gov.it\")",
+   "headline": "Allerta Temporali Arancione per l'Italia - Toscana",
+   "areas": [
+    "Toscana"
+   ],
+   "zone": "APPENNINO"
+  },
+  {
+   "id": "2.49.0.0.380.3.IT.261112112948.168",
+   "geo": "IT010",
+   "region": "Umbria",
+   "event": "Orange Thunderstorm Warning",
+   "severity": "Severe",
+   "onset": "2026-11-13T06:00:00Z",
+   "expires": "2026-11-13T17:59:00Z",
+   "sent": "2026-11-12T10:29:49Z",
+   "desc": "Sono previsti fenomeni meteorologici intensi APPENNINO (DISCLAIMER: \"Le informazioni fornite su METEOALARM per l'Italia riguardano esclusivamente l'intensità e la ricorrenza dei fenomeni, maggiori dettagli sono disponibili su www.meteoam.it. Le informazioni METEOALARM non forniscono la valutazione di impatto sul territorio e non rappresentano i messaggi di Allerta Ufficiali che vengono emessi dal Servizio Nazionale di Protezione Civile https://www.protezionecivile.gov.it\")",
+   "descEn": "Severe weather expected APENNINES (DISCLAIMER: \"Information provided on METEOALARM for Italy regard only the intensity and recurrence of the phenomena, further details can be found at www.meteoam.it. METEOALARM information do not provide the assessment of impact on the territory and they do not represent the Official Alerts messages that are issued by the National Civil Protection Service https://www.protezionecivile.gov.it\")",
+   "headline": "Allerta Temporali Arancione per l'Italia - Umbria",
+   "areas": [
+    "Umbria"
+   ],
+   "zone": "APPENNINO"
+  },
+  {
+   "id": "2.49.0.0.380.3.IT.261112112948.167",
+   "geo": "IT011",
+   "region": "Marche",
+   "event": "Orange Thunderstorm Warning",
+   "severity": "Severe",
+   "onset": "2026-11-13T06:00:00Z",
+   "expires": "2026-11-13T17:59:00Z",
+   "sent": "2026-11-12T10:29:49Z",
+   "desc": "Sono previsti fenomeni meteorologici intensi APPENNINO (DISCLAIMER: \"Le informazioni fornite su METEOALARM per l'Italia riguardano esclusivamente l'intensità e la ricorrenza dei fenomeni, maggiori dettagli sono disponibili su www.meteoam.it. Le informazioni METEOALARM non forniscono la valutazione di impatto sul territorio e non rappresentano i messaggi di Allerta Ufficiali che vengono emessi dal Servizio Nazionale di Protezione Civile https://www.protezionecivile.gov.it\")",
+   "descEn": "Severe weather expected APENNINES (DISCLAIMER: \"Information provided on METEOALARM for Italy regard only the intensity and recurrence of the phenomena, further details can be found at www.meteoam.it. METEOALARM information do not provide the assessment of impact on the territory and they do not represent the Official Alerts messages that are issued by the National Civil Protection Service https://www.protezionecivile.gov.it\")",
+   "headline": "Allerta Temporali Arancione per l'Italia - Marche",
+   "areas": [
+    "Marche"
    ],
    "zone": "APPENNINO"
   }
