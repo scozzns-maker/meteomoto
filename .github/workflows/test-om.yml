@@ -2,9 +2,13 @@ name: Prova Open-Meteo
 on:
   push:
     branches: [test-openmeteo]
+concurrency:
+  group: prova
+  cancel-in-progress: true
 jobs:
   prova:
     runs-on: ubuntu-latest
+    timeout-minutes: 4
     steps:
       - uses: actions/checkout@v4
       - name: Coordinate
@@ -12,7 +16,9 @@ jobs:
           out=""
           while read -r n; do
             q=$(python3 -c "import urllib.parse,sys;print(urllib.parse.quote(sys.argv[1]))" "$n")
-            r=$(curl -sS "https://geocoding-api.open-meteo.com/v1/search?name=$q&count=3&language=it&countryCode=IT" | python3 -c "import json,sys;d=json.load(sys.stdin);print(' ; '.join('%s %s %.4f %.4f %sm'%(x.get('name'),x.get('admin1'),x['latitude'],x['longitude'],x.get('elevation')) for x in d.get('results',[])))")
+            r=$(curl -sS -m 8 "https://geocoding-api.open-meteo.com/v1/search?name=$q&count=2&language=it&countryCode=IT" | python3 -c "import json,sys;d=json.load(sys.stdin);print(' ; '.join('%s %s %.4f %.4f %sm'%(x.get('name'),x.get('admin1'),x['latitude'],x['longitude'],x.get('elevation')) for x in d.get('results',[])))" 2>&1 | tail -1)
             out="$out%0A$n => $r"
           done < names.txt
           echo "::notice title=GEO::$out"
+          e=$(curl -sS -m 15 "https://api.open-meteo.com/v1/elevation?latitude=43.617,43.374,42.989,43.352,43.071,42.782,42.718,41.903,41.808,42.558,42.137,43.722,43.077,42.763&longitude=12.673,13.216,13.866,12.577,12.615,12.407,12.111,13.881,13.789,13.369,13.517,11.762,11.679,10.881")
+          echo "::notice title=ELEV::$e"
